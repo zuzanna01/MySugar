@@ -1,11 +1,13 @@
+package frontend;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class AddData extends JDialog {
+public class JAddingDialog extends JDialog {
 
     private double sugarLevel;
 
-    public AddData() {
+    public JAddingDialog() {
 
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         this.setTitle("Adding new measurement");
@@ -26,12 +28,10 @@ public class AddData extends JDialog {
         this.add(txtSugarLevel);
 
 
-
-       // this.setSize(300,200);
-
     }
 
     public double getSugar(){
+
         return this.sugarLevel;
     }
 

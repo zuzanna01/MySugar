@@ -1,3 +1,5 @@
+package frontend;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +18,7 @@ public class MenuBarController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand()=="from keyboard"){
-            AddData dialog  = new AddData();
+            JAddingDialog dialog  = new JAddingDialog();
             dialog.setVisible(true);
         }
         else if(e.getActionCommand()=="from file"){

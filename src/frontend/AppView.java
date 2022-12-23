@@ -1,6 +1,9 @@
+package frontend;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.Scanner;
 
 public class AppView extends JFrame {
 
@@ -28,10 +31,9 @@ public class AppView extends JFrame {
         ImageIcon icon = new ImageIcon("donut.png");
         this.setIconImage(icon.getImage());
 
-
         JPanel buttonPanel = new JPanel();
 
-        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER,10,1));
         mainPanel.add(buttonPanel);
 
         this.mbutton1 = new JButton("Today");
@@ -41,11 +43,14 @@ public class AppView extends JFrame {
         this.mbutton3 = new JButton("Last 7 days");
         buttonPanel.add(this.mbutton3);
 
-        JPanel charPanel = new JPanel();
-        charPanel.setBackground(new Color(250, 100, 100));
-        mchart= new JLabel("Here will be graph. ");
-        charPanel.add(mchart);
-        mainPanel.add(charPanel);
+        //JPanel charPanel = new JPanel();
+        //charPanel.setBackground(new Color(250, 100, 100));
+        //mchart= new JLabel("Here will be graph. ");
+        //charPanel.add(mchart);
+        //mainPanel.add(charPanel);
+
+        JScatterPlot polotPanel = new JScatterPlot();
+        mainPanel.add(polotPanel) ;
 
 
         JPanel labelsPanel = new JPanel();
@@ -75,14 +80,15 @@ public class AppView extends JFrame {
 
         mtimesHipo = new JLabel("Hipo: --");
         mtimesHipo.setPreferredSize(new Dimension(100,50));
-        mtimesHipo.setBackground(new Color(100,250,100));
-        mtimesHipo.setBorder(BorderFactory.createLineBorder(new Color(0,255,0), 1));
+        mtimesHipo.setBackground(new Color(255,250,100));
+        mtimesHipo.setBorder(BorderFactory.createLineBorder(new Color(255,255,0), 1));
         mtimesHipo.setOpaque(true);
 
         labelsPanel.add(maverage);
         labelsPanel.add(mmaxdeviation);
         labelsPanel.add(mtimesHipo);
         labelsPanel.add(mtimesHyper);
+
         mainPanel.add(labelsPanel);
 
 
@@ -96,7 +102,20 @@ public class AppView extends JFrame {
     }
 
     public void setLabelAverage(String average) {
+
         this.maverage.setText(average);
+    }
+    public void setLabelDeviation(String deviation) {
+
+        this.mmaxdeviation.setText(deviation);
+    }
+    public void setLabelHipo(String hipo) {
+
+        this.mtimesHipo.setText(hipo);
+    }
+    public void setLabelHiper(String hiper) {
+
+        this.mtimesHyper.setText(hiper);
     }
 
 

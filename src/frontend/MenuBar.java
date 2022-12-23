@@ -1,3 +1,5 @@
+package frontend;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
@@ -25,10 +27,8 @@ public class MenuBar extends JMenuBar {
 
         JMenuItem pzBloodUnit = new JMenuItem("Blood sugar units");
         JMenuItem pzTargetRange = new JMenuItem("Target range");
-        JMenuItem pzCarbsUnit = new JMenuItem("Carbs Unit");
         mnUstawienia.add(pzBloodUnit);
         mnUstawienia.add(pzTargetRange);
-        mnUstawienia.add(pzCarbsUnit);
 
         JMenuItem pzUserGuide = new JMenuItem("User guide");
         JMenuItem pzInformation = new JMenuItem("Information");
