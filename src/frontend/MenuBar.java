@@ -2,15 +2,31 @@ package frontend;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
-
+/**
+ * The MenuBar class extends JMenuBar
+ * Gives user several action choices
+ *
+ * @author Zuzanna Popławska
+ *
+ */
 public class MenuBar extends JMenuBar {
     JMenuItem pzFromFile= null;
     JMenuItem pzFromKeyboard= null;
 
+    private JFileChooser chooser;
+    private JAddingNewMeasurementDialog add;
+    public JAddingNewMeasurementDialog getAdd() {
+        return add;
+    }
+
+    public JFileChooser getChooser() {
+        return chooser;
+    }
+
     public MenuBar(){
         JMenu mnAddMeasurement = new JMenu("Add measurement");
         JMenu mnRaport = new JMenu("Raport");
-        JMenu mnUstawienia = new JMenu("Settings");
+        JMenu mnSettings = new JMenu("Settings");
         JMenu mnHelp = new JMenu("Help");
 
         pzFromKeyboard = new JMenuItem("from keyboard");
@@ -18,17 +34,17 @@ public class MenuBar extends JMenuBar {
         mnAddMeasurement.add(pzFromKeyboard);
         mnAddMeasurement.add(pzFromFile);
 
-        JMenuItem pzRaportDobowy = new JMenuItem("dobowy");
-        JMenuItem pzRaportTygodniowy = new JMenuItem("tygodniowy");
-        JMenuItem pzRaportodPoczatku = new JMenuItem("od początku");
-        mnRaport.add(pzRaportDobowy);
-        mnRaport.add(pzRaportTygodniowy);
-        mnRaport.add(pzRaportodPoczatku);
+        JMenuItem pzDailyRaport = new JMenuItem("daily");
+        JMenuItem pzWeeklyRaport = new JMenuItem("weekly");
+        JMenuItem pzBeginningRaport = new JMenuItem("from the beginning");
+        mnRaport.add(pzDailyRaport);
+        mnRaport.add(pzWeeklyRaport);
+        mnRaport.add(pzBeginningRaport);
 
         JMenuItem pzBloodUnit = new JMenuItem("Blood sugar units");
         JMenuItem pzTargetRange = new JMenuItem("Target range");
-        mnUstawienia.add(pzBloodUnit);
-        mnUstawienia.add(pzTargetRange);
+        mnSettings.add(pzBloodUnit);
+        mnSettings.add(pzTargetRange);
 
         JMenuItem pzUserGuide = new JMenuItem("User guide");
         JMenuItem pzInformation = new JMenuItem("Information");
@@ -36,15 +52,18 @@ public class MenuBar extends JMenuBar {
         mnHelp.add(pzUserGuide);
 
         add(mnAddMeasurement);
-        add(mnUstawienia);
+        add(mnSettings);
         add(mnRaport);
         add(mnHelp);
 
+        chooser = new JFileChooser();
+        add = new JAddingNewMeasurementDialog(null);
 
     }
+
     public void setMenuBarController(ActionListener c) {
         this.pzFromKeyboard.addActionListener(c);
         this.pzFromFile.addActionListener(c);
-
+        this.getAdd().getSaveButton().addActionListener(c);
     }
 }

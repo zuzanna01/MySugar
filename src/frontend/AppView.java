@@ -3,21 +3,47 @@ package frontend;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.util.Scanner;
+
+/**
+ *The AppView class is responsible for the presentation layer (GUI).
+ *This part of the application displays objects that convey information
+ *and represent actions that can be taken by the user.
+ *Top-Level Container is JFrame
+ *
+ * @author Zuzanna Popławska
+ *
+ */
 
 public class AppView extends JFrame {
 
-    private JPanel mainPanel = null;
+    private JPanel mainPanel;
+    private JPanel buttonPanel;
+    private JScatterPlot plotPanel;
+    private JPanel labelsPanel;
 
-    private JButton mbutton1 = null;
-    private JButton mbutton2 = null;
-    private JButton mbutton3 = null;
+    private JLoginDialog loginDialog;
+    private JAddingNewUserDialog newUserDialog;
+    private JChooseDateRangeDialog chooseDateRangeDialog;
 
-    private JLabel mchart = null;
-    private JLabel maverage = null;
-    private JLabel mmaxdeviation = null;
-    private JLabel mtimesHipo = null;
-    private JLabel mtimesHyper = null;
+    private JButton mbutton1;
+    private JButton mbutton2;
+    private JButton mbutton3;
+    private JButton mbutton4;
+
+    private JLabel maverage;
+    private JLabel mmaxdeviation;
+    private JLabel mtimesHipo;
+    private JLabel mtimesHyper;
+
+    public JLoginDialog getLoginDialog() {
+        return loginDialog;
+    }
+    public JAddingNewUserDialog getNewUserDialog() {
+        return newUserDialog;
+    }
+    public JChooseDateRangeDialog getChooseDateRangeDialog() {
+        return chooseDateRangeDialog;
+    }
 
     public AppView() {
 
@@ -27,11 +53,12 @@ public class AppView extends JFrame {
 
         this.setTitle("mySugar");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setBounds(100, 50, 800, 500);
+        this.setSize( 800, 500);
+        this.setLocationRelativeTo(null);
         ImageIcon icon = new ImageIcon("donut.png");
         this.setIconImage(icon.getImage());
 
-        JPanel buttonPanel = new JPanel();
+        buttonPanel = new JPanel();
 
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER,10,1));
         mainPanel.add(buttonPanel);
@@ -42,23 +69,17 @@ public class AppView extends JFrame {
         buttonPanel.add(this.mbutton2);
         this.mbutton3 = new JButton("Last 7 days");
         buttonPanel.add(this.mbutton3);
+        this.mbutton4 = new JButton("Your date (range)");
+        buttonPanel.add(this.mbutton4);
 
-        //JPanel charPanel = new JPanel();
-        //charPanel.setBackground(new Color(250, 100, 100));
-        //mchart= new JLabel("Here will be graph. ");
-        //charPanel.add(mchart);
-        //mainPanel.add(charPanel);
+        plotPanel = new JScatterPlot();
+        mainPanel.add(plotPanel) ;
 
-        JScatterPlot polotPanel = new JScatterPlot();
-        mainPanel.add(polotPanel) ;
-
-
-        JPanel labelsPanel = new JPanel();
+        labelsPanel = new JPanel();
         labelsPanel.setLayout(new FlowLayout());
 
         maverage = new JLabel("Average: --");
         maverage.setPreferredSize(new Dimension(250, 50));
-        maverage.setHorizontalTextPosition(JLabel.CENTER);       //nie wiem dlaczego nie działa i tekst zostaje z prawej
         maverage.setFont(new Font(maverage.getFont().getName(), maverage.getFont().getStyle(), 17));
         maverage.setBackground(new Color(200, 230, 250));
         maverage.setBorder(BorderFactory.createLineBorder(new Color(100,200,250), 1));
@@ -70,7 +91,6 @@ public class AppView extends JFrame {
         mmaxdeviation.setBackground(new Color(200, 230, 250));
         mmaxdeviation.setBorder(BorderFactory.createLineBorder(new Color(100,200,250), 1));
         mmaxdeviation.setOpaque(true);
-
 
         mtimesHyper = new JLabel("Hyper: --");
         mtimesHyper.setPreferredSize(new Dimension(100,50));
@@ -90,33 +110,34 @@ public class AppView extends JFrame {
         labelsPanel.add(mtimesHyper);
 
         mainPanel.add(labelsPanel);
-
-
+        loginDialog = new JLoginDialog(this);
+        newUserDialog = new JAddingNewUserDialog(this);
+        chooseDateRangeDialog = new JChooseDateRangeDialog();
     }
-
     public void setController(ActionListener c) {
         this.mbutton1.addActionListener(c);
         this.mbutton2.addActionListener(c);
         this.mbutton3.addActionListener(c);
+        this.mbutton4.addActionListener(c);
+        this.loginDialog.getLoginButton().addActionListener(c);
+        this.loginDialog.getCancelButton().addActionListener(c);
+        this.loginDialog.getNewAccountButton().addActionListener(c);
 
     }
 
     public void setLabelAverage(String average) {
-
         this.maverage.setText(average);
     }
     public void setLabelDeviation(String deviation) {
-
         this.mmaxdeviation.setText(deviation);
     }
     public void setLabelHipo(String hipo) {
-
         this.mtimesHipo.setText(hipo);
     }
     public void setLabelHiper(String hiper) {
-
         this.mtimesHyper.setText(hiper);
     }
+
 
 
 }

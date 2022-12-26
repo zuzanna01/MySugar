@@ -4,7 +4,6 @@ public class Measurement {
     private int sugarLevel;
     private Date date;
 
-
     private Time time;
     private boolean hipoglycemia = false;
     private boolean hiperglycemia = false;
@@ -12,6 +11,11 @@ public class Measurement {
     public Measurement(int sugarLevel, int day, int month, int year, int hour, int minute){
         this.time = new Time(hour, minute);
         this.date = new Date(day, month, year);
+        this.sugarLevel = sugarLevel;
+    }
+    public Measurement(int sugarLevel, Time time, Date date){
+        this.time = time;
+        this.date = date;
         this.sugarLevel = sugarLevel;
     }
 

@@ -1,9 +1,17 @@
 package frontend;
 
-import javax.swing.*;
+import backend.Measurement;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * The MenuBarController class is responsible for reacting to
+ * events coming from the GUI MenuBar and subpanels
+ *
+ * @author Zuzanna Popławska
+ *
+ */
 public class MenuBarController implements ActionListener {
     private MenuBar mMenuBar = null;
     private AppView mView= null;
@@ -18,13 +26,14 @@ public class MenuBarController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand()=="from keyboard"){
-            JAddingDialog dialog  = new JAddingDialog();
+            JAddingNewMeasurementDialog dialog  = new JAddingNewMeasurementDialog(mView);
             dialog.setVisible(true);
         }
-        else if(e.getActionCommand()=="from file"){
-            JFileChooser chooser = new JFileChooser();
-            chooser.showOpenDialog(null);
-           // chooser.setVisible(true);
+        if(e.getActionCommand()=="from file"){
+            mMenuBar.getChooser().showOpenDialog(null);
+        }
+        if (e.getActionCommand().equals("Add")){
+            mMenuBar.getAdd().setNewMeasurement(new Measurement(mMenuBar.getAdd().getSugar(),mMenuBar.getAdd().getTime(),mMenuBar.getAdd().getDate()));
         }
     }
 }

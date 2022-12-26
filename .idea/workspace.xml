@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e802d943-bc33-4248-98f7-629bebbad75c" name="Changes" comment="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/JFreeChart.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/Calculator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/Date.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/Measurement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/MeasurementsFromFileJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/MeasurementsFromFileTxt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/MeasurementsFromUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/ReadMeasurements.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/Time.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/JScatterPlot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/Main.java" afterDir="false" />
+    <list default="true" id="e802d943-bc33-4248-98f7-629bebbad75c" name="Changes" comment="klasa JScatterPlot - pierwsza wersja wykresu tylko dla Today&#10;, dodałam getTime do Measurement">
+      <change afterPath="$PROJECT_DIR$/src/frontend/JAddingNewMeasurementDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/JAddingNewUserDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/JChooseDateRangeDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/JLoginDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PJAVA_MySugar.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PJAVA_MySugar.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JAddingDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Measurement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Date.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Measurement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/AppModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/AppView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/JAddingDialog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/JScatterPlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JScatterPlot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBarController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +111,8 @@
       <workItem from="1671548255532" duration="13272000" />
       <workItem from="1671568730479" duration="1209000" />
       <workItem from="1671628499628" duration="20915000" />
-      <workItem from="1671791601120" duration="5167000" />
+      <workItem from="1671791601120" duration="5587000" />
+      <workItem from="1671886780573" duration="26406000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -124,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670844518809</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="klasa JScatterPlot - pierwsza wersja wykresu tylko dla Today&#10;, dodałam getTime do Measurement">
+      <created>1671797238739</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1671797238739</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,18 +147,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc" />
-    <option name="LAST_COMMIT_MESSAGE" value="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/JScatterPlot.java</url>
-          <line>105</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="klasa JScatterPlot - pierwsza wersja wykresu tylko dla Today&#10;, dodałam getTime do Measurement" />
+    <option name="LAST_COMMIT_MESSAGE" value="klasa JScatterPlot - pierwsza wersja wykresu tylko dla Today&#10;, dodałam getTime do Measurement" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
