@@ -25,7 +25,7 @@ public class MenuBar extends JMenuBar {
 
     public MenuBar(){
         JMenu mnAddMeasurement = new JMenu("Add measurement");
-        JMenu mnRaport = new JMenu("Raport");
+        JMenu mnReport = new JMenu("Report");
         JMenu mnSettings = new JMenu("Settings");
         JMenu mnHelp = new JMenu("Help");
 
@@ -37,9 +37,9 @@ public class MenuBar extends JMenuBar {
         JMenuItem pzDailyRaport = new JMenuItem("daily");
         JMenuItem pzWeeklyRaport = new JMenuItem("weekly");
         JMenuItem pzBeginningRaport = new JMenuItem("from the beginning");
-        mnRaport.add(pzDailyRaport);
-        mnRaport.add(pzWeeklyRaport);
-        mnRaport.add(pzBeginningRaport);
+        mnReport.add(pzDailyRaport);
+        mnReport.add(pzWeeklyRaport);
+        mnReport.add(pzBeginningRaport);
 
         JMenuItem pzBloodUnit = new JMenuItem("Blood sugar units");
         JMenuItem pzTargetRange = new JMenuItem("Target range");
@@ -53,7 +53,7 @@ public class MenuBar extends JMenuBar {
 
         add(mnAddMeasurement);
         add(mnSettings);
-        add(mnRaport);
+        add(mnReport);
         add(mnHelp);
 
         chooser = new JFileChooser();

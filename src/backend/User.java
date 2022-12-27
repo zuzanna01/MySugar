@@ -1,7 +1,7 @@
 package backend;
 
 public class User {
-    private String login;
+    private String userName;
     private String password;
     private int typeOfDiabities;
     private int upperTargetRage;
@@ -9,8 +9,8 @@ public class User {
     private int hipoglycemia;
     private int hiperglycemia;
 
-    public User(String login, String password, int typeOfDiabities, int upperTargetRage, int lowerTargetRage, int hipoglycemia, int hiperglycemia) {
-        this.login = login;
+    public User(String userName, String password, int typeOfDiabities, int upperTargetRage, int lowerTargetRage, int hipoglycemia, int hiperglycemia) {
+        this.userName = userName;
         this.password = password;
         this.typeOfDiabities = typeOfDiabities;
         this.upperTargetRage = upperTargetRage;
@@ -20,8 +20,8 @@ public class User {
     }
 
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setLogin(String userName) {
+        this.userName = userName;
     }
 
     public void setPassword(String password) {
@@ -49,7 +49,7 @@ public class User {
     }
 
     public String getLogin() {
-        return login;
+        return userName;
     }
 
     public String getPassword() {

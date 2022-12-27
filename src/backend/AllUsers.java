@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AllUsers {
-    ArrayList<User> listOfUsers;
+    private ArrayList<User> listOfUsers;
 
-    AllUsers(){
+    public AllUsers(){
         this.listOfUsers = new ArrayList<>();
+        listOfUsers.add(new User("Monika","haslo",1,130,70,1,1));
+        listOfUsers.add(new User("Anna","HASLO",1,150,30,3,3));
     }
 
     public void addUser(){
@@ -27,6 +29,10 @@ public class AllUsers {
         int hiperglycemia = answerHiperglycemia.nextInt();
 
         this.listOfUsers.add(new User(login, password, typeOfDiabities, upperTargetRage, lowerTargetRage, hipogycemia, hiperglycemia));
+    }
+
+    public void addUser(User newUser){
+        this.listOfUsers.add(newUser);
     }
 
     public User findUser(String login){

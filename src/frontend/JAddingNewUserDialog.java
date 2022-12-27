@@ -7,10 +7,19 @@ import java.awt.*;
  * The JAddingNewUserDialog class
  *
  * @author Zuzanna Popławska
- *
  */
 
 public class JAddingNewUserDialog extends JDialog {
+
+    private JPanel mainPanel;
+    private JPanel addingPanel;
+    private JPanel buttonPanel;
+
+    public JButton getSaveButton() {
+        return saveButton;
+    }
+
+    private  JButton saveButton;
 
     private JTextField txtUsername;
     private JLabel lblUsername;
@@ -21,22 +30,51 @@ public class JAddingNewUserDialog extends JDialog {
     private JTextField txtUpperTargetRange;
     private JLabel lblUpperTargetRange;
     private JTextField txtLowerTargetRange;
+
+    public JTextField getTxtUsername() {
+        return txtUsername;
+    }
+
+    public JTextField getTxtPassword() {
+        return txtPassword;
+    }
+
+    public JTextField getTxtTypeOfDiabetes() {
+        return txtTypeOfDiabetes;
+    }
+
+    public JTextField getTxtUpperTargetRange() {
+        return txtUpperTargetRange;
+    }
+
+    public JTextField getTxtLowerTargetRange() {
+        return txtLowerTargetRange;
+    }
+
+    public JTextField getTxtHipoglycemia() {
+        return txtHipoglycemia;
+    }
+
+    public JTextField getTxtHiperglycemia() {
+        return txtHiperglycemia;
+    }
+
     private JLabel lblLowerTargetRange;
     private JTextField txtHipoglycemia;
     private JLabel lblHipoglycemia;
     private JTextField txtHiperglycemia;
     private JLabel lblHiperglycemia;
 
-    public JAddingNewUserDialog(Frame parent){
+    public JAddingNewUserDialog(Frame parent) {
         super(parent, "Adding new user", true);
 
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         this.setSize(400, 270);
         this.setLocationRelativeTo(null);
 
-        JPanel mainPanel = new JPanel();
+        mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-        JPanel addingPanel = new JPanel();
+        addingPanel = new JPanel();
         addingPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         GroupLayout layout = new GroupLayout(addingPanel);
         addingPanel.setLayout(layout);
@@ -98,8 +136,8 @@ public class JAddingNewUserDialog extends JDialog {
                         .addComponent(lblHipoglycemia)
                         .addComponent(txtHipoglycemia)));
 
-        JPanel buttonPanel = new JPanel();
-        JButton saveButton = new JButton("Create account");
+        buttonPanel = new JPanel();
+        saveButton = new JButton("Create account");
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
         buttonPanel.add(Box.createHorizontalGlue());

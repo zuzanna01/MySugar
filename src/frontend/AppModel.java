@@ -1,5 +1,12 @@
 package frontend;
 
+import backend.AllUsers;
+import backend.Measurement;
+import backend.MeasurementsFromFileTxt;
+import backend.User;
+
+import java.util.ArrayList;
+
 /**
  * The AppModel class holds and manages
  * the data of the application.
@@ -9,18 +16,38 @@ package frontend;
 
 public class AppModel {
 
+    private AllUsers UsersList = new AllUsers();
+    public AllUsers getUsersList() {
+        return UsersList;
+    }
+
+    private MeasurementsFromFileTxt MeasurementsList = new MeasurementsFromFileTxt();
+    public MeasurementsFromFileTxt getMeasurementsTable() {
+        return MeasurementsList;
+    }
+
+    private ArrayList<Measurement> currentMeasurementSet = new ArrayList<>();
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    private User currentUser;
+
+    public void setCurrentUser(User anyUser) {
+        this.currentUser = anyUser;
+        this.lowerRange = anyUser.getLowerTargetRage();
+        this.upperRange = anyUser.getUpperTargetRage();
+    }
+
+    private int lowerRange = 0;
+    private int upperRange = 0;
     private double average = 0;
     private double deviation = 0;
     private int hipo = 0;
     private int hiper = 0;
+
     private String sugarUnit = "mg/dL";
-
-
-    private int lowerRange = 0;
-    private int upperRange = 0;
-
-    private String UserName;
-
 
     public String getSugarUnit() {
         return sugarUnit;
@@ -28,6 +55,11 @@ public class AppModel {
 
     public void setSugarUnit(String sugarUnit) {
         this.sugarUnit = sugarUnit;
+    }
+
+    public AppModel() {
+        this.getUsersList().addUser(new User("Zuzanna1", "haslo1", 1, 130, 70, 2, 2));
+        this.getUsersList().addUser(new User("Zuzanna2", "haslo2", 1, 150, 80, 2, 2));
     }
 
     public double countAverage(String date) {
@@ -76,7 +108,11 @@ public class AppModel {
         return this.hiper;
     }
 
-    public boolean checkUser() {
-        return true;
+    public static boolean authenticate(String username, String password) {
+
+        if ((username.equals("Zuzanna1") && password.equals("haslo1"))||(username.equals("Zuzanna2") && password.equals("haslo2"))) {
+            return true;
+        }
+        return false;
     }
 }

@@ -1,6 +1,7 @@
 package frontend;
 
 import backend.Measurement;
+import backend.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,36 +13,58 @@ import java.util.List;
  * The  JScatterPlot class
  *
  * @author Zuzanna Popławska
- *
  */
 
 public class JScatterPlot extends JPanel {
 
     private List<Measurement> dataset = new ArrayList<Measurement>();
+    public void setDataset(List<Measurement> dataset) {
+        this.dataset = dataset;
+    }
 
     public void addmeasurement(Measurement m) {
         dataset.add(m);
     }
 
     public void addingmeasurements() {
-        this.addmeasurement(new Measurement(30, 2, 12, 2022, 10, 30));
-        this.addmeasurement(new Measurement(130, 2, 12, 2022, 20, 30));
-        this.addmeasurement(new Measurement(200, 2, 12, 2022, 10, 00));
-        this.addmeasurement(new Measurement(150, 2, 12, 2022, 7, 20));
-        this.addmeasurement(new Measurement(130, 2, 12, 2022, 12, 00));
-        this.addmeasurement(new Measurement(120, 2, 12, 2022, 17, 40));
+        this.addmeasurement(new Measurement(30, 2, 12, 2022, 6, 00));
+        this.addmeasurement(new Measurement(130, 2, 12, 2022, 6, 00));
+        this.addmeasurement(new Measurement(200, 2, 12, 2022, 22, 00));
+        this.addmeasurement(new Measurement(150, 2, 12, 2022, 6, 00));
+        this.addmeasurement(new Measurement(130, 2, 12, 2022, 22, 00));
+        this.addmeasurement(new Measurement(120, 2, 12, 2022, 22, 00));
         this.addmeasurement(new Measurement(90, 2, 12, 2022, 22, 00));
     }
 
-    Measurement example = new Measurement(30, 2, 12, 2022, 10, 35);
 
+    public int getLowerTargetRange() {
+        return lowerTargetRange;
+    }
 
-    private int hipoValue = 70;
-    private int hyperValue = 130;
+    public void setLowerTargetRange(int lowerTargetRange) {
+        this.lowerTargetRange = lowerTargetRange;
+    }
+
+    public int getUpperTargetRange() {
+        return upperTargetRange;
+    }
+
+    public void setUpperTargetRange(int upperTargetRange) {
+        this.upperTargetRange = upperTargetRange;
+    }
+
+    private int lowerTargetRange =300;
+    private int upperTargetRange =300;
+
 
     public JScatterPlot() {
 
+        setLayout(new BorderLayout());
         this.addingmeasurements();
+
+    }
+
+    public JScatterPlot(User currentUser){
         setLayout(new BorderLayout());
 
     }
@@ -86,10 +109,10 @@ public class JScatterPlot extends JPanel {
 
         g2d.setStroke(new BasicStroke(5));
         g2d.setPaint(Color.RED);
-        Line2D.Double line = new Line2D.Double(30, this.county(hyperValue), this.getWidth() - 5, this.county(hyperValue));
+        Line2D.Double line = new Line2D.Double(30, this.county(upperTargetRange), this.getWidth() - 5, this.county(upperTargetRange));
         g2d.draw(line);
         g2d.setPaint(Color.YELLOW);
-        line = new Line2D.Double(30, this.county(hipoValue), this.getWidth() - 5, this.county(hipoValue));
+        line = new Line2D.Double(30, this.county(lowerTargetRange), this.getWidth() - 5, this.county(lowerTargetRange));
         g2d.draw(line);
 
 
@@ -102,10 +125,12 @@ public class JScatterPlot extends JPanel {
         textFont = new Font(Font.MONOSPACED, Font.BOLD, 13);
         g2d.setFont(textFont);
 
-        int i =0;
+        int i = 0;
         for (String idx : hours) {
-            if (this.getWidth() < 1200 && i%2==1) {
-                i++; x -= 60 * step_width;continue;
+            if (this.getWidth() < 1200 && i % 2 == 1) {
+                i++;
+                x -= 60 * step_width;
+                continue;
             }
             g2d.drawString(idx, x, this.getHeight() - 10);
             x -= 60 * step_width;
@@ -134,7 +159,7 @@ public class JScatterPlot extends JPanel {
     }
 
     private double countx(int hour, int minutes) {
-        int x = this.getWidth() - 55;
+        int x = this.getWidth() - 30;
         x -= ((24 * 60) - ((hour * 60) + minutes)) * step_width;
         return x;
     }

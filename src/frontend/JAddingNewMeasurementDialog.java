@@ -10,16 +10,10 @@ import java.awt.*;
 /**
  * The  JAddingNewMeasurementDialog class
  *
- *
  * @author Zuzanna Popławska
- *
  */
 
 public class JAddingNewMeasurementDialog extends JDialog {
-
-    public void setNewMeasurement(Measurement newMeasurement) {
-        this.newMeasurement = newMeasurement;
-    }
 
     private Measurement newMeasurement = null;
 
@@ -29,12 +23,8 @@ public class JAddingNewMeasurementDialog extends JDialog {
     private JTextField txtDate;
     private JLabel lblTime;
     private JTextField txtTime;
+    private JButton saveButton;
 
-    public JButton getSaveButton() {
-        return saveButton;
-    }
-
-    JButton saveButton;
     public JAddingNewMeasurementDialog(Frame parent) {
         super(parent, "Login", true);
 
@@ -95,12 +85,22 @@ public class JAddingNewMeasurementDialog extends JDialog {
     public int getSugar() {
         return Integer.parseInt(txtSugarLevel.getText().trim());
     }
+
     public Time getTime() {
-        Time time = new Time(12,30);
+        Time time = new Time(12, 30);
         return time;
     }
+
     public Date getDate() {
-        Date date = new Date(12,12,2022);
+        Date date = new Date(12, 12, 2022);
         return date;
+    }
+
+    public void setNewMeasurement(Measurement newMeasurement) {
+        this.newMeasurement = newMeasurement;
+    }
+
+    public JButton getSaveButton() {
+        return saveButton;
     }
 }

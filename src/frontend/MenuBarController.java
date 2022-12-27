@@ -13,9 +13,9 @@ import java.awt.event.ActionListener;
  *
  */
 public class MenuBarController implements ActionListener {
-    private MenuBar mMenuBar = null;
-    private AppView mView= null;
-    private AppModel mModel =null;
+    private MenuBar mMenuBar;
+    private AppView mView;
+    private AppModel mModel;
 
     public MenuBarController(AppView view, AppModel model, MenuBar menu){
         this.mMenuBar= menu;
@@ -25,15 +25,28 @@ public class MenuBarController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand()=="from keyboard"){
+        if(e.getActionCommand().equals("from keyboard")){
             JAddingNewMeasurementDialog dialog  = new JAddingNewMeasurementDialog(mView);
             dialog.setVisible(true);
         }
-        if(e.getActionCommand()=="from file"){
+        if(e.getActionCommand().equals("from file")){
             mMenuBar.getChooser().showOpenDialog(null);
         }
         if (e.getActionCommand().equals("Add")){
             mMenuBar.getAdd().setNewMeasurement(new Measurement(mMenuBar.getAdd().getSugar(),mMenuBar.getAdd().getTime(),mMenuBar.getAdd().getDate()));
+
+        }
+        if (e.getActionCommand().equals("Target range")){
+
+        }
+        if (e.getActionCommand().equals("daily")){
+
+        }
+        if(e.getActionCommand().equals("weekly")){
+
+        }
+        if(e.getActionCommand().equals("from the beginning")){
+
         }
     }
 }

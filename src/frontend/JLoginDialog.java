@@ -7,10 +7,13 @@ import java.awt.*;
  * The  JLoginDialog class
  *
  * @author Zuzanna Popławska
- *
  */
 
 public class JLoginDialog extends JDialog {
+    private boolean succeeded;
+
+    private JPanel mainPanel;
+    private JPanel loginPanel;
     private JPanel buttonPanel_2;
 
     private JTextField txtUsername;
@@ -22,25 +25,57 @@ public class JLoginDialog extends JDialog {
     private JButton cancelButton;
     private JButton newAccountButton;
 
+    public boolean isSucceeded() {
+        return succeeded;
+    }
+
+    public String getUsername() {
+        return txtUsername.getText().trim();
+    }
+
+    public String getPassword() {
+        return new String(txtPassword.getPassword());
+    }
+
+    public JButton getLoginButton() {
+        return loginButton;
+    }
+
+    public JButton getCancelButton() {
+        return cancelButton;
+    }
+
+    public JButton getNewAccountButton() {
+        return newAccountButton;
+    }
+
+    public void setUserNameField(String text) {
+        this.txtUsername.setText(text);
+    }
+
+    public void setPasswordField(String text) {
+        this.txtPassword.setText(text);
+    }
+
     public void setSucceeded(boolean succeeded) {
         this.succeeded = succeeded;
     }
 
-    private boolean succeeded;
 
     public JLoginDialog(Frame parent) {
+
         super(parent, "Login", true);
+        this.setSize(300, 140);
+        setLocationRelativeTo(parent);
 
-        this.setBounds(300, 200, 400, 160);
-
-        JPanel mainPanel= new JPanel();
+        mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-        JPanel loginPanel = new JPanel();
+        loginPanel = new JPanel();
 
         lblUsername = new JLabel("Username: ");
-        txtUsername = new JTextField(20);
+        txtUsername = new JTextField();
         lblPassword = new JLabel("Password: ");
-        txtPassword = new JPasswordField(20);
+        txtPassword = new JPasswordField();
 
         GroupLayout layout = new GroupLayout(loginPanel);
         loginPanel.setLayout(layout);
@@ -82,38 +117,7 @@ public class JLoginDialog extends JDialog {
         mainPanel.add(buttonPanel_2);
 
 
-        pack();
-        setLocationRelativeTo(parent);
-    }
-
-    public String getUsername() {
-        return txtUsername.getText().trim();
-    }
-
-    public String getPassword() {
-        return new String(txtPassword.getPassword());
-    }
-
-    public boolean isSucceeded() {
-        return succeeded;
     }
 
 
-    public JButton getLoginButton() {
-        return loginButton;
-    }
-    public JButton getCancelButton() {
-        return cancelButton;
-    }
-    public JButton getNewAccountButton() {
-        return newAccountButton;
-    }
-
-    public void setUserNameField(String text) {
-
-        this.txtUsername.setText(text);
-    }
-    public void setPasswordField(String text){
-        this.txtPassword.setText(text);
-    }
 }
