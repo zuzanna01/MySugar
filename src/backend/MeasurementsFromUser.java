@@ -28,6 +28,8 @@ public class MeasurementsFromUser implements ReadMeasurements {
         return listOfMeasurements;
     }
 
+    // zapytanie użytkownika o pomiar
+    // utorzenie obiektu Pomiar z wczytanych danych
     public Measurement askForMeasurements(){
         System.out.println("Podaj poziom glukozy:");
         Scanner scanner = new Scanner(System.in);
@@ -57,6 +59,8 @@ public class MeasurementsFromUser implements ReadMeasurements {
     }
 
 
+    // główna funkcja wczytująca pomiary od użytkownika
+    // metoda wyżej jest tutaj użyta
     public void getMeasurements(){
         ArrayList<Measurement> listOfMeasurements = new ArrayList<>();
         boolean end = false;
@@ -74,11 +78,14 @@ public class MeasurementsFromUser implements ReadMeasurements {
 
         }while (!end);
     }
+
+    // zapis pojedyńczego pomiaru do listy pomiarów
     @Override
     public void saveMeasurements(Measurement measurement) {
         this.listOfMeasurements.add(measurement);
     }
 
+    // tak samo jak z .txt trzeba poprawić jeśli przed liczbą jest 0, np. 09 to 9
     public String correctData(String data){
         if(data.startsWith("0")){
            return data.replaceFirst("0", "");

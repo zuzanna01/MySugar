@@ -1,5 +1,10 @@
 package backend;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Formatter;
+
 public class User {
     private String userName;
     private String password;
@@ -8,6 +13,9 @@ public class User {
     private int lowerTargetRage;
     private int hipoglycemia;
     private int hiperglycemia;
+    private int hipoglycemiaCounter;
+    private int hiperglycemiaCounter;
+    private MeasurementsFromFileTxt measurementsFromFileTxt;
 
     public User(String userName, String password, int typeOfDiabities, int upperTargetRage, int lowerTargetRage, int hipoglycemia, int hiperglycemia) {
         this.userName = userName;
@@ -17,8 +25,8 @@ public class User {
         this.lowerTargetRage = lowerTargetRage;
         this.hipoglycemia = hipoglycemia;
         this.hiperglycemia = hiperglycemia;
+        this.measurementsFromFileTxt = new MeasurementsFromFileTxt();
     }
-
 
     public void setLogin(String userName) {
         this.userName = userName;
@@ -76,6 +84,7 @@ public class User {
         return hiperglycemia;
     }
 
+    // sprawdzenie czy hasło jest poprawne
     public boolean checkPassword(String password){
         if(this.password.equals(password))
         {
@@ -84,4 +93,34 @@ public class User {
         return false;
     }
 
+    // zapisanie danych użytkownika do bazy użytkowników (NIE DZIAŁA)
+    public void saveUser(){
+        File file = new File("Users.txt");
+        try{
+            FileWriter fileWriter = new FileWriter(file, true);
+            fileWriter.write("123"/*this.userName + " " + this.password + " " + this.typeOfDiabities + " " + this.upperTargetRage + this.lowerTargetRage + " " + this.hipoglycemia + " " + this.hiperglycemia*/);
+        }catch(Exception e){
+        }
+    }
+
+    //pobieranie zapisanych wcześniej pomiarów dla użytkownika z jego pliku
+    public void getDataFromUsersFile(){
+        this.measurementsFromFileTxt.getMeasurements(this.userName + ".txt");
+    }
+
+    // zliczanie hipoglikemi i hiperglikemi dla pacjenta ze wszystkich jego pomiarów,
+    // jako argument trzeba podać listę pomiarów użytkownika
+    // można zliczyć z konkretengo zakredu używając wcześniej calculator getDataFromPeriod
+    public void countHipoglycemia(ArrayList<Measurement> listOfMeasurements) {
+
+        for (Measurement i : listOfMeasurements) {
+            i.checkHipoAndHiperGlycemia(this.hipoglycemia, this.hiperglycemia);
+            if (i.isHipoglycemia()) {
+                this.hipoglycemiaCounter++;
+            }
+            if (i.isHiperglycemia()) {
+                this.hiperglycemiaCounter++;
+            }
+        }
+    }
 }

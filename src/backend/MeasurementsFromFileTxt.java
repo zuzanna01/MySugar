@@ -28,6 +28,8 @@ public class MeasurementsFromFileTxt implements ReadMeasurements {
         return listOfMeasurements;
     }
 
+    // pobiera jeden pomiar z pliku
+    // to jest używane w innej funkcji i samodzielnie tego nie będziemy używać
     public Measurement getMeasurementFromFile(Scanner reader){
 
             while (reader.hasNextLine()) {
@@ -51,27 +53,27 @@ public class MeasurementsFromFileTxt implements ReadMeasurements {
         return measurement;
     }
 
-
-    @Override
-    public void getMeasurements() {
-        System.out.println("podaj nazwę pliku .txt");
-        Scanner scanner = new Scanner(System.in);
-        String answer = scanner.next();
-        try {
-            Scanner reader = new Scanner(new File(answer));
+    // o tutaj jest użyta ta funkcja do pobierania jednego pomiaru
+    // ta metoda to pobranie wszystkich pomiarów z pliku
+    public void getMeasurements(String fileName) {
+       try {
+            Scanner reader = new Scanner(new File(fileName));
             while(reader.hasNextLine()) {
                 Measurement measurement = getMeasurementFromFile(reader);
                 saveMeasurements(measurement);
             }
         }catch (FileNotFoundException e) {
-            System.out.println("nie ma takiego pliku");
         }
     }
 
+
+    // zapisuje pojedyńczy pomiar do listy pomiarów
     @Override
     public void saveMeasurements(Measurement measurement){
         this.listOfMeasurements.add(measurement);
     }
+
+    // to poprawia dane bo np. 02 to nie int więc zamienia na 2
     public String correctData(String data){
         if(data.startsWith("0")){
             return data.replaceFirst("0", "");

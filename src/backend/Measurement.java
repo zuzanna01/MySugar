@@ -3,7 +3,6 @@ package backend;
 public class Measurement {
     private int sugarLevel;
     private Date date;
-
     private Time time;
     private boolean hipoglycemia = false;
     private boolean hiperglycemia = false;

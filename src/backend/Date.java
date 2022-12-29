@@ -31,7 +31,6 @@ public class Date {
         this.month = month;
     }
 
-
     public void setYear(int year) {
         this.year = year;
     }

@@ -29,9 +29,8 @@ public class Calculator {
         return glycatedHemoglobin;
     }
 
-    // TO DO --> średnia ma być z dowolnej ilości dni
 
-    // średnia ze wszystkich pomiarów
+    // średnia z dowolnej ilości dni
     public double calculateAverage(ArrayList<Measurement> listOfMeasurements, int numberOfDays){
         ArrayList<Measurement> listOfMeasurementsFromXDays = new ArrayList<>();
 
@@ -43,7 +42,6 @@ public class Calculator {
                 listOfMeasurementsFromXDays.add(i);
             }
         }
-
         int sum = 0;
         for( Measurement i: listOfMeasurementsFromXDays){
             sum += i.getSugarLevel();
@@ -52,6 +50,7 @@ public class Calculator {
         return this.average;
     }
 
+    // obliczanie średniej z dnia
     public double calculateAverageFromToday(ArrayList<Measurement> listOfMeasurements){
         ArrayList<Measurement> listOfMeasurementsFromToday = new ArrayList<>();
         for(Measurement i : listOfMeasurements){
@@ -69,12 +68,29 @@ public class Calculator {
         return this.average;
     }
 
-    // hemoglobina glikowana
-
+    // szacownanie hemoglobiny glikowanej ze wszystkich pomiarów
     public double calculateGlycatedHemoglobin(ArrayList<Measurement> listOfMeasurements){
         this.listOfMeasurements = listOfMeasurements;
         this.glycatedHemoglobin = (this.average * CONSTANT_FIRST) / CONSTANT_SECOND;
         return this.glycatedHemoglobin; // TO DO --> to trzeba jeszcze zaokrąglić
     }
 
+    // wyznaczanie
+    public LocalDate calculateDate (int numberOfDays){
+        LocalDate dateNow = LocalDate.now();
+        LocalDate dateFrom = dateNow.minusDays(numberOfDays);
+        return dateFrom;
+    }
+
+    // wycinanie danych dla dowolnego zakresu
+    public ArrayList<Measurement> getDataFromPeriod (int numberOfDays, ArrayList<Measurement> listOfMeasurements){
+        LocalDate date = calculateDate(numberOfDays);
+        ArrayList<Measurement> listOfMeasurementsFromXDays = new ArrayList<>();
+        for(Measurement i : listOfMeasurements){
+            if(i.getDate().getYear() >= date.getYear() && i.getDate().getMonth()>= date.getMonthValue() && i.getDate().getDay() >= date.getDayOfMonth()){
+                listOfMeasurementsFromXDays.add(i);
+            }
+        }
+        return listOfMeasurementsFromXDays;
+    }
 }

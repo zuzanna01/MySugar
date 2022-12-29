@@ -1,5 +1,8 @@
 package backend;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,10 +11,16 @@ public class AllUsers {
 
     public AllUsers(){
         this.listOfUsers = new ArrayList<>();
-        listOfUsers.add(new User("Monika","haslo",1,130,70,1,1));
-        listOfUsers.add(new User("Anna","HASLO",1,150,30,3,3));
+        //listOfUsers.add(new User("Monika","haslo",2,150,80,75, 170));
+        //listOfUsers.add(new User("Anna","HASLO",1,150,80,70,160));
     }
 
+    public ArrayList<User> getListOfUsers() {
+        return listOfUsers;
+    }
+
+    // dodawanie użytkownika do listy użytkowników
+    // po kliknięciu signIn program powinien zapytać o te dane
     public void addUser(){
         Scanner answerLogin = new Scanner(System.in);
         String login = answerLogin.next();
@@ -35,6 +44,8 @@ public class AllUsers {
         this.listOfUsers.add(newUser);
     }
 
+    // weryfikacja czy użytkownik o danym loginie jest w bazie
+    // trzeba tego użyć jeśli ktoś chce się zalogować
     public User findUser(String login){
         for(User i : listOfUsers){
             if(i.getLogin().equals(login)){
@@ -44,7 +55,61 @@ public class AllUsers {
         return null;
     }
 
+    // pobranie danych użytkownika z bazy użytkowników
+    public void getUsersFromFile(){
+        try {
+            File file = new File("Users.txt");
 
+            Scanner reader = new Scanner(file);
+            while (reader.hasNextLine()) {
+                String userName = reader.next();
+                String password = reader.next();
+                int typeOfDiabities = Integer.parseInt(reader.next());
+                int upperTargetRage = Integer.parseInt(reader.next());
+                int lowerTargetRage = Integer.parseInt(reader.next());
+                int hipoglycemia = Integer.parseInt(reader.next());
+                int hiperglycemia = Integer.parseInt(reader.next());
+                User user = new User(userName, password, typeOfDiabities, upperTargetRage, lowerTargetRage, hipoglycemia, hiperglycemia);
+                this.listOfUsers.add(user);
+            }
+        }catch(Exception e){
 
+        }
+    }
+
+    // logowanie do aplikacji
+    // trzeba podać login i hasło a program zweryfikuje czy jest ok
+    // jeśli ok zwróci true
+    public boolean logIn(String userName, String password){
+        User user = findUser(userName);
+        if(user != null){
+            boolean authentication;
+            authentication = user.checkPassword(password);
+            if(authentication){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // rejestracja nowego użytkownika
+    // program pyta o dane i wyreyfikuje czy dany użytkownik o tym loginie już nie istnieje
+    // tworzy użytkownika, dodaje fo listy użytkowników, zapisuje w bazie użytkowników i tworzy bazę na pomiary użytkownika (plik.txt o nawie użytkownika)
+    public boolean signIn(String userName, String password, int typeOfDiabities, int upperTargetRage, int lowerTargetRage, int hipoglycemia, int hiperglycemia) throws IOException {
+        User user = new User(userName, password, typeOfDiabities, upperTargetRage, lowerTargetRage, hipoglycemia, hiperglycemia);
+
+        for (User i : this.listOfUsers) {
+            if (user.getLogin().equals(i.getLogin())) {
+                return false;
+            }
+        }
+        this.listOfUsers.add(user);
+        user.saveUser();
+        //utworzenie pliku o nazwie użytkownika
+        String pathname = userName + ".txt";
+        File file = new File(pathname);
+        file.createNewFile();
+        return true;
+    }
 
 }

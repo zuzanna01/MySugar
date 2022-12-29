@@ -35,19 +35,14 @@ public class MeasurementsFromFileJson implements ReadMeasurements {
 
 
 
-    @Override
-    public void getMeasurements() {
-        System.out.println("podaj nazwę pliku .txt");
-        Scanner scanner = new Scanner(System.in);
-        String answer = scanner.next();
+    public void getMeasurements(String fileName) {
         try {
-            Scanner reader = new Scanner(new File(answer));
+            Scanner reader = new Scanner(new File(fileName));
             do {
                 Measurement measurement = getMeasurementFromFile(reader);
                 saveMeasurements(measurement);
             }while(reader.hasNextLine());
         }catch (FileNotFoundException e) {
-            System.out.println("nie ma takiego pliku");
         }
     }
 
