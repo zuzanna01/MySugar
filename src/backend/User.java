@@ -95,10 +95,11 @@ public class User {
 
     // zapisanie danych użytkownika do bazy użytkowników (NIE DZIAŁA)
     public void saveUser(){
-        File file = new File("Users.txt");
         try{
+            File file = new File("./Users.txt");
             FileWriter fileWriter = new FileWriter(file, true);
-            fileWriter.write("123"/*this.userName + " " + this.password + " " + this.typeOfDiabities + " " + this.upperTargetRage + this.lowerTargetRage + " " + this.hipoglycemia + " " + this.hiperglycemia*/);
+            fileWriter.write("\n" + this.userName + " " + this.password + " " + this.typeOfDiabities + " " + this.upperTargetRage + " " + this.lowerTargetRage + " " + this.hipoglycemia + " " + this.hiperglycemia);
+            fileWriter.close();
         }catch(Exception e){
         }
     }

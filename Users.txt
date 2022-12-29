@@ -1,2 +1,3 @@
 akowalska ania123 1 150 80 70 160
 jannowak00 janek321 2 160 90 75 170
+ania 234 1 140 90 80 150

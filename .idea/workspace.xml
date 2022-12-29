@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e802d943-bc33-4248-98f7-629bebbad75c" name="Changes" comment="nowe okienka do logowania, dodawania użytkowników i pomiarów + zaczełam javadocy">
-      <change afterPath="$PROJECT_DIR$/Ania_Kowalska.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Jan_Nowak.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e802d943-bc33-4248-98f7-629bebbad75c" name="Changes" comment="moduł do rejestracji, logowania, weryfikacji hasła, tworzenie bazy użytkowników, bazy pomiarów użytkownika, zliczanie hipo i hiper, moduł do wycinania danych z danego okresu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/AllUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/AllUsers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Date.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Measurement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/MeasurementsFromFileJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/MeasurementsFromFileJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/MeasurementsFromFileTxt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/MeasurementsFromFileTxt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/MeasurementsFromUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/MeasurementsFromUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/ReadMeasurements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/ReadMeasurements.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,25 +34,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/zuzan/IdeaProjects/pjava_projekt",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/zuzan/IdeaProjects/pjava_projekt&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.backend.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="frontend.Main" />
@@ -126,7 +113,8 @@
       <workItem from="1672139052721" duration="6892000" />
       <workItem from="1672146533328" duration="3007000" />
       <workItem from="1672156569058" duration="102000" />
-      <workItem from="1672156890864" duration="27061000" />
+      <workItem from="1672156890864" duration="28013000" />
+      <workItem from="1672333581600" duration="1419000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -149,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672093997705</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="moduł do rejestracji, logowania, weryfikacji hasła, tworzenie bazy użytkowników, bazy pomiarów użytkownika, zliczanie hipo i hiper, moduł do wycinania danych z danego okresu">
+      <created>1672311886723</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1672311886723</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,7 +165,8 @@
     <MESSAGE value="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc" />
     <MESSAGE value="klasa JScatterPlot - pierwsza wersja wykresu tylko dla Today&#10;, dodałam getTime do Measurement" />
     <MESSAGE value="nowe okienka do logowania, dodawania użytkowników i pomiarów + zaczełam javadocy" />
-    <option name="LAST_COMMIT_MESSAGE" value="nowe okienka do logowania, dodawania użytkowników i pomiarów + zaczełam javadocy" />
+    <MESSAGE value="moduł do rejestracji, logowania, weryfikacji hasła, tworzenie bazy użytkowników, bazy pomiarów użytkownika, zliczanie hipo i hiper, moduł do wycinania danych z danego okresu" />
+    <option name="LAST_COMMIT_MESSAGE" value="moduł do rejestracji, logowania, weryfikacji hasła, tworzenie bazy użytkowników, bazy pomiarów użytkownika, zliczanie hipo i hiper, moduł do wycinania danych z danego okresu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
