@@ -1,7 +1,10 @@
 package frontend;
 
 import javax.swing.*;
+import javax.swing.text.MaskFormatter;
 import java.awt.*;
+import java.text.ParseException;
+
 
 /**
  * The JChooseDateRangeDialog class
@@ -12,9 +15,10 @@ import java.awt.*;
 public class JChooseDateRangeDialog extends JDialog {
 
     private JButton showButton;
-    private JTextField txtFrom;
+
+    private JFormattedTextField txtFrom;
     private JLabel lblFrom;
-    private JTextField txtTo;
+    private JFormattedTextField txtTo;
     private JLabel lblTo;
 
     private JPanel mainPanel;
@@ -36,13 +40,12 @@ public class JChooseDateRangeDialog extends JDialog {
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
         choosePanel = new JPanel();
-
         choosePanel.setLayout(new FlowLayout());
         lblFrom = new JLabel("FROM:");
         lblTo = new JLabel("TO:");
-        txtFrom = new JTextField();
+        txtFrom = new JFormattedTextField(new DateMask());
         txtFrom.setColumns(10);
-        txtTo = new JTextField();
+        txtTo = new JFormattedTextField(new DateMask());
         txtTo.setColumns(10);
 
         choosePanel.add(lblFrom);
@@ -57,11 +60,17 @@ public class JChooseDateRangeDialog extends JDialog {
         buttonPanel.add(Box.createHorizontalGlue());
         buttonPanel.add(showButton);
 
-
         this.add(mainPanel);
         mainPanel.add(choosePanel);
         mainPanel.add(buttonPanel);
 
     }
 
+    public String getFrom() {
+        return txtFrom.getText().trim();
+    }
+
+    public String getTo() {
+        return txtTo.getText().trim();
+    }
 }

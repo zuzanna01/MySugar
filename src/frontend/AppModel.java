@@ -1,11 +1,10 @@
 package frontend;
 
-import backend.AllUsers;
-import backend.Measurement;
-import backend.MeasurementsFromFileTxt;
-import backend.User;
+import backend.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
+
 
 /**
  * The AppModel class holds and manages
@@ -15,52 +14,60 @@ import java.util.ArrayList;
  */
 
 public class AppModel {
+    private Calculator calculator = new Calculator();
 
     private AllUsers UsersList = new AllUsers();
     public AllUsers getUsersList() {
         return UsersList;
     }
 
-    private MeasurementsFromFileTxt MeasurementsList = new MeasurementsFromFileTxt();
-    public MeasurementsFromFileTxt getMeasurementsTable() {
-        return MeasurementsList;
-    }
-
-    private ArrayList<Measurement> currentMeasurementSet = new ArrayList<>();
-
-    public User getCurrentUser() {
-        return currentUser;
+    public AppModel() {
+        UsersList.getUsersFromFile();
     }
 
     private User currentUser;
-
+    public User getCurrentUser() {
+        return currentUser;
+    }
     public void setCurrentUser(User anyUser) {
         this.currentUser = anyUser;
-        this.lowerRange = anyUser.getLowerTargetRage();
-        this.upperRange = anyUser.getUpperTargetRage();
     }
 
-    private int lowerRange = 0;
-    private int upperRange = 0;
+    private ArrayList<Measurement> currentDataSet = new ArrayList<>();
+    public ArrayList<Measurement> getCurrentDataSet() {
+        return currentDataSet;
+    }
+    public void setCurrentDataSet(ArrayList<Measurement> currentDataSet) {
+        this.currentDataSet = currentDataSet;
+    }
+
+    public boolean authenticate(String username, String password) {
+        return this.UsersList.logIn(username, password);
+    }
+    public void addNewUserToFile(User newUser) {
+        try {
+            UsersList.signIn(newUser.getLogin(), newUser.getPassword(), newUser.getTypeOfDiabities(),
+                    newUser.getUpperTargetRage(), newUser.getLowerTargetRage(),
+                    newUser.getHipoglycemia(), newUser.getHiperglycemia());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
     private double average = 0;
     private double deviation = 0;
     private int hipo = 0;
     private int hiper = 0;
 
     private String sugarUnit = "mg/dL";
-
     public String getSugarUnit() {
         return sugarUnit;
     }
-
     public void setSugarUnit(String sugarUnit) {
         this.sugarUnit = sugarUnit;
     }
 
-    public AppModel() {
-        this.getUsersList().addUser(new User("Zuzanna1", "haslo1", 1, 130, 70, 2, 2));
-        this.getUsersList().addUser(new User("Zuzanna2", "haslo2", 1, 150, 80, 2, 2));
-    }
 
     public double countAverage(String date) {
         if (date.equals("Today")) {
@@ -108,11 +115,5 @@ public class AppModel {
         return this.hiper;
     }
 
-    public static boolean authenticate(String username, String password) {
 
-        if ((username.equals("Zuzanna1") && password.equals("haslo1"))||(username.equals("Zuzanna2") && password.equals("haslo2"))) {
-            return true;
-        }
-        return false;
-    }
 }

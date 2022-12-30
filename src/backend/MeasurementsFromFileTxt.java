@@ -3,6 +3,7 @@ package backend;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class MeasurementsFromFileTxt implements ReadMeasurements {
@@ -63,7 +64,8 @@ public class MeasurementsFromFileTxt implements ReadMeasurements {
                 saveMeasurements(measurement);
             }
         }catch (FileNotFoundException e) {
-        }
+        }catch (NoSuchElementException e){
+       }
     }
 
 

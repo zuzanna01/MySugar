@@ -16,14 +16,15 @@ import java.awt.*;
 public class JAddingNewMeasurementDialog extends JDialog {
 
     private Measurement newMeasurement = null;
+    final DateMask formatter = new DateMask();
 
     private JLabel lblSugarLevel;
     private JTextField txtSugarLevel;
     private JLabel lblDate;
-    private JTextField txtDate;
+    private JFormattedTextField txtDate;
     private JLabel lblTime;
-    private JTextField txtTime;
-    private JButton saveButton;
+    private JFormattedTextField txtTime;
+    private JButton addButton;
 
     public JAddingNewMeasurementDialog(Frame parent) {
         super(parent, "Login", true);
@@ -44,9 +45,9 @@ public class JAddingNewMeasurementDialog extends JDialog {
         txtSugarLevel = new JTextField();
         lblSugarLevel.setLabelFor(txtSugarLevel);
         lblDate = new JLabel("Date: ");
-        txtDate = new JTextField();
+        txtDate = new JFormattedTextField(new DateMask());
         lblTime = new JLabel("Time: ");
-        txtTime = new JTextField();
+        txtTime = new JFormattedTextField(new HourMask());
 
         layout.setAutoCreateGaps(true);
         layout.setHorizontalGroup(layout.createSequentialGroup()
@@ -70,11 +71,11 @@ public class JAddingNewMeasurementDialog extends JDialog {
                         .addComponent(txtTime)));
 
         JPanel buttonPanel = new JPanel();
-        saveButton = new JButton("Add");
+        addButton = new JButton("Add");
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
         buttonPanel.add(Box.createHorizontalGlue());
-        buttonPanel.add(saveButton);
+        buttonPanel.add(addButton);
 
         this.add(mainPanel);
         mainPanel.add(addingPanel);
@@ -100,7 +101,7 @@ public class JAddingNewMeasurementDialog extends JDialog {
         this.newMeasurement = newMeasurement;
     }
 
-    public JButton getSaveButton() {
-        return saveButton;
+    public JButton getAddButton() {
+        return addButton;
     }
 }

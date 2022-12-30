@@ -11,8 +11,6 @@ public class AllUsers {
 
     public AllUsers(){
         this.listOfUsers = new ArrayList<>();
-        //listOfUsers.add(new User("Monika","haslo",2,150,80,75, 170));
-        //listOfUsers.add(new User("Anna","HASLO",1,150,80,70,160));
     }
 
     public ArrayList<User> getListOfUsers() {

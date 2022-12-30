@@ -19,7 +19,7 @@ public class JAddingNewUserDialog extends JDialog {
         return saveButton;
     }
 
-    private  JButton saveButton;
+    private JButton saveButton;
 
     private JTextField txtUsername;
     private JLabel lblUsername;
@@ -103,16 +103,17 @@ public class JAddingNewUserDialog extends JDialog {
                         .addComponent(lblTypeofDiabetes)
                         .addComponent(lblLowerTargetRange)
                         .addComponent(lblUpperTargetRange)
-                        .addComponent(lblHiperglycemia)
-                        .addComponent(lblHipoglycemia))
+                        .addComponent(lblHipoglycemia)
+                        .addComponent(lblHiperglycemia))
+
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addComponent(txtUsername)
                         .addComponent(txtPassword)
                         .addComponent(txtTypeOfDiabetes)
                         .addComponent(txtLowerTargetRange)
                         .addComponent(txtUpperTargetRange)
-                        .addComponent(txtHiperglycemia)
-                        .addComponent(txtHipoglycemia)));
+                        .addComponent(txtHipoglycemia)
+                        .addComponent(txtHiperglycemia)));
         layout.setVerticalGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(lblUsername)
@@ -130,11 +131,11 @@ public class JAddingNewUserDialog extends JDialog {
                         .addComponent(lblUpperTargetRange)
                         .addComponent(txtUpperTargetRange))
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblHiperglycemia)
-                        .addComponent(txtHiperglycemia))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(lblHipoglycemia)
-                        .addComponent(txtHipoglycemia)));
+                        .addComponent(txtHipoglycemia))
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblHiperglycemia)
+                        .addComponent(txtHiperglycemia)));
 
         buttonPanel = new JPanel();
         saveButton = new JButton("Create account");

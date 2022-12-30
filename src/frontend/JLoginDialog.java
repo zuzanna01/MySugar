@@ -65,6 +65,7 @@ public class JLoginDialog extends JDialog {
     public JLoginDialog(Frame parent) {
 
         super(parent, "Login", true);
+        this.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
         this.setSize(300, 140);
         setLocationRelativeTo(parent);
 

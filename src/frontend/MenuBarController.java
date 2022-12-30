@@ -26,15 +26,14 @@ public class MenuBarController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("from keyboard")){
-            JAddingNewMeasurementDialog dialog  = new JAddingNewMeasurementDialog(mView);
-            dialog.setVisible(true);
+            mMenuBar.getAddDialog().setVisible(true);
         }
         if(e.getActionCommand().equals("from file")){
             mMenuBar.getChooser().showOpenDialog(null);
         }
         if (e.getActionCommand().equals("Add")){
-            mMenuBar.getAdd().setNewMeasurement(new Measurement(mMenuBar.getAdd().getSugar(),mMenuBar.getAdd().getTime(),mMenuBar.getAdd().getDate()));
-
+            mMenuBar.getAddDialog().setNewMeasurement(new Measurement(mMenuBar.getAddDialog().getSugar(),mMenuBar.getAddDialog().getTime(),mMenuBar.getAddDialog().getDate()));
+            mMenuBar.getAddDialog().setVisible(false);
         }
         if (e.getActionCommand().equals("Target range")){
 

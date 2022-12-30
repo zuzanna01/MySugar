@@ -11,6 +11,18 @@ public class Date {
         this.year = year;
     }
 
+    @Override
+    public String toString() {
+        return "day: " + day + ", month: " + month + ", year: " + year;
+    }
+
+    public Date(String date){
+      String[] splitdate = date.split("-") ;
+      this.day = Integer.parseInt(splitdate[0]);
+      this.month = Integer.parseInt(splitdate[1]);
+      this.year = Integer.parseInt(splitdate[2]);
+    }
+
     public int getDay() {
         return day;
     }

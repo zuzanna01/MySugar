@@ -15,7 +15,14 @@ public class User {
     private int hiperglycemia;
     private int hipoglycemiaCounter;
     private int hiperglycemiaCounter;
+
     private MeasurementsFromFileTxt measurementsFromFileTxt;
+
+    public MeasurementsFromFileTxt getMeasurementsFromFileTxt() {
+        return measurementsFromFileTxt;
+    }
+
+
 
     public User(String userName, String password, int typeOfDiabities, int upperTargetRage, int lowerTargetRage, int hipoglycemia, int hiperglycemia) {
         this.userName = userName;
@@ -28,7 +35,7 @@ public class User {
         this.measurementsFromFileTxt = new MeasurementsFromFileTxt();
     }
 
-    public void setLogin(String userName) {
+    public void setUserName(String userName) {
         this.userName = userName;
     }
 

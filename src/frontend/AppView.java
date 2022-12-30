@@ -24,14 +24,24 @@ public class AppView extends JFrame {
     private JAddingNewUserDialog newUserDialog;
     private JChooseDateRangeDialog chooseDateRangeDialog;
 
-    public JButton getMbutton1() {
-        return mbutton1;
-    }
-
     private JButton mbutton1;
     private JButton mbutton2;
     private JButton mbutton3;
     private JButton mbutton4;
+
+    public JButton getMbutton1() {
+        return mbutton1;
+    }
+    public JButton getMbutton2() {
+        return mbutton2;
+    }
+    public JButton getMbutton3() {
+        return mbutton3;
+    }
+    public JButton getMbutton4() {
+        return mbutton4;
+    }
+
 
     private JLabel maverage;
     private JLabel mmaxdeviation;

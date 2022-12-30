@@ -15,7 +15,7 @@ public class MenuBar extends JMenuBar {
 
     private JFileChooser chooser;
     private JAddingNewMeasurementDialog add;
-    public JAddingNewMeasurementDialog getAdd() {
+    public JAddingNewMeasurementDialog getAddDialog() {
         return add;
     }
 
@@ -64,6 +64,6 @@ public class MenuBar extends JMenuBar {
     public void setMenuBarController(ActionListener c) {
         this.pzFromKeyboard.addActionListener(c);
         this.pzFromFile.addActionListener(c);
-        this.getAdd().getSaveButton().addActionListener(c);
+        this.getAddDialog().getAddButton().addActionListener(c);
     }
 }
