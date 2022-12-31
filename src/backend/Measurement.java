@@ -3,9 +3,9 @@ package backend;
 public class Measurement {
     @Override
     public String toString() {
-        return "sugarLevel: " + sugarLevel +
-                ", date: " + date +
-                ", time: " + time ;
+        return  sugarLevel +
+                " " + time +
+                " " + date ;
     }
 
     private int sugarLevel;
@@ -30,6 +30,12 @@ public class Measurement {
         this.sugarLevel = sugarLevel;
     }
 
+    public Measurement(Measurement m){
+        this.time = m.getTime();
+        this.date = m.getDate();
+        this.sugarLevel= m.getSugarLevel();
+    }
+
     public Measurement(){
         this.time=new Time(0,0);
         this.date = new Date(0,0,0);
@@ -40,7 +46,7 @@ public class Measurement {
         return time;
     }
 
-    public double getSugarLevel() {
+    public int getSugarLevel() {
         return sugarLevel;
     }
 

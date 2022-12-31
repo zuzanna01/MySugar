@@ -2,6 +2,7 @@ package backend;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -70,9 +71,22 @@ public class MeasurementsFromFileTxt implements ReadMeasurements {
 
 
     // zapisuje pojedyńczy pomiar do listy pomiarów
-    @Override
     public void saveMeasurements(Measurement measurement){
         this.listOfMeasurements.add(measurement);
+    }
+    // Z.P zapisuje pomiar do listy i pliku konkretnego użytkownika
+    public void saveMeasurements(Measurement measurement, User currentUser){
+        this.listOfMeasurements.add(measurement);
+
+        try{
+            File file = new File("./"+currentUser.getUserName()+".txt");
+            FileWriter fileWriter = new FileWriter(file, true);
+            fileWriter.write("\n" + measurement);
+            fileWriter.close();
+        }catch(Exception e){
+        }
+
+        //tu można by dać jakieś sortownaie
     }
 
     // to poprawia dane bo np. 02 to nie int więc zamienia na 2

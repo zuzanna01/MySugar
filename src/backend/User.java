@@ -3,9 +3,12 @@ package backend;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.Formatter;
 
 public class User {
+    public String getUserName() {
+        return userName;
+    }
+
     private String userName;
     private String password;
     private int typeOfDiabities;
@@ -21,7 +24,6 @@ public class User {
     public MeasurementsFromFileTxt getMeasurementsFromFileTxt() {
         return measurementsFromFileTxt;
     }
-
 
 
     public User(String userName, String password, int typeOfDiabities, int upperTargetRage, int lowerTargetRage, int hipoglycemia, int hiperglycemia) {
@@ -112,7 +114,7 @@ public class User {
     }
 
     //pobieranie zapisanych wcześniej pomiarów dla użytkownika z jego pliku
-    public void getDataFromUsersFile(){
+    public void  getDataFromUsersFile(){
         this.measurementsFromFileTxt.getMeasurements(this.userName + ".txt");
     }
 
