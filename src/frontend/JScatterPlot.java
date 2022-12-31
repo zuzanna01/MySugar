@@ -19,9 +19,11 @@ import java.util.List;
 public class JScatterPlot extends JPanel {
 
     private ArrayList<Measurement> dataset = new ArrayList<Measurement>();
-
     public void setDataset(ArrayList<Measurement> dataset) {
         this.dataset = dataset;
+    }
+    public void setDataSet(){
+
     }
 
     public void addmeasurement(Measurement m) {
@@ -151,3 +153,5 @@ public class JScatterPlot extends JPanel {
     }
 
 }
+
+//TO DO : przesunąć trochę kropki do góry i w bok
