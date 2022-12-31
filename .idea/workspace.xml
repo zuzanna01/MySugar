@@ -1,26 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e802d943-bc33-4248-98f7-629bebbad75c" name="Changes" comment="działa logowanie i tworzenie nowych kont i dodałam hipo i hiper na wykresie">
-      <change afterPath="$PROJECT_DIR$/src/frontend/DateMask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/DateValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/HourMask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e802d943-bc33-4248-98f7-629bebbad75c" name="Changes" comment="klasy DateMask i DateValidator - &gt; komunikat o błednej dacie przy wyborze zakresu ; klasa Date ma nowy konstruktor i toString">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/AllUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/AllUsers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Date.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/MeasurementsFromFileTxt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/MeasurementsFromFileTxt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/AppModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/AppView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Measurement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Time.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/JAddingNewMeasurementDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JAddingNewMeasurementDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/JAddingNewUserDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JAddingNewUserDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/JChooseDateRangeDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JChooseDateRangeDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/JLoginDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JLoginDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/JScatterPlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JScatterPlot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBarController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +128,7 @@
       <workItem from="1672156569058" duration="102000" />
       <workItem from="1672156890864" duration="28013000" />
       <workItem from="1672333581600" duration="1419000" />
-      <workItem from="1672427324412" duration="15213000" />
+      <workItem from="1672427324412" duration="17007000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -173,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672311886723</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="klasy DateMask i DateValidator - &gt; komunikat o błednej dacie przy wyborze zakresu ; klasa Date ma nowy konstruktor i toString">
+      <created>1672443355369</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1672443355369</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +188,8 @@
     <MESSAGE value="nowe okienka do logowania, dodawania użytkowników i pomiarów + zaczełam javadocy" />
     <MESSAGE value="moduł do rejestracji, logowania, weryfikacji hasła, tworzenie bazy użytkowników, bazy pomiarów użytkownika, zliczanie hipo i hiper, moduł do wycinania danych z danego okresu" />
     <MESSAGE value="działa logowanie i tworzenie nowych kont i dodałam hipo i hiper na wykresie" />
-    <option name="LAST_COMMIT_MESSAGE" value="działa logowanie i tworzenie nowych kont i dodałam hipo i hiper na wykresie" />
+    <MESSAGE value="klasy DateMask i DateValidator - &gt; komunikat o błednej dacie przy wyborze zakresu ; klasa Date ma nowy konstruktor i toString" />
+    <option name="LAST_COMMIT_MESSAGE" value="klasy DateMask i DateValidator - &gt; komunikat o błednej dacie przy wyborze zakresu ; klasa Date ma nowy konstruktor i toString" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

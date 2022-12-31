@@ -32,7 +32,8 @@ public class MenuBarController implements ActionListener {
             mMenuBar.getChooser().showOpenDialog(null);
         }
         if (e.getActionCommand().equals("Add")){
-            mMenuBar.getAddDialog().setNewMeasurement(new Measurement(mMenuBar.getAddDialog().getSugar(),mMenuBar.getAddDialog().getTime(),mMenuBar.getAddDialog().getDate()));
+            mMenuBar.getAddDialog().saveNewMeasurement();
+            System.out.println(mMenuBar.getAddDialog().getNewMeasurement());
             mMenuBar.getAddDialog().setVisible(false);
         }
         if (e.getActionCommand().equals("Target range")){
