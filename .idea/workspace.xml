@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="klasy DateMask i DateValidator - &gt; komunikat o błednej dacie przy wyborze zakresu ; klasa Date ma nowy konstruktor i toString">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="wycinanie listy pomiarów z dowolnego zakresu">
       <change beforePath="$PROJECT_DIR$/src/backend/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/MeasurementsFromFileTxt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/MeasurementsFromFileTxt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +163,21 @@
       <option name="project" value="LOCAL" />
       <updated>1672443355369</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="wycinanie listy pomiarów z dowolnego zakresu">
+      <created>1672495634249</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1672495634249</updated>
+    </task>
+    <task id="LOCAL-00007" summary="wycinanie listy pomiarów z dowolnego zakresu">
+      <created>1672495827446</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1672495827446</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +201,8 @@
     <MESSAGE value="moduł do rejestracji, logowania, weryfikacji hasła, tworzenie bazy użytkowników, bazy pomiarów użytkownika, zliczanie hipo i hiper, moduł do wycinania danych z danego okresu" />
     <MESSAGE value="działa logowanie i tworzenie nowych kont i dodałam hipo i hiper na wykresie" />
     <MESSAGE value="klasy DateMask i DateValidator - &gt; komunikat o błednej dacie przy wyborze zakresu ; klasa Date ma nowy konstruktor i toString" />
-    <option name="LAST_COMMIT_MESSAGE" value="klasy DateMask i DateValidator - &gt; komunikat o błednej dacie przy wyborze zakresu ; klasa Date ma nowy konstruktor i toString" />
+    <MESSAGE value="wycinanie listy pomiarów z dowolnego zakresu" />
+    <option name="LAST_COMMIT_MESSAGE" value="wycinanie listy pomiarów z dowolnego zakresu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

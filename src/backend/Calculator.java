@@ -101,6 +101,7 @@ public class Calculator {
                     listOfMeasurementsFromXDays.add(i);
                 }
             }
+
         }
         return listOfMeasurementsFromXDays;
     }
