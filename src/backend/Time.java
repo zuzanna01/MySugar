@@ -5,7 +5,7 @@ public class Time {
 
     @Override
     public String toString() {
-        return "hour: " + hour + ", minute: " + minute;
+        return hour + ":" + minute;
     }
 
     private int minute;

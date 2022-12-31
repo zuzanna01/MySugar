@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e802d943-bc33-4248-98f7-629bebbad75c" name="Changes" comment="klasy DateMask i DateValidator - &gt; komunikat o błednej dacie przy wyborze zakresu ; klasa Date ma nowy konstruktor i toString">
+    <list default="true" id="e802d943-bc33-4248-98f7-629bebbad75c" name="Changes" comment=" klasa Date ma nowy konstruktor i toString;&#10; klasa Measurement ma nowy konstruktor domyślny -&gt; mam nadzieję że nic nie zepsuje; pobieranie danych nowego pomiaru jeszcze nie zapisuje do pliku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Measurement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Time.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/JAddingNewMeasurementDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JAddingNewMeasurementDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/MeasurementsFromFileJson.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/MeasurementsFromFileTxt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/MeasurementsFromFileTxt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/MeasurementsFromUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBarController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +130,8 @@
       <workItem from="1672156569058" duration="102000" />
       <workItem from="1672156890864" duration="28013000" />
       <workItem from="1672333581600" duration="1419000" />
-      <workItem from="1672427324412" duration="17007000" />
+      <workItem from="1672427324412" duration="17482000" />
+      <workItem from="1672491112570" duration="1910000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -165,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672443355369</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary=" klasa Date ma nowy konstruktor i toString;&#10; klasa Measurement ma nowy konstruktor domyślny -&gt; mam nadzieję że nic nie zepsuje; pobieranie danych nowego pomiaru jeszcze nie zapisuje do pliku">
+      <created>1672445133611</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1672445133611</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +199,8 @@
     <MESSAGE value="moduł do rejestracji, logowania, weryfikacji hasła, tworzenie bazy użytkowników, bazy pomiarów użytkownika, zliczanie hipo i hiper, moduł do wycinania danych z danego okresu" />
     <MESSAGE value="działa logowanie i tworzenie nowych kont i dodałam hipo i hiper na wykresie" />
     <MESSAGE value="klasy DateMask i DateValidator - &gt; komunikat o błednej dacie przy wyborze zakresu ; klasa Date ma nowy konstruktor i toString" />
-    <option name="LAST_COMMIT_MESSAGE" value="klasy DateMask i DateValidator - &gt; komunikat o błednej dacie przy wyborze zakresu ; klasa Date ma nowy konstruktor i toString" />
+    <MESSAGE value=" klasa Date ma nowy konstruktor i toString;&#10; klasa Measurement ma nowy konstruktor domyślny -&gt; mam nadzieję że nic nie zepsuje; pobieranie danych nowego pomiaru jeszcze nie zapisuje do pliku" />
+    <option name="LAST_COMMIT_MESSAGE" value=" klasa Date ma nowy konstruktor i toString;&#10; klasa Measurement ma nowy konstruktor domyślny -&gt; mam nadzieję że nic nie zepsuje; pobieranie danych nowego pomiaru jeszcze nie zapisuje do pliku" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -206,6 +217,16 @@
           <url>file://$PROJECT_DIR$/src/frontend/DateValidator.java</url>
           <line>18</line>
           <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/MeasurementsFromFileTxt.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/MeasurementsFromFileTxt.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
