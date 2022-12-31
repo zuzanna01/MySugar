@@ -3,9 +3,7 @@ package backend;
 public class Measurement {
     @Override
     public String toString() {
-        return  sugarLevel +
-                " " + time +
-                " " + date ;
+        return  sugarLevel + " " + time + " " + date ;
     }
 
     private int sugarLevel;
