@@ -93,4 +93,15 @@ public class Calculator {
         }
         return listOfMeasurementsFromXDays;
     }
+    public ArrayList<Measurement> getDataFromGivenPeriod (Date date1, Date date2, ArrayList<Measurement> listOfMeasurements){
+        ArrayList<Measurement> listOfMeasurementsFromXDays = new ArrayList<>();
+        for(Measurement i : listOfMeasurements){
+            if(i.getDate().getYear() >= date1.getYear() && i.getDate().getMonth()>= date1.getMonth() && i.getDate().getDay() >= date1.getDay()){
+                if(i.getDate().getYear() <= date2.getYear() && i.getDate().getMonth()<= date2.getMonth() && i.getDate().getDay() <= date2.getDay()) {
+                    listOfMeasurementsFromXDays.add(i);
+                }
+            }
+        }
+        return listOfMeasurementsFromXDays;
+    }
 }

@@ -5,10 +5,6 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class User {
-    public String getUserName() {
-        return userName;
-    }
-
     private String userName;
     private String password;
     private int typeOfDiabities;
@@ -24,7 +20,6 @@ public class User {
     public MeasurementsFromFileTxt getMeasurementsFromFileTxt() {
         return measurementsFromFileTxt;
     }
-
 
     public User(String userName, String password, int typeOfDiabities, int upperTargetRage, int lowerTargetRage, int hipoglycemia, int hiperglycemia) {
         this.userName = userName;

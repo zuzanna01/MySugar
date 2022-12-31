@@ -44,9 +44,9 @@ public class MeasurementsFromFileTxt implements ReadMeasurements {
 
                 String Date = reader.next();
                 String[] tab2 = Date.split("-");
-                String year = correctData(tab2[0]);
+                String day = correctData(tab2[0]);
                 String month = correctData(tab2[1]);
-                String day = correctData(tab2[2]);
+                String year = correctData(tab2[2]);
 
                 Measurement measurement = new Measurement(suggarLevel, Integer.parseInt(day), Integer.parseInt(month),
                         Integer.parseInt(year), Integer.parseInt(hour), Integer.parseInt(minute));
