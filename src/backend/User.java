@@ -63,7 +63,7 @@ public class User {
         this.hiperglycemia = hiperglycemia;
     }
 
-    public String getLogin() {
+    public String getUserName() {
         return userName;
     }
 
@@ -131,4 +131,18 @@ public class User {
             }
         }
     }
+
+    public void saveMeasurementsToUsersFile(ArrayList<Measurement> listOfNewMeasurements){
+        try{
+            File file = new File(this.userName + ".txt");
+            FileWriter fileWriter = new FileWriter(file, true);
+            for(Measurement i: listOfNewMeasurements){
+                fileWriter.write( i.getSugarLevel() + " " + i.getTime().getHour() + ":" + i.getTime().getMinute() + " " + i.getDate().getYear() + "-" + i.getDate().getMonth() + "-" + i.getDate().getDay());
+            }
+            fileWriter.close();
+        }catch(Exception e){
+        }
+
+    }
+
 }

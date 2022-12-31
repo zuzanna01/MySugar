@@ -46,7 +46,7 @@ public class AppModel {
     }
     public void addNewUserToFile(User newUser) {
         try {
-            UsersList.signIn(newUser.getLogin(), newUser.getPassword(), newUser.getTypeOfDiabities(),
+            UsersList.signIn(newUser.getUserName(), newUser.getPassword(), newUser.getTypeOfDiabities(),
                     newUser.getUpperTargetRage(), newUser.getLowerTargetRage(),
                     newUser.getHipoglycemia(), newUser.getHiperglycemia());
         } catch (IOException e) {

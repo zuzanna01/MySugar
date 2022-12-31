@@ -46,7 +46,7 @@ public class AllUsers {
     // trzeba tego użyć jeśli ktoś chce się zalogować
     public User findUser(String login){
         for(User i : listOfUsers){
-            if(i.getLogin().equals(login)){
+            if(i.getUserName().equals(login)){
                 return i;
             }
         }
@@ -97,7 +97,7 @@ public class AllUsers {
         User user = new User(userName, password, typeOfDiabities, upperTargetRage, lowerTargetRage, hipoglycemia, hiperglycemia);
 
         for (User i : this.listOfUsers) {
-            if (user.getLogin().equals(i.getLogin())) {
+            if (user.getUserName().equals(i.getUserName())) {
                 return false;
             }
         }
