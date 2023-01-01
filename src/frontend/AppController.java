@@ -41,6 +41,7 @@ public class AppController implements ActionListener {
             mView.getPlotPanel().setDataset(null);
             mModel.setCurrentDataSet(mModel.getTodayDate(),mModel.getTodayDate(), mModel.getCurrentUser());
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
+            System.out.print("TODAY: ");
             System.out.println(mModel.getCurrentDataSet());
             mView.getPlotPanel().repaint();
 
@@ -61,6 +62,7 @@ public class AppController implements ActionListener {
             mView.getPlotPanel().setDataset(null);
             mModel.setCurrentDataSet(mModel.getYesterdayDate(),mModel.getYesterdayDate(),mModel.getCurrentUser());
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
+            System.out.print("YESTERDAY: ");
             System.out.println(mModel.getCurrentDataSet());
             mView.getPlotPanel().repaint();
         }
@@ -72,8 +74,10 @@ public class AppController implements ActionListener {
             //mView.setLabelHipo("hipo: " + mModel.countHipo("Last 7 days"));
 
             mView.getPlotPanel().setDataset(null);
-            mModel.setCurrentDataSet(mModel.getTodayDate(),mModel.getWeekAgoDate(),mModel.getCurrentUser());
+            mModel.setCurrentDataSet(mModel.getWeekAgoDate(),mModel.getTodayDate(),mModel.getCurrentUser());
+            System.out.println("FROM: "+mModel.getTodayDate()+"TO: "+mModel.getWeekAgoDate());
             System.out.println(mModel.getCurrentDataSet());
+
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
             mView.getPlotPanel().repaint();
         }
@@ -93,6 +97,7 @@ public class AppController implements ActionListener {
                 mView.getPlotPanel().setDataset(null);
                 mModel.setCurrentDataSet(fromdate,todate,mModel.getCurrentUser());
                 mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
+                System.out.println("FROM: "+fromdate+"TO: "+todate);
                 System.out.println(mModel.getCurrentDataSet());
                 mView.getPlotPanel().repaint();
 
@@ -107,7 +112,7 @@ public class AppController implements ActionListener {
                         "",
                         JOptionPane.ERROR_MESSAGE);
 
-                // reset username and password
+                // reset date TO DO:
 
             }
 

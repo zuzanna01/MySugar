@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="usunięte klasy">
-      <change afterPath="$PROJECT_DIR$/src/frontend/UserValidator.java" afterDir="false" />
+    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="UserValidator -&gt; nie jestem tego pewna czy zostanie bo w sumie nic nie robi, poprawiłam zapis do pliku pomiarów-&gt; dopisuje 0 tam gdzie trzeba">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Zuzanna.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Zuzanna.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zuzanna1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Zuzanna1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/AllUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/AllUsers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Date.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/MeasurementsFromFileTxt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/MeasurementsFromFileTxt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Time.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/AppModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +132,7 @@
       <workItem from="1672156890864" duration="28013000" />
       <workItem from="1672333581600" duration="1419000" />
       <workItem from="1672427324412" duration="17007000" />
-      <workItem from="1672583662351" duration="6447000" />
+      <workItem from="1672583662351" duration="8393000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -177,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672443355369</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="UserValidator -&gt; nie jestem tego pewna czy zostanie bo w sumie nic nie robi, poprawiłam zapis do pliku pomiarów-&gt; dopisuje 0 tam gdzie trzeba">
+      <created>1672590296371</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1672590296371</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +200,8 @@
     <MESSAGE value="moduł do rejestracji, logowania, weryfikacji hasła, tworzenie bazy użytkowników, bazy pomiarów użytkownika, zliczanie hipo i hiper, moduł do wycinania danych z danego okresu" />
     <MESSAGE value="działa logowanie i tworzenie nowych kont i dodałam hipo i hiper na wykresie" />
     <MESSAGE value="klasy DateMask i DateValidator - &gt; komunikat o błednej dacie przy wyborze zakresu ; klasa Date ma nowy konstruktor i toString" />
-    <option name="LAST_COMMIT_MESSAGE" value="klasy DateMask i DateValidator - &gt; komunikat o błednej dacie przy wyborze zakresu ; klasa Date ma nowy konstruktor i toString" />
+    <MESSAGE value="UserValidator -&gt; nie jestem tego pewna czy zostanie bo w sumie nic nie robi, poprawiłam zapis do pliku pomiarów-&gt; dopisuje 0 tam gdzie trzeba" />
+    <option name="LAST_COMMIT_MESSAGE" value="UserValidator -&gt; nie jestem tego pewna czy zostanie bo w sumie nic nie robi, poprawiłam zapis do pliku pomiarów-&gt; dopisuje 0 tam gdzie trzeba" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -230,7 +230,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/frontend/AppController.java</url>
-          <line>126</line>
+          <line>131</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -240,7 +240,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/frontend/AppController.java</url>
-          <line>125</line>
+          <line>130</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
