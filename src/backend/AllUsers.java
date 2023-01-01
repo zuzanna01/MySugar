@@ -13,9 +13,14 @@ public class AllUsers {
         this.listOfUsers = new ArrayList<>();
     }
 
-    public ArrayList<User> getListOfUsers() {
-        return listOfUsers;
-    }
+    // Z.P.
+    // listofUser jest private i nie udostępnia getListOfUser
+    // żeby nie można było napisać klasy która np. wypisze wszytkich użytkowników i haseł
+    // jedyny obiekt tej klasy tworzymy w UserValidator
+
+    //public ArrayList<User> getListOfUsers() {
+    //    return listOfUsers;
+    //}
 
     // dodawanie użytkownika do listy użytkowników
     // po kliknięciu signIn program powinien zapytać o te dane
@@ -44,9 +49,9 @@ public class AllUsers {
 
     // weryfikacja czy użytkownik o danym loginie jest w bazie
     // trzeba tego użyć jeśli ktoś chce się zalogować
-    public User findUser(String login){
+    public User findUser(String userName){
         for(User i : listOfUsers){
-            if(i.getUserName().equals(login)){
+            if(i.getUserName().equals(userName)){
                 return i;
             }
         }

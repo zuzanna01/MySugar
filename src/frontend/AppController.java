@@ -32,6 +32,7 @@ public class AppController implements ActionListener {
     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-uuuu", Locale.US)
             .withResolverStyle(ResolverStyle.STRICT);
     DateValidator checkDate = new DateValidator(dateFormatter);
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -40,13 +41,13 @@ public class AppController implements ActionListener {
             mView.getPlotPanel().setDataset(null);
             mModel.setCurrentDataSet(mModel.getTodayDate(),mModel.getTodayDate(), mModel.getCurrentUser());
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
+            System.out.println(mModel.getCurrentDataSet());
             mView.getPlotPanel().repaint();
 
            // mView.setLabelAverage("Today average: " + mModel.countAverage("Today") + mModel.getSugarUnit());
            // mView.setLabelDeviation("Today deviation: " + mModel.countDeviation("Today") + mModel.getSugarUnit());
            // mView.setLabelHiper("Today hiper: " + mModel.countHiper("Today"));
            // mView.setLabelHipo("Today hipo: " + mModel.countHipo("Today"));
-
 
         }
         if (e.getActionCommand().equals("Yesterday")) {
@@ -60,6 +61,7 @@ public class AppController implements ActionListener {
             mView.getPlotPanel().setDataset(null);
             mModel.setCurrentDataSet(mModel.getYesterdayDate(),mModel.getYesterdayDate(),mModel.getCurrentUser());
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
+            System.out.println(mModel.getCurrentDataSet());
             mView.getPlotPanel().repaint();
         }
         if (e.getActionCommand().equals("Last 7 days")) {
@@ -71,6 +73,7 @@ public class AppController implements ActionListener {
 
             mView.getPlotPanel().setDataset(null);
             mModel.setCurrentDataSet(mModel.getTodayDate(),mModel.getWeekAgoDate(),mModel.getCurrentUser());
+            System.out.println(mModel.getCurrentDataSet());
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
             mView.getPlotPanel().repaint();
         }
@@ -84,10 +87,15 @@ public class AppController implements ActionListener {
             if (checkDate.isValid(fromdate_str) && checkDate.isValid(todate_str)) {
                 Date fromdate = new Date(fromdate_str);
                 Date todate = new Date(todate_str);
-                System.out.println(fromdate);
-                System.out.println(todate);
 
                 mView.getChooseDateRangeDialog().dispose();
+
+                mView.getPlotPanel().setDataset(null);
+                mModel.setCurrentDataSet(fromdate,todate,mModel.getCurrentUser());
+                mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
+                System.out.println(mModel.getCurrentDataSet());
+                mView.getPlotPanel().repaint();
+
                 //mView.getPlotPanel().setDataset(null);
                 //mModel.setCurrentDataSet(mModel.getCurrentUser().getMeasurementsFromFileTxt().getListOfMeasurements());
                 //mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
@@ -107,7 +115,7 @@ public class AppController implements ActionListener {
         }
 
         if (e.getActionCommand().equals("Login")) {
-            if (mModel.authenticate(mView.getLoginDialog().getUsername(), mView.getLoginDialog().getPassword())) {
+            if (mModel.getUserValidator().authenticate(mView.getLoginDialog().getUsername(), mView.getLoginDialog().getPassword())) {
                 JOptionPane.showMessageDialog(mView.getLoginDialog(),
                         "Hi " + mView.getLoginDialog().getUsername() + "! You have successfully logged in.",
                         "Login",
@@ -115,7 +123,7 @@ public class AppController implements ActionListener {
                 mView.getLoginDialog().setSucceeded(true);
                 mView.getLoginDialog().dispose();
 
-                User currentUser = mModel.getUsersList().findUser(mView.getLoginDialog().getUsername());
+                User currentUser = mModel.getUserValidator().getUserData(mView.getLoginDialog().getUsername());
                 currentUser.getDataFromUsersFile();
                 mModel.setCurrentUser(currentUser);
                 mView.getPlotPanel().setLines(currentUser);
@@ -151,7 +159,7 @@ public class AppController implements ActionListener {
                     Integer.parseInt(mView.getNewUserDialog().getTxtHipoglycemia().getText().trim()),
                     Integer.parseInt(mView.getNewUserDialog().getTxtHiperglycemia().getText().trim()));
 
-            mModel.addNewUserToFile(newUser);
+            mModel.getUserValidator().addNewUserToList(newUser);
             mModel.setCurrentUser(newUser);
             mView.getPlotPanel().setLines(newUser);
             mView.getPlotPanel().repaint();

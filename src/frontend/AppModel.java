@@ -16,7 +16,13 @@ import java.util.ArrayList;
  */
 
 public class AppModel {
+
     private Calculator calculator = new Calculator();
+    private UserValidator userValidator = new UserValidator();
+    public UserValidator getUserValidator() {
+        return userValidator;
+    }
+
     private LocalDate localTodayDate;
     private LocalDate localYesterdayDate ;
     private LocalDate localWeekAgoDate ;
@@ -31,20 +37,13 @@ public class AppModel {
     }
     public Date getWeekAgoDate(){return weekAgoDate;}
 
-    private AllUsers UsersList = new AllUsers();
-    public AllUsers getUsersList() {
-        return UsersList;
-    }
-
     public AppModel() {
-        UsersList.getUsersFromFile();
         localTodayDate = LocalDate.now();
         todayDate = new Date(localTodayDate.getDayOfMonth(), localTodayDate.getMonthValue(), localTodayDate.getYear());
         localYesterdayDate = localTodayDate.minusDays(1);
         yesterdayDate = new Date(localYesterdayDate.getDayOfMonth(), localYesterdayDate.getMonthValue(), localYesterdayDate.getYear());
-        localWeekAgoDate = localTodayDate.minusDays(7);
+        localWeekAgoDate = localTodayDate.minusDays(6);
         weekAgoDate = new Date(localWeekAgoDate.getDayOfMonth(),localWeekAgoDate.getMonthValue(), localWeekAgoDate.getYear());
-
     }
 
     private User currentUser;
@@ -66,20 +65,6 @@ public class AppModel {
         this.currentDataSet = calculator.getDataFromGivenPeriod(dateFrom, dateTo, currentUser.getMeasurementsFromFileTxt().getListOfMeasurements());
     }
 
-    public boolean authenticate(String username, String password) {
-        return this.UsersList.logIn(username, password);
-    }
-
-    public void addNewUserToFile(User newUser) {
-        try {
-            UsersList.signIn(newUser.getUserName(), newUser.getPassword(), newUser.getTypeOfDiabities(),
-                    newUser.getUpperTargetRage(), newUser.getLowerTargetRage(),
-                    newUser.getHipoglycemia(), newUser.getHiperglycemia());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
 
     private double average = 0;
     private double deviation = 0;
@@ -87,15 +72,12 @@ public class AppModel {
     private int hiper = 0;
 
     private String sugarUnit = "mg/dL";
-
     public String getSugarUnit() {
         return sugarUnit;
     }
-
     public void setSugarUnit(String sugarUnit) {
         this.sugarUnit = sugarUnit;
     }
-
 
     public double countAverage(Date dateFrom, Date dateTo) {
         return this.average;

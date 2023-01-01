@@ -3,9 +3,15 @@ package backend;
 public class Time {
     private int hour;
 
+    private String hour_str;
+    private String minute_str;
     @Override
     public String toString() {
-        return hour + ":" + minute;
+        hour_str = String.valueOf(hour);
+        if(hour_str.length()==1)hour_str="0"+hour_str;
+        minute_str= String.valueOf(minute);
+        if(minute_str.length()==1)minute_str="0"+minute_str;
+        return hour_str + ":" + minute_str;
     }
 
     private int minute;

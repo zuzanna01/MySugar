@@ -11,9 +11,17 @@ public class Date {
         this.year = year;
     }
 
+
+    private String day_str;
+    private String  month_str;
     @Override
     public String toString() {
-        return day + "-" + month + "-" + year;
+        day_str= String.valueOf(day);
+        if(day_str.length()==1)day_str="0"+day_str;
+        month_str= String.valueOf(month);
+        if(month_str.length()==1)month_str="0"+month_str;
+
+        return day_str + "-" + month_str + "-" + year;
     }
 
     public Date(String date){
