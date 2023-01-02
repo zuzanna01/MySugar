@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="UserValidator -&gt; nie jestem tego pewna czy zostanie bo w sumie nic nie robi, poprawiłam zapis do pliku pomiarów-&gt; dopisuje 0 tam gdzie trzeba">
+    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="plik testowy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zuzanna.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Zuzanna.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Date.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/JScatterPlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JScatterPlot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +133,9 @@
       <workItem from="1672156890864" duration="28013000" />
       <workItem from="1672333581600" duration="1419000" />
       <workItem from="1672427324412" duration="17007000" />
-      <workItem from="1672583662351" duration="8393000" />
+      <workItem from="1672583662351" duration="11499000" />
+      <workItem from="1672601447554" duration="2211000" />
+      <workItem from="1672606958734" duration="13354000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -176,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672590296371</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="plik testowy">
+      <created>1672592372915</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1672592372915</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +211,8 @@
     <MESSAGE value="działa logowanie i tworzenie nowych kont i dodałam hipo i hiper na wykresie" />
     <MESSAGE value="klasy DateMask i DateValidator - &gt; komunikat o błednej dacie przy wyborze zakresu ; klasa Date ma nowy konstruktor i toString" />
     <MESSAGE value="UserValidator -&gt; nie jestem tego pewna czy zostanie bo w sumie nic nie robi, poprawiłam zapis do pliku pomiarów-&gt; dopisuje 0 tam gdzie trzeba" />
-    <option name="LAST_COMMIT_MESSAGE" value="UserValidator -&gt; nie jestem tego pewna czy zostanie bo w sumie nic nie robi, poprawiłam zapis do pliku pomiarów-&gt; dopisuje 0 tam gdzie trzeba" />
+    <MESSAGE value="plik testowy" />
+    <option name="LAST_COMMIT_MESSAGE" value="plik testowy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -224,24 +235,64 @@
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/backend/Date.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="33" />
+          <url>file://$PROJECT_DIR$/src/frontend/JScatterPlot.java</url>
+          <line>216</line>
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/AppController.java</url>
-          <line>131</line>
-          <option name="timeStamp" value="38" />
+          <url>file://$PROJECT_DIR$/src/frontend/JScatterPlot.java</url>
+          <line>176</line>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/backend/User.java</url>
-          <line>112</line>
-          <option name="timeStamp" value="39" />
+          <url>file://$PROJECT_DIR$/src/frontend/JScatterPlot.java</url>
+          <line>175</line>
+          <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/AppController.java</url>
-          <line>130</line>
-          <option name="timeStamp" value="40" />
+          <url>file://$PROJECT_DIR$/src/frontend/JScatterPlot.java</url>
+          <line>177</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/frontend/JScatterPlot.java</url>
+          <line>179</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/frontend/JScatterPlot.java</url>
+          <line>178</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/frontend/JScatterPlot.java</url>
+          <line>182</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/frontend/JScatterPlot.java</url>
+          <line>183</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/frontend/JScatterPlot.java</url>
+          <line>180</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/frontend/JScatterPlot.java</url>
+          <line>201</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/frontend/JScatterPlot.java</url>
+          <line>203</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/frontend/JScatterPlot.java</url>
+          <line>218</line>
+          <option name="timeStamp" value="78" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

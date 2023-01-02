@@ -41,6 +41,7 @@ public class AppController implements ActionListener {
             mView.getPlotPanel().setDataset(null);
             mModel.setCurrentDataSet(mModel.getTodayDate(),mModel.getTodayDate(), mModel.getCurrentUser());
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
+            mView.getPlotPanel().setDates(mModel.getTodayDate(),mModel.getTodayDate());
             System.out.print("TODAY: ");
             System.out.println(mModel.getCurrentDataSet());
             mView.getPlotPanel().repaint();
@@ -62,6 +63,7 @@ public class AppController implements ActionListener {
             mView.getPlotPanel().setDataset(null);
             mModel.setCurrentDataSet(mModel.getYesterdayDate(),mModel.getYesterdayDate(),mModel.getCurrentUser());
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
+            mView.getPlotPanel().setDates(mModel.getYesterdayDate(),mModel.getYesterdayDate());
             System.out.print("YESTERDAY: ");
             System.out.println(mModel.getCurrentDataSet());
             mView.getPlotPanel().repaint();
@@ -75,10 +77,12 @@ public class AppController implements ActionListener {
 
             mView.getPlotPanel().setDataset(null);
             mModel.setCurrentDataSet(mModel.getWeekAgoDate(),mModel.getTodayDate(),mModel.getCurrentUser());
-            System.out.println("FROM: "+mModel.getTodayDate()+"TO: "+mModel.getWeekAgoDate());
+            System.out.println("FROM: "+mModel.getWeekAgoDate()+"TO: "+mModel.getTodayDate());
             System.out.println(mModel.getCurrentDataSet());
 
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
+            mView.getPlotPanel().setDates(mModel.getWeekAgoDate(),mModel.getTodayDate());
+
             mView.getPlotPanel().repaint();
         }
         if (e.getActionCommand().equals("Your date (range)")) {
@@ -97,6 +101,7 @@ public class AppController implements ActionListener {
                 mView.getPlotPanel().setDataset(null);
                 mModel.setCurrentDataSet(fromdate,todate,mModel.getCurrentUser());
                 mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
+                mView.getPlotPanel().setDates(fromdate,todate);
                 System.out.println("FROM: "+fromdate+"TO: "+todate);
                 System.out.println(mModel.getCurrentDataSet());
                 mView.getPlotPanel().repaint();

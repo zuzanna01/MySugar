@@ -1,5 +1,7 @@
 package backend;
 
+import java.time.LocalDate;
+
 public class Date {
     private int day;
     private int month;
@@ -9,6 +11,12 @@ public class Date {
         this.day = day;
         this.month= month;
         this.year = year;
+    }
+
+    public Date (LocalDate localDate){
+        this.day = localDate.getDayOfMonth();
+        this.month =localDate.getMonthValue();
+        this.year=localDate.getYear();
     }
 
 
