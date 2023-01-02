@@ -12,6 +12,15 @@ public class User {
     private int lowerTargetRage;
     private int hipoglycemia;
     private int hiperglycemia;
+
+    public int getHipoglycemiaCounter() {
+        return hipoglycemiaCounter;
+    }
+
+    public int getHiperglycemiaCounter() {
+        return hiperglycemiaCounter;
+    }
+
     private int hipoglycemiaCounter;
     private int hiperglycemiaCounter;
 
@@ -119,7 +128,7 @@ public class User {
     public void countHipoAndHiper(ArrayList<Measurement> listOfMeasurements) {
 
         for (Measurement i : listOfMeasurements) {
-            i.checkHipoAndHiperGlycemia(this.hipoglycemia, this.hiperglycemia);
+
             if (i.isHipoglycemia()) {
                 this.hipoglycemiaCounter++;
             }

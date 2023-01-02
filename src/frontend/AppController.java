@@ -1,6 +1,7 @@
 package frontend;
 
 import backend.Date;
+import backend.Measurement;
 import backend.User;
 
 import javax.swing.*;
@@ -46,7 +47,7 @@ public class AppController implements ActionListener {
             System.out.println(mModel.getCurrentDataSet());
             mView.getPlotPanel().repaint();
             mModel.setLabelsInfo();
-            mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getHipo(),mModel.getHiper(),mModel.getSugarUnit());
+            mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getTimesHipo(),mModel.getTimesHiper(),mModel.getSugarUnit());
 
 
         }
@@ -62,7 +63,7 @@ public class AppController implements ActionListener {
             System.out.println(mModel.getCurrentDataSet());
             mView.getPlotPanel().repaint();
             mModel.setLabelsInfo();
-            mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getHipo(),mModel.getHiper(),mModel.getSugarUnit());
+            mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getTimesHipo(),mModel.getTimesHiper(),mModel.getSugarUnit());
 
         }
         if (e.getActionCommand().equals("Last 7 days")) {
@@ -79,7 +80,7 @@ public class AppController implements ActionListener {
             mView.getPlotPanel().repaint();
 
             mModel.setLabelsInfo();
-            mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getHipo(),mModel.getHiper(),mModel.getSugarUnit());
+            mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getTimesHipo(),mModel.getTimesHiper(),mModel.getSugarUnit());
 
         }
         if (e.getActionCommand().equals("Your date (range)")) {
@@ -104,7 +105,7 @@ public class AppController implements ActionListener {
                 mView.getPlotPanel().repaint();
 
                 mModel.setLabelsInfo();
-                mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getHipo(),mModel.getHiper(),mModel.getSugarUnit());
+                mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getTimesHipo(),mModel.getTimesHiper(),mModel.getSugarUnit());
 
             }
             else{
@@ -128,10 +129,12 @@ public class AppController implements ActionListener {
                         JOptionPane.INFORMATION_MESSAGE);
                 mView.getLoginDialog().setSucceeded(true);
                 mView.getLoginDialog().dispose();
-
                 User currentUser = mModel.getUserValidator().getUserData(mView.getLoginDialog().getUsername());
+                Measurement.hipoglycemiaLevel =currentUser.getHipoglycemia();
+                Measurement.hiperglycemiaLevel =currentUser.getHiperglycemia();
                 currentUser.getDataFromUsersFile();
                 mModel.setCurrentUser(currentUser);
+
                 mView.getPlotPanel().setLines(currentUser);
                 mView.getPlotPanel().repaint();
                 //mModel.getAllMeasurements().getMeasurements(mModel.getUserFileName());
@@ -167,6 +170,8 @@ public class AppController implements ActionListener {
 
             mModel.getUserValidator().addNewUserToList(newUser);
             mModel.setCurrentUser(newUser);
+            Measurement.hipoglycemiaLevel =newUser.getHipoglycemia();
+            Measurement.hiperglycemiaLevel =newUser.getHiperglycemia();
             mView.getPlotPanel().setLines(newUser);
             mView.getPlotPanel().repaint();
 

@@ -76,7 +76,6 @@ public class JAddingNewMeasurementDialog extends JDialog {
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
         buttonPanel.add(Box.createHorizontalGlue());
         buttonPanel.add(addButton);
-        newMeasurement = new Measurement();
 
         this.add(mainPanel);
         mainPanel.add(addingPanel);
