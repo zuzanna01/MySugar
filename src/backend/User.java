@@ -15,9 +15,9 @@ public class User {
     private int hipoglycemiaCounter;
     private int hiperglycemiaCounter;
 
-    private MeasurementsFromFileTxt measurementsFromFileTxt;
+    private TxtMeasuremetsReader measurementsFromFileTxt;
 
-    public MeasurementsFromFileTxt getMeasurementsFromFileTxt() {
+    public TxtMeasuremetsReader getMeasurementsFromFileTxt() {
         return measurementsFromFileTxt;
     }
 
@@ -29,7 +29,7 @@ public class User {
         this.lowerTargetRage = lowerTargetRage;
         this.hipoglycemia = hipoglycemia;
         this.hiperglycemia = hiperglycemia;
-        this.measurementsFromFileTxt = new MeasurementsFromFileTxt();
+        this.measurementsFromFileTxt = new TxtMeasuremetsReader();
     }
 
     public void setUserName(String userName) {
@@ -97,7 +97,7 @@ public class User {
         return false;
     }
 
-    // zapisanie danych użytkownika do bazy użytkowników (NIE DZIAŁA)
+    // zapisanie danych użytkownika do bazy użytkowników
     public void saveUser(){
         try{
             File file = new File("./Users.txt");
@@ -116,7 +116,7 @@ public class User {
     // zliczanie hipoglikemi i hiperglikemi dla pacjenta ze wszystkich jego pomiarów,
     // jako argument trzeba podać listę pomiarów użytkownika
     // można zliczyć z konkretengo zakredu używając wcześniej calculator getDataFromPeriod
-    public void countHipoglycemia(ArrayList<Measurement> listOfMeasurements) {
+    public void countHipoAndHiper(ArrayList<Measurement> listOfMeasurements) {
 
         for (Measurement i : listOfMeasurements) {
             i.checkHipoAndHiperGlycemia(this.hipoglycemia, this.hiperglycemia);
@@ -139,7 +139,5 @@ public class User {
             fileWriter.close();
         }catch(Exception e){
         }
-
     }
-
 }

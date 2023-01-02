@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class MeasurementsFromFileTxt implements ReadMeasurements {
+public class TxtMeasuremetsReader implements ReadMeasurements {
     private Measurement measurement;
     private ArrayList<Measurement> listOfMeasurements;
-    public MeasurementsFromFileTxt(){
+    public TxtMeasuremetsReader(){
         this.listOfMeasurements = new ArrayList<>();
     }
 
@@ -68,7 +68,6 @@ public class MeasurementsFromFileTxt implements ReadMeasurements {
         }catch (NoSuchElementException e){
        }
     }
-
 
     // zapisuje pojedyńczy pomiar do listy pomiarów
     public void saveMeasurements(Measurement measurement){

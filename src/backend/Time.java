@@ -21,7 +21,6 @@ public class Time {
         this.minute = Integer.parseInt(splittime[1]);
     }
 
-
     public void setHour(int hour) {
         this.hour = hour;
     }

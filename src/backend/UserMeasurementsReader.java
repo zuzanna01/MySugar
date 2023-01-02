@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-    public class MeasurementsFromUser implements ReadMeasurements {
+    public class UserMeasurementsReader implements MeasurementsReader {
         private Measurement measurement;
         private ArrayList<Measurement> listOfMeasurements;
 
-        public MeasurementsFromUser(){
+        public UserMeasurementsReader(){
             this.listOfMeasurements = new ArrayList<>();
         }
 
@@ -50,9 +50,11 @@ import java.util.Scanner;
             System.out.println("Podaj datę wykonania pomiaru:");
             String answer2 = scanner.next();
             String[] tab2 = answer2.split("-");
-            String year = correctData(tab2[0]);
+            String day = correctData(tab2[0]);
             String month = correctData(tab2[1]);
-            String day = correctData(tab2[2]);
+            String year = correctData(tab2[2]);
+
+
 
             Measurement measurement = new Measurement(answer, Integer.parseInt(day), Integer.parseInt(month),
                     Integer.parseInt(year), Integer.parseInt(hour), Integer.parseInt(minute));
@@ -62,6 +64,8 @@ import java.util.Scanner;
 
         // główna funkcja wczytująca pomiary od użytkownika
         // metoda wyżej jest tutaj użyta
+
+        @Override
         public void getMeasurements(){
             ArrayList<Measurement> listOfMeasurements = new ArrayList<>();
             boolean end = false;
@@ -76,12 +80,10 @@ import java.util.Scanner;
                 }else{
                     end = true;
                 }
-
             }while (!end);
         }
 
         // zapis pojedyńczego pomiaru do listy pomiarów
-        @Override
         public void saveMeasurements(Measurement measurement) {
             this.listOfMeasurements.add(measurement);
         }
