@@ -71,6 +71,10 @@ public class AppModel {
     private int hipo = 0;
     private int hiper = 0;
 
+    public void setLabelsInfo(Date startDate,Date endDate){
+        this.average = calculator.calculateAverageFromToday(this.currentDataSet);
+    }
+
     private String sugarUnit = "mg/dL";
     public String getSugarUnit() {
         return sugarUnit;

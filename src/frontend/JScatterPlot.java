@@ -2,20 +2,19 @@ package frontend;
 
 import backend.Date;
 import backend.Measurement;
+import backend.Time;
 import backend.User;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import java.awt.geom.Line2D;
 import java.time.LocalDate;
-import java.time.chrono.ChronoLocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.ResolverStyle;
-import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * The  JScatterPlot class
@@ -23,8 +22,9 @@ import java.util.stream.IntStream;
  * @author Zuzanna Popławska
  */
 
-public class JScatterPlot extends JPanel {
+public class JScatterPlot extends JPanel  {
 
+    private JScrollBar pasek;
     private ArrayList<Measurement> dataset = new ArrayList<Measurement>();
     public void setDataset(ArrayList<Measurement> dataset) {
         this.dataset = dataset;
@@ -60,8 +60,6 @@ public class JScatterPlot extends JPanel {
     double width;
     double step_width;
     int x;
-
-
 
 
     private LocalDate localStartDate;
@@ -117,28 +115,18 @@ public class JScatterPlot extends JPanel {
         line = new Line2D.Double(30, this.county(upperTargetRange), this.getWidth() - 10, this.county(upperTargetRange));
         g2d.draw(line);
 
-        width = this.getWidth()-55;
-        step_width = width / (60 * 24);
 
         g2d.setPaint(new Color(100, 100, 100));
         textFont = new Font(Font.MONOSPACED, Font.BOLD, 13);
         g2d.setFont(textFont);
 
+        width = this.getWidth()-55;
+
         this.paintAxisX(g2d);
 
-        for (Measurement idx : dataset) {
+        this.paintMeasurements(g2d);
 
-            if (idx.getSugarLevel() > hiperLevel||idx.getSugarLevel()<hipoLevel)
-                g2d.setPaint(Color.RED);
-            else if (idx.getSugarLevel() > upperTargetRange||idx.getSugarLevel()<lowerTargetRange)
-                g2d.setPaint(Color.YELLOW);
-            else g2d.setPaint(Color.GREEN);
 
-            g2d.setStroke(new BasicStroke(1));
-            g2d.fillOval((int) this.countx(idx.getTime().getHour(), idx.getTime().getMinute(),idx.getDate())-6, (int) this.county(idx.getSugarLevel())-6, 12, 12);
-            g2d.setPaint(Color.BLACK);
-            g2d.drawOval((int) this.countx(idx.getTime().getHour(), idx.getTime().getMinute(),idx.getDate())-6, (int) this.county(idx.getSugarLevel())-6, 12, 12);
-        }
     }
 
     private double county(double level) {
@@ -147,11 +135,39 @@ public class JScatterPlot extends JPanel {
         return y;
     }
 
-    private double countx(int hour, int minutes, Date date) {
-        int x = (int) (this.width - 45);
-        x -= ((24 * 60) - ((hour * 60) + minutes)) * step_width;
-        return x;
+    private double countx(Time time, Date date) {
+
+        double step_smallwidth;
+        double smallx;
+        int i;
+        int x = (int) (this.getWidth()-35 );
+        if(dates==null||dates.size()==1){
+            step_width = width / (60 * 24);
+            x -= ((time.getHour() * 60) + time.getMinute()) * step_width;
+            x=this.getWidth()- x;
+        }
+        else {
+            i = this.findDayIndex(date);
+            smallwidth= (int) (width/this.dates.size());
+            step_smallwidth =(double) smallwidth/(60*24);
+            smallx =((time.getHour() * 60) + time.getMinute()) * step_smallwidth;
+            x-=(smallwidth-smallx)+(this.dates.size()-i)*smallwidth;
+        }
+
+        return  x;
     }
+
+    private int findDayIndex(Date date){
+        int i =0;
+        LocalDate localDate;
+        localDate =date.toLocalDate();
+        for (LocalDate idx:dates){
+            i++;
+            if(idx.equals(localDate)){return i;}
+        }
+        return -1;
+    }
+
     String[] hours0 = {"00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00",
             "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00",
             "21:00", "22:00", "23:00", "00:00"};//25>24
@@ -181,14 +197,14 @@ public class JScatterPlot extends JPanel {
             hoursList.addAll(Arrays.asList(hours));
         }
     }
-
+    int smallwidth;
     private void paintAxisX(Graphics2D g2d){
         x = (int) (width -17);
         int hourWidth=36;
         int i =0;
         int divider =deviders[i];
         int gapWidth1;
-        int smallwidth;
+
 
 
         if(this.dates==null||this.dates.size()==1) {
@@ -243,6 +259,21 @@ public class JScatterPlot extends JPanel {
         }
     }
 
+    public void paintMeasurements(Graphics2D g2d){
+        for (Measurement idx : dataset) {
+
+            if (idx.getSugarLevel() > hiperLevel||idx.getSugarLevel()<hipoLevel)
+                g2d.setPaint(Color.RED);
+            else if (idx.getSugarLevel() > upperTargetRange||idx.getSugarLevel()<lowerTargetRange)
+                g2d.setPaint(Color.YELLOW);
+            else g2d.setPaint(Color.GREEN);
+
+            g2d.setStroke(new BasicStroke(1));
+            g2d.fillOval((int) (this.countx(idx.getTime(),idx.getDate())-6), (int) this.county(idx.getSugarLevel())-6, 12, 12);
+            g2d.setPaint(Color.BLACK);
+            g2d.drawOval((int) (this.countx(idx.getTime(),idx.getDate())-6), (int) this.county(idx.getSugarLevel())-6, 12, 12);
+        }
+    }
 
 }
 

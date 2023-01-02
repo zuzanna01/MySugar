@@ -19,6 +19,12 @@ public class Date {
         this.year=localDate.getYear();
     }
 
+    private LocalDate localDateFormat;
+    public LocalDate toLocalDate(){
+        localDateFormat = LocalDate.of(this.getYear(),this.getMonth(),this.getDay());
+        return localDateFormat;
+    }
+
 
     private String day_str;
     private String  month_str;

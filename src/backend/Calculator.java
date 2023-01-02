@@ -31,19 +31,19 @@ public class Calculator {
 
 
     // średnia z dowolnej ilości dni
-    public double calculateAverage(ArrayList<Measurement> listOfMeasurements, int numberOfDays){
+    public double calculateAverage(ArrayList<Measurement> listOfMeasurements, int numberOfDays) {
         ArrayList<Measurement> listOfMeasurementsFromXDays = new ArrayList<>();
 
         LocalDate dateNow = LocalDate.now();
         LocalDate dateFrom = dateNow.minusDays(numberOfDays);
 
-        for(Measurement i : listOfMeasurements){
-            if(i.getDate().getYear() >= dateFrom.getYear() && i.getDate().getMonth()>= dateFrom.getMonthValue() && i.getDate().getDay() >= dateFrom.getDayOfMonth()){
+        for (Measurement i : listOfMeasurements) {
+            if (i.getDate().getYear() >= dateFrom.getYear() && i.getDate().getMonth() >= dateFrom.getMonthValue() && i.getDate().getDay() >= dateFrom.getDayOfMonth()) {
                 listOfMeasurementsFromXDays.add(i);
             }
         }
         int sum = 0;
-        for( Measurement i: listOfMeasurementsFromXDays){
+        for (Measurement i : listOfMeasurementsFromXDays) {
             sum += i.getSugarLevel();
         }
         this.average = sum / listOfMeasurementsFromXDays.size();
@@ -51,17 +51,17 @@ public class Calculator {
     }
 
     // obliczanie średniej z dnia
-    public double calculateAverageFromToday(ArrayList<Measurement> listOfMeasurements){
+    public double calculateAverageFromToday(ArrayList<Measurement> listOfMeasurements) {
         ArrayList<Measurement> listOfMeasurementsFromToday = new ArrayList<>();
-        for(Measurement i : listOfMeasurements){
+        for (Measurement i : listOfMeasurements) {
             LocalDate dateNow = LocalDate.now();
 
-            if(i.getDate().getDay() == dateNow.getDayOfMonth() && i.getDate().getMonth() == dateNow.getMonthValue() && i.getDate().getYear() == dateNow.getYear()){
+            if (i.getDate().getDay() == dateNow.getDayOfMonth() && i.getDate().getMonth() == dateNow.getMonthValue() && i.getDate().getYear() == dateNow.getYear()) {
                 listOfMeasurementsFromToday.add(i);
-           }
+            }
         }
         int sum = 0;
-        for( Measurement i: listOfMeasurementsFromToday ){
+        for (Measurement i : listOfMeasurementsFromToday) {
             sum += i.getSugarLevel();
         }
         this.average = sum / listOfMeasurementsFromToday.size();
@@ -69,40 +69,47 @@ public class Calculator {
     }
 
     // szacownanie hemoglobiny glikowanej ze wszystkich pomiarów
-    public double calculateGlycatedHemoglobin(ArrayList<Measurement> listOfMeasurements){
+    public double calculateGlycatedHemoglobin(ArrayList<Measurement> listOfMeasurements) {
         this.listOfMeasurements = listOfMeasurements;
         this.glycatedHemoglobin = (this.average * CONSTANT_FIRST) / CONSTANT_SECOND;
         return this.glycatedHemoglobin; // TO DO --> to trzeba jeszcze zaokrąglić
     }
 
     // wyznaczanie
-    public LocalDate calculateDate (int numberOfDays){
+    public LocalDate calculateDate(int numberOfDays) {
         LocalDate dateNow = LocalDate.now();
         LocalDate dateFrom = dateNow.minusDays(numberOfDays);
         return dateFrom;
     }
 
     // wycinanie danych dla dowolnego zakresu
-    public ArrayList<Measurement> getDataFromPeriod (int numberOfDays, ArrayList<Measurement> listOfMeasurements){
+    public ArrayList<Measurement> getDataFromPeriod(int numberOfDays, ArrayList<Measurement> listOfMeasurements) {
         LocalDate date = calculateDate(numberOfDays);
         ArrayList<Measurement> listOfMeasurementsFromXDays = new ArrayList<>();
-        for(Measurement i : listOfMeasurements){
-            if(i.getDate().getYear() >= date.getYear() && i.getDate().getMonth()>= date.getMonthValue() && i.getDate().getDay() >= date.getDayOfMonth()){
+        for (Measurement i : listOfMeasurements) {
+            if (i.getDate().getYear() >= date.getYear() && i.getDate().getMonth() >= date.getMonthValue() && i.getDate().getDay() >= date.getDayOfMonth()) {
                 listOfMeasurementsFromXDays.add(i);
             }
         }
         return listOfMeasurementsFromXDays;
     }
-    public ArrayList<Measurement> getDataFromGivenPeriod (Date date1, Date date2, ArrayList<Measurement> listOfMeasurements){
-        ArrayList<Measurement> listOfMeasurementsFromXDays = new ArrayList<>();
-        for(Measurement i : listOfMeasurements){
-            if(i.getDate().getYear() >= date1.getYear() && i.getDate().getMonth()>= date1.getMonth() && i.getDate().getDay() >= date1.getDay()){
-                if(i.getDate().getYear() <= date2.getYear() && i.getDate().getMonth()<= date2.getMonth() && i.getDate().getDay() <= date2.getDay()) {
-                    listOfMeasurementsFromXDays.add(i);
-                }
-            }
 
+    //Z.P
+    public ArrayList<Measurement> getDataFromGivenPeriod(Date date1, Date date2, ArrayList<Measurement> listOfMeasurements) {
+
+        ArrayList<Measurement> listOfMeasurementsFromXDays = new ArrayList<>();
+        LocalDate localStartDate = date1.toLocalDate();
+        LocalDate localEndDate = date2.toLocalDate();
+
+        LocalDate measurementDate;
+
+        for (Measurement i : listOfMeasurements) {
+            measurementDate = i.getDate().toLocalDate();
+            if ((measurementDate.isAfter(localStartDate) && measurementDate.isBefore(localEndDate))||measurementDate.equals(localEndDate)||measurementDate.equals(localStartDate)) {
+                listOfMeasurementsFromXDays.add(i);
+            }
         }
+
         return listOfMeasurementsFromXDays;
     }
 }
