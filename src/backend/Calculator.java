@@ -79,7 +79,8 @@ public class Calculator {
             sum += Math.pow((i.getSugarLevel() - average),2);
         }
         this.deviation = Math.sqrt(sum);
-        return Math.round(this.glycatedHemoglobin * 100) / 100; // zwraca zaokrągloną wartość do 2 miejsc po przecinku
+        this.deviation /=  listOfMeasurements.size();
+        return Math.round(this.deviation * 100) / 100; // zwraca zaokrągloną wartość do 2 miejsc po przecinku
     }
 
 

@@ -4,9 +4,9 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        AllUsers allUsers = new AllUsers();
-
-        allUsers.getUsersFromFile();
-        allUsers.signIn("ania", "234", 1, 140, 90, 80, 150);
+        TxtMeasurementsReader txtMeasurementsReader = new TxtMeasurementsReader("Ania_Kowalska.txt");
+        txtMeasurementsReader.getMeasurements();
+        Calculator calculator = new Calculator();
+        System.out.println(calculator.calculateDeviation(txtMeasurementsReader.getListOfMeasurements()));
     }
 }
