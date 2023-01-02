@@ -45,20 +45,14 @@ public class AppController implements ActionListener {
             System.out.print("TODAY: ");
             System.out.println(mModel.getCurrentDataSet());
             mView.getPlotPanel().repaint();
+            mModel.setLabelsInfo();
+            mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getHipo(),mModel.getHiper(),mModel.getSugarUnit());
 
-           // mView.setLabelAverage("Today average: " + mModel.countAverage("Today") + mModel.getSugarUnit());
-           // mView.setLabelDeviation("Today deviation: " + mModel.countDeviation("Today") + mModel.getSugarUnit());
-           // mView.setLabelHiper("Today hiper: " + mModel.countHiper("Today"));
-           // mView.setLabelHipo("Today hipo: " + mModel.countHipo("Today"));
 
         }
         if (e.getActionCommand().equals("Yesterday")) {
             this.paintButton(mView.getMbutton2());
             mView.getMbutton2().getBackground();
-            //mView.setLabelAverage("Yesterday average: " + mModel.countAverage("Yesterday") + mModel.getSugarUnit());
-            //mView.setLabelDeviation("deviation: " + mModel.countDeviation("Yesterday") + mModel.getSugarUnit());
-            //mView.setLabelHiper("hiper: " + mModel.countHiper("Yesterday"));
-            //mView.setLabelHipo("hipo: " + mModel.countHipo("Yesterday"));
 
             mView.getPlotPanel().setDataset(null);
             mModel.setCurrentDataSet(mModel.getYesterdayDate(),mModel.getYesterdayDate(),mModel.getCurrentUser());
@@ -67,13 +61,12 @@ public class AppController implements ActionListener {
             System.out.print("YESTERDAY: ");
             System.out.println(mModel.getCurrentDataSet());
             mView.getPlotPanel().repaint();
+            mModel.setLabelsInfo();
+            mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getHipo(),mModel.getHiper(),mModel.getSugarUnit());
+
         }
         if (e.getActionCommand().equals("Last 7 days")) {
             this.paintButton(mView.getMbutton3());
-            //mView.setLabelAverage("Last 7 days average: " + mModel.countAverage("Last 7 days") + mModel.getSugarUnit());
-            //mView.setLabelDeviation("deviation: " + mModel.countDeviation("Last 7 days") + mModel.getSugarUnit());
-            //mView.setLabelHiper("hiper: " + mModel.countHiper("Last 7 days"));
-            //mView.setLabelHipo("hipo: " + mModel.countHipo("Last 7 days"));
 
             mView.getPlotPanel().setDataset(null);
             mModel.setCurrentDataSet(mModel.getWeekAgoDate(),mModel.getTodayDate(),mModel.getCurrentUser());
@@ -84,6 +77,10 @@ public class AppController implements ActionListener {
             mView.getPlotPanel().setDates(mModel.getWeekAgoDate(),mModel.getTodayDate());
 
             mView.getPlotPanel().repaint();
+
+            mModel.setLabelsInfo();
+            mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getHipo(),mModel.getHiper(),mModel.getSugarUnit());
+
         }
         if (e.getActionCommand().equals("Your date (range)")) {
             this.paintButton(mView.getMbutton4());
@@ -106,11 +103,10 @@ public class AppController implements ActionListener {
                 System.out.println(mModel.getCurrentDataSet());
                 mView.getPlotPanel().repaint();
 
-                //mView.getPlotPanel().setDataset(null);
-                //mModel.setCurrentDataSet(mModel.getCurrentUser().getMeasurementsFromFileTxt().getListOfMeasurements());
-                //mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
-                //mView.getPlotPanel().repaint();
-                }
+                mModel.setLabelsInfo();
+                mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getHipo(),mModel.getHiper(),mModel.getSugarUnit());
+
+            }
             else{
                 JOptionPane.showMessageDialog(mView.getLoginDialog(),
                         "Invalid date",

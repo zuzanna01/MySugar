@@ -67,12 +67,26 @@ public class AppModel {
 
 
     private double average = 0;
+
+    public double getAverage() {
+        return average;
+    }
+    public double getDeviation() {
+        return deviation;
+    }
+    public int getHipo() {
+        return hipo;
+    }
+    public int getHiper() {
+        return hiper;
+    }
+
     private double deviation = 0;
     private int hipo = 0;
     private int hiper = 0;
 
-    public void setLabelsInfo(Date startDate,Date endDate){
-        this.average = calculator.calculateAverageFromToday(this.currentDataSet);
+    public void setLabelsInfo(){
+        this.average = calculator.calculateAverage(this.currentDataSet);
     }
 
     private String sugarUnit = "mg/dL";

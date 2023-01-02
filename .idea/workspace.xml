@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="chyba już działa - pozioma oś wykresu godizny +daty ze skalowaniem przy zmianie rozmiaru okna">
-      <change afterPath="$PROJECT_DIR$/src/frontend/HourValidator.java" afterDir="false" />
+    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="poprawiłam wybór pomiarów z danego zakresu, wyświetla w mairę wykresy(trochę niedokładnie :/) &#10;i nie wybieraj za dużego zakresu bo pojawia się błąd dzielenia przez ero -&gt; zablokuję potem">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zuzanna.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Zuzanna.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Date.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/JScatterPlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JScatterPlot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/AppModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/AppView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +139,7 @@
       <workItem from="1672606958734" duration="14768000" />
       <workItem from="1672655978342" duration="6996000" />
       <workItem from="1672663139339" duration="367000" />
-      <workItem from="1672663631308" duration="2483000" />
+      <workItem from="1672663631308" duration="4475000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -205,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672621745787</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="poprawiłam wybór pomiarów z danego zakresu, wyświetla w mairę wykresy(trochę niedokładnie :/) &#10;i nie wybieraj za dużego zakresu bo pojawia się błąd dzielenia przez ero -&gt; zablokuję potem">
+      <created>1672667129519</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1672667129519</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,7 +239,8 @@
     <MESSAGE value="plik testowy" />
     <MESSAGE value="oś datami -działa &#10;oś z godzinami - tak średnio" />
     <MESSAGE value="chyba już działa - pozioma oś wykresu godizny +daty ze skalowaniem przy zmianie rozmiaru okna" />
-    <option name="LAST_COMMIT_MESSAGE" value="chyba już działa - pozioma oś wykresu godizny +daty ze skalowaniem przy zmianie rozmiaru okna" />
+    <MESSAGE value="poprawiłam wybór pomiarów z danego zakresu, wyświetla w mairę wykresy(trochę niedokładnie :/) &#10;i nie wybieraj za dużego zakresu bo pojawia się błąd dzielenia przez ero -&gt; zablokuję potem" />
+    <option name="LAST_COMMIT_MESSAGE" value="poprawiłam wybór pomiarów z danego zakresu, wyświetla w mairę wykresy(trochę niedokładnie :/) &#10;i nie wybieraj za dużego zakresu bo pojawia się błąd dzielenia przez ero -&gt; zablokuję potem" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

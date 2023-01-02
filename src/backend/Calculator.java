@@ -68,6 +68,15 @@ public class Calculator {
         return this.average;
     }
 
+    public double calculateAverage(ArrayList<Measurement> listOfMeasurements) {
+        int sum = 0;
+        for (Measurement i : listOfMeasurements) {
+            sum += i.getSugarLevel();
+        }
+        this.average = sum / listOfMeasurements.size();
+        return this.average;
+    }
+
     // szacownanie hemoglobiny glikowanej ze wszystkich pomiarów
     public double calculateGlycatedHemoglobin(ArrayList<Measurement> listOfMeasurements) {
         this.listOfMeasurements = listOfMeasurements;
