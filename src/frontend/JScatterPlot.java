@@ -154,15 +154,15 @@ public class JScatterPlot extends JPanel {
     }
     String[] hours0 = {"00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00",
             "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00",
-            "21:00", "22:00", "23:00", "00:00"};
+            "21:00", "22:00", "23:00", "00:00"};//25>24
 
     String[]hours1={"00:00", "02:00", "04:00", "06:00", "08:00", "10:00",  "12:00",
-            "14:00",  "16:00",  "18:00",  "20:00", "22:00",  "00:00"};
-    String[]hours2 ={"00:00", "03:00", "06:00", "09:00",  "12:00",  "15:00",  "18:00", "21:00", "00:00"};
-    String[] hours3 ={"00:00","06:00","12:00","18:00","00:00"};
-    String []hours4 ={"00:00","12:00","18:00","00:00"};
-    String [] hours5 ={"00:00","12:00","00:00"};
+            "14:00",  "16:00",  "18:00",  "20:00", "22:00",  "00:00"}; //13>12
+    String[]hours2 ={"00:00", "03:00", "06:00", "09:00",  "12:00",  "15:00",  "18:00", "21:00", "00:00"};//9>8
+    String[] hours3 ={"00:00","06:00","12:00","18:00","00:00"};//5>4
+    String [] hours4 ={"00:00","12:00","00:00"};//3>2
     String[] hours;
+    Integer[] deviders ={24,12,8,4,2};
 
     List<String> hoursList;
 
@@ -172,7 +172,6 @@ public class JScatterPlot extends JPanel {
         else if (i == 2) hours = hours2;
         else if (i == 3) hours = hours3;
         else if (i == 4) hours = hours4;
-        else if (i == 5) hours = hours5;
         else hours = new String[]{"00:00"};
         hoursList = new LinkedList<String>(Arrays.asList(hours));
         if (dates == null) return;
@@ -186,20 +185,22 @@ public class JScatterPlot extends JPanel {
     private void paintAxisX(Graphics2D g2d){
         x = (int) (width -17);
         int hourWidth=36;
-        int divider =24;
+        int i =0;
+        int divider =deviders[i];
         int gapWidth1;
-        int skipper =0;
         int smallwidth;
 
 
         if(this.dates==null||this.dates.size()==1) {
             gapWidth1 = (int) (width - divider* hourWidth) / divider;
             while (gapWidth1<=0) {
-                divider=divider/2;
+                i++;
+                if(i<5)divider=deviders[i];
+                else divider =divider/2;
                 gapWidth1 = (int) (width - divider* hourWidth) / divider;
-                skipper++;
+                if(i>20)break;
             }
-            this.setHours(skipper);
+            this.setHours(i);
             for (String idx : hoursList) {
 
                 g2d.drawString(idx, (int) (this.width - x), this.getHeight() - 10);
@@ -210,11 +211,13 @@ public class JScatterPlot extends JPanel {
             smallwidth= (int) (width/this.dates.size());
             gapWidth1 =  (smallwidth - divider* hourWidth) / divider;
             while (gapWidth1<=0) {
-                divider=divider/2;
+                i++;
+                if(i<5)divider=deviders[i];
+                else divider =divider/2;
                 gapWidth1 = (int) (smallwidth - divider* hourWidth) / divider;
-                skipper++;
+                if(i>20)break;
             }
-            this.setHours(skipper);
+            this.setHours(i);
             for(int j =0;j<this.dates.size();j++){
 
                 for (String idx : hoursList) {
@@ -233,7 +236,7 @@ public class JScatterPlot extends JPanel {
         x = (int) (width -35);
         int dateWidth =62;
         int gapWidth2= (int) ((width-dateWidth*dates.size())/dates.size());
-        x-=gapWidth2/2;
+        x -= gapWidth2/2;
         for (LocalDate idx : dates){
             g2d.drawString(idx.format(DateTimeFormatter.ofPattern("dd-MM-uuuu")), (int) (this.width-x),this.getHeight()-40);
             x-=dateWidth+gapWidth2;
@@ -243,4 +246,4 @@ public class JScatterPlot extends JPanel {
 
 }
 
-//TO DO : przesunąć trochę kropki do góry i w bok
+//uwzglednić daty w położeniu kropek
