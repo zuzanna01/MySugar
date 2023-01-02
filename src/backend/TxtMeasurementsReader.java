@@ -7,11 +7,13 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class TxtMeasuremetsReader implements ReadMeasurements {
+public class TxtMeasurementsReader implements MeasurementsReader {
     private Measurement measurement;
     private ArrayList<Measurement> listOfMeasurements;
-    public TxtMeasuremetsReader(){
+    private String fileName;
+    public TxtMeasurementsReader(String fileName){
         this.listOfMeasurements = new ArrayList<>();
+        this.fileName = fileName;
     }
 
     public void setMeasurement(Measurement measurement) {
@@ -57,7 +59,9 @@ public class TxtMeasuremetsReader implements ReadMeasurements {
 
     // o tutaj jest użyta ta funkcja do pobierania jednego pomiaru
     // ta metoda to pobranie wszystkich pomiarów z pliku
-    public void getMeasurements(String fileName) {
+
+    @Override
+    public void getMeasurements() {
        try {
             Scanner reader = new Scanner(new File(fileName));
             while(reader.hasNextLine()) {
