@@ -3,6 +3,8 @@ package frontend;
 import backend.*;
 
 import java.io.IOException;
+import java.security.PrivilegedAction;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 
@@ -14,15 +16,34 @@ import java.util.ArrayList;
  */
 
 public class AppModel {
-    private Calculator calculator = new Calculator();
 
-    private AllUsers UsersList = new AllUsers();
-    public AllUsers getUsersList() {
-        return UsersList;
+    private Calculator calculator = new Calculator();
+    private UserValidator userValidator = new UserValidator();
+    public UserValidator getUserValidator() {
+        return userValidator;
     }
 
+    private LocalDate localTodayDate;
+    private LocalDate localYesterdayDate ;
+    private LocalDate localWeekAgoDate ;
+    private Date todayDate;
+    private Date yesterdayDate;
+    private Date weekAgoDate;
+    public Date getTodayDate() {
+        return todayDate;
+    }
+    public Date getYesterdayDate() {
+        return yesterdayDate;
+    }
+    public Date getWeekAgoDate(){return weekAgoDate;}
+
     public AppModel() {
-        UsersList.getUsersFromFile();
+        localTodayDate = LocalDate.now();
+        todayDate = new Date(localTodayDate.getDayOfMonth(), localTodayDate.getMonthValue(), localTodayDate.getYear());
+        localYesterdayDate = localTodayDate.minusDays(1);
+        yesterdayDate = new Date(localYesterdayDate.getDayOfMonth(), localYesterdayDate.getMonthValue(), localYesterdayDate.getYear());
+        localWeekAgoDate = localTodayDate.minusDays(6);
+        weekAgoDate = new Date(localWeekAgoDate.getDayOfMonth(),localWeekAgoDate.getMonthValue(), localWeekAgoDate.getYear());
     }
 
     private User currentUser;
@@ -40,25 +61,33 @@ public class AppModel {
     public void setCurrentDataSet(ArrayList<Measurement> currentDataSet) {
         this.currentDataSet = currentDataSet;
     }
-
-    public boolean authenticate(String username, String password) {
-        return this.UsersList.logIn(username, password);
+    public void setCurrentDataSet(Date dateFrom, Date dateTo, User currentUser) {
+        this.currentDataSet = calculator.getDataFromGivenPeriod(dateFrom, dateTo, currentUser.getMeasurementsFromFileTxt().getListOfMeasurements());
     }
-    public void addNewUserToFile(User newUser) {
-        try {
-            UsersList.signIn(newUser.getUserName(), newUser.getPassword(), newUser.getTypeOfDiabities(),
-                    newUser.getUpperTargetRage(), newUser.getLowerTargetRage(),
-                    newUser.getHipoglycemia(), newUser.getHiperglycemia());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
 
-    }
 
     private double average = 0;
+
+    public double getAverage() {
+        return average;
+    }
+    public double getDeviation() {
+        return deviation;
+    }
+    public int getHipo() {
+        return hipo;
+    }
+    public int getHiper() {
+        return hiper;
+    }
+
     private double deviation = 0;
     private int hipo = 0;
     private int hiper = 0;
+
+    public void setLabelsInfo(){
+        this.average = calculator.calculateAverage(this.currentDataSet);
+    }
 
     private String sugarUnit = "mg/dL";
     public String getSugarUnit() {
@@ -68,50 +97,22 @@ public class AppModel {
         this.sugarUnit = sugarUnit;
     }
 
-
-    public double countAverage(String date) {
-        if (date.equals("Today")) {
-            this.average = 95;
-            return this.average;
-        } else if (date.equals("Yesterday")) {
-            this.average = 100;
-            return this.average;
-        } else if (date.equals("Last 7 days")) {
-            this.average = 130;
-            return this.average;
-        } else return 0;
+    public double countAverage(Date dateFrom, Date dateTo) {
+        return this.average;
     }
 
-    public double countDeviation(String date) {
-        if (date.equals("Today")) {
-            this.deviation = 10;
-        } else if (date.equals("Yesterday")) {
-            this.deviation = 12;
-        } else if (date.equals("Last 7 days")) {
-            this.deviation = 13;
-        }
+    public double countDeviation(Date dateFrom, Date dateTo) {
+
         return this.deviation;
     }
 
-    public int countHipo(String date) {
-        if (date.equals("Today")) {
-            this.hipo = 0;
-        } else if (date.equals("Yesterday")) {
-            this.hipo = 1;
-        } else if (date.equals("Last 7 days")) {
-            this.hipo = 5;
-        }
+    public int countHipo(Date dateFrom, Date dateTo) {
+
         return this.hipo;
     }
 
-    public int countHiper(String date) {
-        if (date.equals("Today")) {
-            this.hiper = 0;
-        } else if (date.equals("Yesterday")) {
-            this.hiper = 1;
-        } else if (date.equals("Last 7 days")) {
-            this.hiper = 5;
-        }
+    public int countHiper(Date dateFrom, Date dateTo) {
+
         return this.hiper;
     }
 

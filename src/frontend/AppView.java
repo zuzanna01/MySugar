@@ -164,5 +164,10 @@ public class AppView extends JFrame {
         this.mtimesHyper.setText(hiper);
     }
 
-
+public void setLabelsInfo(double average,double deviation,int hipo, int hiper,String sugarUnit){
+     setLabelAverage("average: " + average + sugarUnit);
+     setLabelDeviation("deviation: " +deviation+ sugarUnit);
+     setLabelHiper("hiper: " + hiper);
+     setLabelHipo("hipo: " + hipo);
+}
 }

@@ -1,5 +1,7 @@
 package backend;
 
+import java.time.LocalDate;
+
 public class Date {
     private int day;
     private int month;
@@ -11,9 +13,29 @@ public class Date {
         this.year = year;
     }
 
+    public Date (LocalDate localDate){
+        this.day = localDate.getDayOfMonth();
+        this.month =localDate.getMonthValue();
+        this.year=localDate.getYear();
+    }
+
+    private LocalDate localDateFormat;
+    public LocalDate toLocalDate(){
+        localDateFormat = LocalDate.of(this.getYear(),this.getMonth(),this.getDay());
+        return localDateFormat;
+    }
+
+
+    private String day_str;
+    private String  month_str;
     @Override
     public String toString() {
-        return day + "-" + month + "-" + year;
+        day_str= String.valueOf(day);
+        if(day_str.length()==1)day_str="0"+day_str;
+        month_str= String.valueOf(month);
+        if(month_str.length()==1)month_str="0"+month_str;
+
+        return day_str + "-" + month_str + "-" + year;
     }
 
     public Date(String date){

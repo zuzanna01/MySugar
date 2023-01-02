@@ -80,7 +80,7 @@ public class TxtMeasuremetsReader implements ReadMeasurements {
         try{
             File file = new File("./"+currentUser.getUserName()+".txt");
             FileWriter fileWriter = new FileWriter(file, true);
-            fileWriter.write("\n" + measurement);
+            fileWriter.write( measurement+"\n"); // przy wpisywaniu pierwszego pomiar do pustego pliku tworzyłą się pusta linijka na początku
             fileWriter.close();
         }catch(Exception e){
         }

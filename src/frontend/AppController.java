@@ -32,48 +32,55 @@ public class AppController implements ActionListener {
     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-uuuu", Locale.US)
             .withResolverStyle(ResolverStyle.STRICT);
     DateValidator checkDate = new DateValidator(dateFormatter);
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
         if (e.getActionCommand().equals("Today")) {
             this.paintButton(mView.getMbutton1());
             mView.getPlotPanel().setDataset(null);
-            mModel.setCurrentDataSet(mModel.getCurrentUser().getMeasurementsFromFileTxt().getListOfMeasurements());
+            mModel.setCurrentDataSet(mModel.getTodayDate(),mModel.getTodayDate(), mModel.getCurrentUser());
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
-
-
-            mView.setLabelAverage("Today average: " + mModel.countAverage("Today") + mModel.getSugarUnit());
-            mView.setLabelDeviation("Today deviation: " + mModel.countDeviation("Today") + mModel.getSugarUnit());
-            mView.setLabelHiper("Today hiper: " + mModel.countHiper("Today"));
-            mView.setLabelHipo("Today hipo: " + mModel.countHipo("Today"));
+            mView.getPlotPanel().setDates(mModel.getTodayDate(),mModel.getTodayDate());
+            System.out.print("TODAY: ");
+            System.out.println(mModel.getCurrentDataSet());
             mView.getPlotPanel().repaint();
+            mModel.setLabelsInfo();
+            mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getHipo(),mModel.getHiper(),mModel.getSugarUnit());
+
 
         }
         if (e.getActionCommand().equals("Yesterday")) {
             this.paintButton(mView.getMbutton2());
             mView.getMbutton2().getBackground();
-            mView.setLabelAverage("Yesterday average: " + mModel.countAverage("Yesterday") + mModel.getSugarUnit());
-            mView.setLabelDeviation("deviation: " + mModel.countDeviation("Yesterday") + mModel.getSugarUnit());
-            mView.setLabelHiper("hiper: " + mModel.countHiper("Yesterday"));
-            mView.setLabelHipo("hipo: " + mModel.countHipo("Yesterday"));
 
             mView.getPlotPanel().setDataset(null);
-            mModel.setCurrentDataSet(mModel.getCurrentUser().getMeasurementsFromFileTxt().getListOfMeasurements());
+            mModel.setCurrentDataSet(mModel.getYesterdayDate(),mModel.getYesterdayDate(),mModel.getCurrentUser());
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
+            mView.getPlotPanel().setDates(mModel.getYesterdayDate(),mModel.getYesterdayDate());
+            System.out.print("YESTERDAY: ");
+            System.out.println(mModel.getCurrentDataSet());
             mView.getPlotPanel().repaint();
+            mModel.setLabelsInfo();
+            mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getHipo(),mModel.getHiper(),mModel.getSugarUnit());
+
         }
         if (e.getActionCommand().equals("Last 7 days")) {
             this.paintButton(mView.getMbutton3());
-            mView.setLabelAverage("Last 7 days average: " + mModel.countAverage("Last 7 days") + mModel.getSugarUnit());
-            mView.setLabelDeviation("deviation: " + mModel.countDeviation("Last 7 days") + mModel.getSugarUnit());
-            mView.setLabelHiper("hiper: " + mModel.countHiper("Last 7 days"));
-            mView.setLabelHipo("hipo: " + mModel.countHipo("Last 7 days"));
 
             mView.getPlotPanel().setDataset(null);
+            mModel.setCurrentDataSet(mModel.getWeekAgoDate(),mModel.getTodayDate(),mModel.getCurrentUser());
+            System.out.println("FROM: "+mModel.getWeekAgoDate()+"TO: "+mModel.getTodayDate());
+            System.out.println(mModel.getCurrentDataSet());
 
-            mModel.setCurrentDataSet(mModel.getCurrentUser().getMeasurementsFromFileTxt().getListOfMeasurements());
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
+            mView.getPlotPanel().setDates(mModel.getWeekAgoDate(),mModel.getTodayDate());
+
             mView.getPlotPanel().repaint();
+
+            mModel.setLabelsInfo();
+            mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getHipo(),mModel.getHiper(),mModel.getSugarUnit());
+
         }
         if (e.getActionCommand().equals("Your date (range)")) {
             this.paintButton(mView.getMbutton4());
@@ -85,22 +92,28 @@ public class AppController implements ActionListener {
             if (checkDate.isValid(fromdate_str) && checkDate.isValid(todate_str)) {
                 Date fromdate = new Date(fromdate_str);
                 Date todate = new Date(todate_str);
-                System.out.println(fromdate);
-                System.out.println(todate);
 
                 mView.getChooseDateRangeDialog().dispose();
-                //mView.getPlotPanel().setDataset(null);
-                //mModel.setCurrentDataSet(mModel.getCurrentUser().getMeasurementsFromFileTxt().getListOfMeasurements());
-                //mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
-                //mView.getPlotPanel().repaint();
-                }
+
+                mView.getPlotPanel().setDataset(null);
+                mModel.setCurrentDataSet(fromdate,todate,mModel.getCurrentUser());
+                mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
+                mView.getPlotPanel().setDates(fromdate,todate);
+                System.out.println("FROM: "+fromdate+"TO: "+todate);
+                System.out.println(mModel.getCurrentDataSet());
+                mView.getPlotPanel().repaint();
+
+                mModel.setLabelsInfo();
+                mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getHipo(),mModel.getHiper(),mModel.getSugarUnit());
+
+            }
             else{
                 JOptionPane.showMessageDialog(mView.getLoginDialog(),
                         "Invalid date",
                         "",
                         JOptionPane.ERROR_MESSAGE);
 
-                // reset username and password
+                // reset date TO DO:
 
             }
 
@@ -108,7 +121,7 @@ public class AppController implements ActionListener {
         }
 
         if (e.getActionCommand().equals("Login")) {
-            if (mModel.authenticate(mView.getLoginDialog().getUsername(), mView.getLoginDialog().getPassword())) {
+            if (mModel.getUserValidator().authenticate(mView.getLoginDialog().getUsername(), mView.getLoginDialog().getPassword())) {
                 JOptionPane.showMessageDialog(mView.getLoginDialog(),
                         "Hi " + mView.getLoginDialog().getUsername() + "! You have successfully logged in.",
                         "Login",
@@ -116,7 +129,7 @@ public class AppController implements ActionListener {
                 mView.getLoginDialog().setSucceeded(true);
                 mView.getLoginDialog().dispose();
 
-                User currentUser = mModel.getUsersList().findUser(mView.getLoginDialog().getUsername());
+                User currentUser = mModel.getUserValidator().getUserData(mView.getLoginDialog().getUsername());
                 currentUser.getDataFromUsersFile();
                 mModel.setCurrentUser(currentUser);
                 mView.getPlotPanel().setLines(currentUser);
@@ -152,7 +165,7 @@ public class AppController implements ActionListener {
                     Integer.parseInt(mView.getNewUserDialog().getTxtHipoglycemia().getText().trim()),
                     Integer.parseInt(mView.getNewUserDialog().getTxtHiperglycemia().getText().trim()));
 
-            mModel.addNewUserToFile(newUser);
+            mModel.getUserValidator().addNewUserToList(newUser);
             mModel.setCurrentUser(newUser);
             mView.getPlotPanel().setLines(newUser);
             mView.getPlotPanel().repaint();
