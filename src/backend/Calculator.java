@@ -10,6 +10,17 @@ public class Calculator {
     private double glycatedHemoglobin;
     private double deviation;
 
+    public int getTimesHipo() {
+        return timesHipo;
+    }
+
+    public int getTimesHiper() {
+        return timesHiper;
+    }
+
+    private int timesHipo;
+    private int timesHiper;
+
     private int numberOfDays;
     private ArrayList<Measurement> listOfMeasurements = new ArrayList<>();
 
@@ -118,6 +129,22 @@ public class Calculator {
         }
 
         return listOfMeasurementsFromXDays;
+    }
+
+    public void countHipoAndHiper(ArrayList<Measurement> listOfMeasurements) {
+
+        timesHipo =0;
+        timesHiper=0;
+
+        for (Measurement i : listOfMeasurements) {
+
+            if (i.isHipoglycemia()) {
+                this.timesHipo++;
+            }
+            if (i.isHiperglycemia()) {
+                this.timesHiper++;
+            }
+        }
     }
 
 

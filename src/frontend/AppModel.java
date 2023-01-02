@@ -58,35 +58,34 @@ public class AppModel {
     public ArrayList<Measurement> getCurrentDataSet() {
         return currentDataSet;
     }
-    public void setCurrentDataSet(ArrayList<Measurement> currentDataSet) {
-        this.currentDataSet = currentDataSet;
-    }
     public void setCurrentDataSet(Date dateFrom, Date dateTo, User currentUser) {
         this.currentDataSet = calculator.getDataFromGivenPeriod(dateFrom, dateTo, currentUser.getMeasurementsFromFileTxt().getListOfMeasurements());
     }
 
 
     private double average = 0;
-
+    private double deviation = 0;
+    private int timesHipo = 0;
+    private int timesHiper= 0;
     public double getAverage() {
         return average;
     }
     public double getDeviation() {
         return deviation;
     }
-    public int getHipo() {
-        return hipo;
+    public int getTimesHipo() {
+        return timesHipo;
     }
-    public int getHiper() {
-        return hiper;
+    public int getTimesHiper() {
+        return timesHiper;
     }
-
-    private double deviation = 0;
-    private int hipo = 0;
-    private int hiper = 0;
 
     public void setLabelsInfo(){
         this.average = calculator.calculateAverage(this.currentDataSet);
+        this.deviation = calculator.calculateDeviation(this.currentDataSet);
+        this.calculator.countHipoAndHiper(this.currentDataSet);
+        this.timesHiper= calculator.getTimesHiper();
+        this.timesHipo = calculator.getTimesHipo();
     }
 
     private String sugarUnit = "mg/dL";
@@ -95,25 +94,6 @@ public class AppModel {
     }
     public void setSugarUnit(String sugarUnit) {
         this.sugarUnit = sugarUnit;
-    }
-
-    public double countAverage(Date dateFrom, Date dateTo) {
-        return this.average;
-    }
-
-    public double countDeviation(Date dateFrom, Date dateTo) {
-
-        return this.deviation;
-    }
-
-    public int countHipo(Date dateFrom, Date dateTo) {
-
-        return this.hipo;
-    }
-
-    public int countHiper(Date dateFrom, Date dateTo) {
-
-        return this.hiper;
     }
 
 
