@@ -8,6 +8,7 @@ public class Calculator {
     final double CONSTANT_SECOND = 28.7;
     private double average;
     private double glycatedHemoglobin;
+    private double deviation;
 
     private int numberOfDays;
     private ArrayList<Measurement> listOfMeasurements = new ArrayList<>();
@@ -31,15 +32,6 @@ public class Calculator {
 
     // średnia z dowolnej ilości dni
     public double calculateAverage(ArrayList<Measurement> listOfMeasurements){
-       /* ArrayList<Measurement> listOfMeasurementsFromXDays = new ArrayList<>();
-
-        LocalDate dateFrom = calculateDate(numberOfDays);
-
-        for(Measurement i : listOfMeasurements){
-            if(i.getDate().getYear() >= dateFrom.getYear() && i.getDate().getMonth()>= dateFrom.getMonthValue() && i.getDate().getDay() >= dateFrom.getDayOfMonth()){
-                listOfMeasurementsFromXDays.add(i);
-            }
-        }*/
         int sum = 0;
         for( Measurement i: listOfMeasurements){
             sum += i.getSugarLevel();
@@ -66,16 +58,30 @@ public class Calculator {
         return this.average;
     }
 
-    // szacownanie hemoglobiny glikowanej z max 30 dni
+    // szacownanie hemoglobiny glikowanej z max 30 dni TUTAJ MUSISZ DAĆ LISTĘ Z NIEWYCIĘTEGO ZAKRESU
     public double calculateGlycatedHemoglobin(ArrayList<Measurement> listOfMeasurements){
         this.listOfMeasurements = listOfMeasurements;
         double average = 0;
-       // average = calculateAverage(listOfMeasurements, 30);
+
+        average = calculateAverage(getDataFromPeriod(30,listOfMeasurements));
 
         this.glycatedHemoglobin = (average * CONSTANT_FIRST) / CONSTANT_SECOND;
 
         return Math.round(this.glycatedHemoglobin * 100) / 100; // zwraca zaokrągloną wartość do 2 miejsc po przecinku
     }
+
+    public double calculateDeviation(ArrayList<Measurement> listOfMeasurements){
+        this.listOfMeasurements = listOfMeasurements;
+        double average = 0;
+        double sum = 0;
+        average = calculateAverage(listOfMeasurements);
+        for(Measurement i : listOfMeasurements){
+            sum += Math.pow((i.getSugarLevel() - average),2);
+        }
+        this.deviation = Math.sqrt(sum);
+        return Math.round(this.glycatedHemoglobin * 100) / 100; // zwraca zaokrągloną wartość do 2 miejsc po przecinku
+    }
+
 
     // wyznaczanie
     public LocalDate calculateDate (int numberOfDays){

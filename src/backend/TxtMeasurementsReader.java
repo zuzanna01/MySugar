@@ -82,9 +82,9 @@ public class TxtMeasurementsReader implements MeasurementsReader {
         this.listOfMeasurements.add(measurement);
 
         try{
-            File file = new File("./"+currentUser.getUserName()+".txt");
+            File file = new File("./" + currentUser.getUserName() + ".txt");
             FileWriter fileWriter = new FileWriter(file, true);
-            fileWriter.write( measurement+"\n"); // przy wpisywaniu pierwszego pomiar do pustego pliku tworzyłą się pusta linijka na początku
+            fileWriter.write( measurement + "\n"); // przy wpisywaniu pierwszego pomiar do pustego pliku tworzyłą się pusta linijka na początku
             fileWriter.close();
         }catch(Exception e){
         }
