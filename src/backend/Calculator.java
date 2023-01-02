@@ -30,8 +30,8 @@ public class Calculator {
 
 
     // średnia z dowolnej ilości dni
-    public double calculateAverage(ArrayList<Measurement> listOfMeasurements, int numberOfDays){
-        ArrayList<Measurement> listOfMeasurementsFromXDays = new ArrayList<>();
+    public double calculateAverage(ArrayList<Measurement> listOfMeasurements){
+       /* ArrayList<Measurement> listOfMeasurementsFromXDays = new ArrayList<>();
 
         LocalDate dateFrom = calculateDate(numberOfDays);
 
@@ -39,12 +39,12 @@ public class Calculator {
             if(i.getDate().getYear() >= dateFrom.getYear() && i.getDate().getMonth()>= dateFrom.getMonthValue() && i.getDate().getDay() >= dateFrom.getDayOfMonth()){
                 listOfMeasurementsFromXDays.add(i);
             }
-        }
+        }*/
         int sum = 0;
-        for( Measurement i: listOfMeasurementsFromXDays){
+        for( Measurement i: listOfMeasurements){
             sum += i.getSugarLevel();
         }
-        this.average = sum / listOfMeasurementsFromXDays.size();
+        this.average = sum / listOfMeasurements.size();
         return this.average;
     }
 
@@ -70,7 +70,7 @@ public class Calculator {
     public double calculateGlycatedHemoglobin(ArrayList<Measurement> listOfMeasurements){
         this.listOfMeasurements = listOfMeasurements;
         double average = 0;
-        average = calculateAverage(listOfMeasurements, 30);
+       // average = calculateAverage(listOfMeasurements, 30);
 
         this.glycatedHemoglobin = (average * CONSTANT_FIRST) / CONSTANT_SECOND;
 
