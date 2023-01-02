@@ -104,50 +104,22 @@ public class Calculator {
 
     // wyciannie danych dla dowolnego zakresu
     public ArrayList<Measurement> getDataFromGivenPeriod (Date date1, Date date2, ArrayList<Measurement> listOfMeasurements){
+        LocalDate localStartDate = date1.toLocalDate();
+        LocalDate localEndDate = date2.toLocalDate();
         ArrayList<Measurement> listOfMeasurementsFromXDays = new ArrayList<>();
-        for(Measurement i : listOfMeasurements){
-            if(i.getDate().getYear() == date1.getYear()){
-                if(i.getDate().getMonth() == date1.getMonth()){
-                    if(i.getDate().getDay() >= date1.getDay()){
-                        if(i.getDate().getYear() == date2.getYear()){
-                            if(i.getDate().getMonth() == date2.getMonth()) {
-                                if (i.getDate().getDay() <= date2.getDay()) {
-                                    listOfMeasurementsFromXDays.add(i);
-                                }
-                            }else if(i.getDate().getMonth() < date2.getMonth()){
-                                listOfMeasurementsFromXDays.add(i);
-                            }
-                        }else if(i.getDate().getYear() < date2.getMonth()){
-                            listOfMeasurementsFromXDays.add(i);
-                        }
-                    }
-                }else if(i.getDate().getMonth() > date1.getMonth()){
-                    if(i.getDate().getYear() == date2.getYear()){
-                        if(i.getDate().getMonth() == date2.getMonth()) {
-                            if (i.getDate().getDay() <= date2.getDay()) {
-                                listOfMeasurementsFromXDays.add(i);
-                            }
-                        }else if(i.getDate().getMonth() < date2.getMonth()){
-                            listOfMeasurementsFromXDays.add(i);
-                        }
-                    }else if(i.getDate().getYear() < date2.getMonth()){
-                        listOfMeasurementsFromXDays.add(i);
-                    }
-                }
-            }else if(i.getDate().getYear() > date1.getYear()) {
-                if(i.getDate().getYear() == date2.getYear()){
-                    if(i.getDate().getMonth() == date2.getMonth()){
-                        if(i.getDate().getDay() <= date2.getDay()){
-                            listOfMeasurementsFromXDays.add(i);
-                        }
-                    }else if(i.getDate().getMonth() < date2.getMonth()){
-                        listOfMeasurementsFromXDays.add(i);
-                    }
-                }else if(i.getDate().getYear() < date2.getMonth()){
-                    listOfMeasurementsFromXDays.add(i);
-                }
+
+        LocalDate measurementDate;
+
+        for (Measurement i : listOfMeasurements) {
+            measurementDate = i.getDate().toLocalDate();
+            if ((measurementDate.isAfter(localStartDate) && measurementDate.isBefore(localEndDate))||measurementDate.equals(localEndDate)||measurementDate.equals(localStartDate)) {
+                listOfMeasurementsFromXDays.add(i);
             }
         }
+
         return listOfMeasurementsFromXDays;
     }
+
+
+
 }
