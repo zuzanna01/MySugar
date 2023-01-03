@@ -7,21 +7,19 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class CsvMeasurementsReader implements MeasurementsReader {
-    private Measurement measurement;
     private ArrayList<Measurement> listOfMeasurements;
+    private Measurement measurement;
     private String fileName;
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
+    private User currentUser;
 
     public String getFileName() {
         return fileName;
     }
 
-    public CsvMeasurementsReader(String fileName) {
+    public CsvMeasurementsReader(String fileName, User currentUser) {
         this.listOfMeasurements = new ArrayList<>();
         this.fileName = fileName;
+        this.currentUser = currentUser;
     }
 
     public void setMeasurement(Measurement measurement) {
@@ -76,6 +74,11 @@ public class CsvMeasurementsReader implements MeasurementsReader {
     }
 
     @Override
+    public void saveNewMeasurements(){
+        getMeasurements();
+        currentUser.saveMeasurementsToUsersFile(this.listOfMeasurements);
+    }
+
     public void getMeasurements(){
         try {
             Scanner reader = new Scanner(new File(fileName));

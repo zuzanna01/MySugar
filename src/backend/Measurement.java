@@ -2,22 +2,14 @@ package backend;
 
 public class Measurement {
 
-    @Override
-    public String toString() {
-        return  sugarLevel + " " + time + " " + date ;
-    }
-
     private int sugarLevel;
     private Date date;
-
     public void setTime(Time time) {
         this.time = time;
     }
-
     private Time time;
     private boolean hipoglycemia = false;
     private boolean hiperglycemia = false;
-
 
     public Measurement(int sugarLevel, int day, int month, int year, int hour, int minute){
         this.time = new Time(hour, minute);
@@ -76,6 +68,11 @@ public class Measurement {
 
     public void setHipoglycemia(boolean hipoglycemia) {
         this.hipoglycemia = hipoglycemia;
+    }
+
+    @Override
+    public String toString() {
+        return  sugarLevel + " " + time + " " + date ;
     }
 
 }
