@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="CsvMeasurementsReader poprawa niezgodności z interfejsem">
-      <change beforePath="$PROJECT_DIR$/src/backend/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/User.java" afterDir="false" />
+    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/AppModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/JAddingNewMeasurementDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JAddingNewMeasurementDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/JAddingNewUserDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JAddingNewUserDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/UserValidator.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +26,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-17.0.4.1/lib/src.zip!/java.base/java/util/Scanner.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-17.0.4.1/lib/src.zip!/java.desktop/java/awt/event/ActionListener.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -47,10 +56,10 @@
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/User/IdeaProjects/PJAVA_MySugar/src/frontend&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -130,6 +139,7 @@
       <workItem from="1672333581600" duration="1419000" />
       <workItem from="1672427324412" duration="17007000" />
       <workItem from="1672665307926" duration="4633000" />
+      <workItem from="1672782370338" duration="3358000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -208,21 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672670955001</updated>
     </task>
-    <task id="LOCAL-00012" summary="poparwa UserMeasurementsReader oraz TxtMeasurementsReader">
-      <created>1672778588770</created>
+    <task id="LOCAL-00012" summary="wybór pomiarów">
+      <created>1672681493785</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1672778588770</updated>
+      <updated>1672681493785</updated>
     </task>
-    <task id="LOCAL-00013" summary="CsvMeasurementsReader poprawa niezgodności z interfejsem">
-      <created>1672779269413</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1672779269413</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,9 +253,8 @@
     <MESSAGE value="wycinanie listy pomiarów z dowolnego podanego zakresu" />
     <MESSAGE value="poprawa interfejsu MeasurementsReader" />
     <MESSAGE value="poprawa średniej" />
-    <MESSAGE value="poparwa UserMeasurementsReader oraz TxtMeasurementsReader" />
-    <MESSAGE value="CsvMeasurementsReader poprawa niezgodności z interfejsem" />
-    <option name="LAST_COMMIT_MESSAGE" value="CsvMeasurementsReader poprawa niezgodności z interfejsem" />
+    <MESSAGE value="wybór pomiarów" />
+    <option name="LAST_COMMIT_MESSAGE" value="wybór pomiarów" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -265,6 +267,11 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="26" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/User.java</url>
+          <line>134</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

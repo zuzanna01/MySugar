@@ -81,9 +81,12 @@ public class JAddingNewMeasurementDialog extends JDialog {
         mainPanel.add(addingPanel);
         mainPanel.add(buttonPanel);
 
+      //  newMeasurement = Measurement();
+
     }
 
     public void saveNewMeasurement() {
+        //newMeasurement = Measurement()
         this.newMeasurement.setSugarLevel(Integer.parseInt(txtSugarLevel.getText().trim()));
         this.newMeasurement.setDate(new Date(txtDate.getText().trim()));
         this.newMeasurement.setTime(new Time(txtTime.getText().trim()));

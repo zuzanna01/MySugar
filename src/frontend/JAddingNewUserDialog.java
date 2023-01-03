@@ -1,5 +1,7 @@
 package frontend;
 
+import backend.User;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -148,6 +150,35 @@ public class JAddingNewUserDialog extends JDialog {
         mainPanel.add(addingPanel);
         mainPanel.add(buttonPanel);
 
+
+
+    }
+    User newUser;
+    public User getNewUserData(){
+        newUser = new User(getUserName(),getPassword(),getTypeOfDiabetes(),getUpperTargetRange(),getLowerTargetRange(),
+                getHipoglycemiaLevel(),getHiperglycemiaLevel());
+        return newUser;
+    }
+    public String getUserName(){
+        return getTxtUsername().getText().trim();
+    }
+    public String getPassword(){
+        return getTxtPassword().getText().trim();
+    }
+    public int getTypeOfDiabetes(){
+        return Integer.parseInt(getTxtTypeOfDiabetes().getText().trim());
+    }
+    public int  getUpperTargetRange(){
+        return Integer.parseInt(getTxtUpperTargetRange().getText().trim());
+    }
+    public int  getLowerTargetRange(){
+        return Integer.parseInt(getTxtUpperTargetRange().getText().trim());
+    }
+    public int  getHipoglycemiaLevel(){
+        return Integer.parseInt(getTxtHipoglycemia().getText().trim());
+    }
+    public int  getHiperglycemiaLevel(){
+        return Integer.parseInt(getTxtHiperglycemia().getText().trim());
     }
 
 

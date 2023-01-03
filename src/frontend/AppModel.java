@@ -18,9 +18,10 @@ import java.util.ArrayList;
 public class AppModel {
 
     private Calculator calculator = new Calculator();
-    private UserValidator userValidator = new UserValidator();
-    public UserValidator getUserValidator() {
-        return userValidator;
+
+    private AllUsers allUsers = new AllUsers();
+    public AllUsers getAllUsers() {
+        return allUsers;
     }
 
     private LocalDate localTodayDate;
