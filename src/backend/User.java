@@ -110,22 +110,6 @@ public class User {
         }
     }
 
-    // zliczanie hipoglikemi i hiperglikemi dla pacjenta ze wszystkich jego pomiarów,
-    // jako argument trzeba podać listę pomiarów użytkownika
-    // można zliczyć z konkretengo zakredu używając wcześniej calculator getDataFromPeriod
-    public void countHipoAndHiper(ArrayList<Measurement> listOfMeasurements) {
-
-        for (Measurement i : listOfMeasurements) {
-
-            if (i.isHipoglycemia()) {
-                this.hipoglycemiaCounter++;
-            }
-            if (i.isHiperglycemia()) {
-                this.hiperglycemiaCounter++;
-            }
-        }
-    }
-
     public void saveMeasurementsToUsersFile(ArrayList<Measurement> listOfNewMeasurements){
         try{
             File file = new File(this.userName + ".txt");
@@ -137,4 +121,20 @@ public class User {
         }catch(Exception e){
         }
     }
+
+
+    //user powinien miec swoją listę pomiarów
+    public void checkHipoAndHiper(ArrayList<Measurement> listOfMeasurements) {
+
+        for (Measurement i : listOfMeasurements) {
+
+            if (i.isHipoglycemia()) {
+                i.setHipoglycemia(true);
+            }
+            if (i.isHiperglycemia()) {
+                i.setHipoglycemia(true);
+            }
+        }
+    }
+
 }

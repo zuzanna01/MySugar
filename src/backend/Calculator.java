@@ -12,6 +12,7 @@ public class Calculator {
     private int counterHipo;
     private int counterHiper;
     private ArrayList<Measurement> listOfMeasurements = new ArrayList<>();
+
     public double getDeviation() {
         return deviation;
     }
@@ -27,6 +28,7 @@ public class Calculator {
     public int getCounterHiper() {
         return counterHiper;
     }
+
     public void setAverage(double average) {
         this.average = average;
     }
@@ -45,9 +47,9 @@ public class Calculator {
 
 
     // średnia z dowolnej ilości dni
-    public double calculateAverage(ArrayList<Measurement> listOfMeasurements){
+    public double calculateAverage(ArrayList<Measurement> listOfMeasurements) {
         int sum = 0;
-        for( Measurement i: listOfMeasurements){
+        for (Measurement i : listOfMeasurements) {
             sum += i.getSugarLevel();
         }
         this.average = sum / listOfMeasurements.size();
@@ -55,17 +57,17 @@ public class Calculator {
     }
 
     // obliczanie średniej z dnia
-    public double calculateAverageFromToday(ArrayList<Measurement> listOfMeasurements){
+    public double calculateAverageFromToday(ArrayList<Measurement> listOfMeasurements) {
         ArrayList<Measurement> listOfMeasurementsFromToday = new ArrayList<>();
-        for(Measurement i : listOfMeasurements){
+        for (Measurement i : listOfMeasurements) {
             LocalDate dateNow = LocalDate.now();
 
-            if(i.getDate().getDay() == dateNow.getDayOfMonth() && i.getDate().getMonth() == dateNow.getMonthValue() && i.getDate().getYear() == dateNow.getYear()){
+            if (i.getDate().getDay() == dateNow.getDayOfMonth() && i.getDate().getMonth() == dateNow.getMonthValue() && i.getDate().getYear() == dateNow.getYear()) {
                 listOfMeasurementsFromToday.add(i);
-           }
+            }
         }
         int sum = 0;
-        for( Measurement i: listOfMeasurementsFromToday ){
+        for (Measurement i : listOfMeasurementsFromToday) {
             sum += i.getSugarLevel();
         }
         this.average = sum / listOfMeasurementsFromToday.size();
@@ -73,44 +75,44 @@ public class Calculator {
     }
 
     // szacownanie hemoglobiny glikowanej z max 30 dni TUTAJ MUSISZ DAĆ LISTĘ Z NIEWYCIĘTEGO ZAKRESU
-    public double calculateGlycatedHemoglobin(ArrayList<Measurement> listOfMeasurements){
+    public double calculateGlycatedHemoglobin(ArrayList<Measurement> listOfMeasurements) {
         this.listOfMeasurements = listOfMeasurements;
         double average = 0;
 
-        average = calculateAverage(getDataFromPeriod(30,listOfMeasurements));
+        average = calculateAverage(getDataFromPeriod(30, listOfMeasurements));
 
         this.glycatedHemoglobin = (average * CONSTANT_FIRST) / CONSTANT_SECOND;
 
         return Math.round(this.glycatedHemoglobin * 100) / 100; // zwraca zaokrągloną wartość do 2 miejsc po przecinku
     }
 
-    public double calculateDeviation(ArrayList<Measurement> listOfMeasurements){
+    public double calculateDeviation(ArrayList<Measurement> listOfMeasurements) {
         this.listOfMeasurements = listOfMeasurements;
         double average = 0;
         double sum = 0;
         average = calculateAverage(listOfMeasurements);
-        for(Measurement i : listOfMeasurements){
-            sum += Math.pow((i.getSugarLevel() - average),2);
+        for (Measurement i : listOfMeasurements) {
+            sum += Math.pow((i.getSugarLevel() - average), 2);
         }
         this.deviation = Math.sqrt(sum);
-        this.deviation /=  listOfMeasurements.size();
+        this.deviation /= listOfMeasurements.size();
         return Math.round(this.deviation * 100) / 100; // zwraca zaokrągloną wartość do 2 miejsc po przecinku
     }
 
 
     // wyznaczanie
-    public LocalDate calculateDate (int numberOfDays){
+    public LocalDate calculateDate(int numberOfDays) {
         LocalDate dateNow = LocalDate.now();
         LocalDate dateFrom = dateNow.minusDays(numberOfDays);
         return dateFrom;
     }
 
     // wycinanie danych dla x dni od dzisiaj
-    public ArrayList<Measurement> getDataFromPeriod (int numberOfDays, ArrayList<Measurement> listOfMeasurements){
+    public ArrayList<Measurement> getDataFromPeriod(int numberOfDays, ArrayList<Measurement> listOfMeasurements) {
         LocalDate date = calculateDate(numberOfDays);
         ArrayList<Measurement> listOfMeasurementsFromXDays = new ArrayList<>();
-        for(Measurement i : listOfMeasurements){
-            if(i.getDate().getYear() >= date.getYear() && i.getDate().getMonth()>= date.getMonthValue() && i.getDate().getDay() >= date.getDayOfMonth()){
+        for (Measurement i : listOfMeasurements) {
+            if (i.getDate().getYear() >= date.getYear() && i.getDate().getMonth() >= date.getMonthValue() && i.getDate().getDay() >= date.getDayOfMonth()) {
                 listOfMeasurementsFromXDays.add(i);
             }
         }
@@ -118,7 +120,7 @@ public class Calculator {
     }
 
     // wyciannie danych dla dowolnego zakresu
-    public ArrayList<Measurement> getDataFromGivenPeriod (Date date1, Date date2, ArrayList<Measurement> listOfMeasurements){
+    public ArrayList<Measurement> getDataFromGivenPeriod(Date date1, Date date2, ArrayList<Measurement> listOfMeasurements) {
         LocalDate localStartDate = date1.toLocalDate();
         LocalDate localEndDate = date2.toLocalDate();
         ArrayList<Measurement> listOfMeasurementsFromXDays = new ArrayList<>();
@@ -127,7 +129,7 @@ public class Calculator {
 
         for (Measurement i : listOfMeasurements) {
             measurementDate = i.getDate().toLocalDate();
-            if ((measurementDate.isAfter(localStartDate) && measurementDate.isBefore(localEndDate))||measurementDate.equals(localEndDate)||measurementDate.equals(localStartDate)) {
+            if ((measurementDate.isAfter(localStartDate) && measurementDate.isBefore(localEndDate)) || measurementDate.equals(localEndDate) || measurementDate.equals(localStartDate)) {
                 listOfMeasurementsFromXDays.add(i);
             }
         }
@@ -150,7 +152,4 @@ public class Calculator {
             }
         }
     }
-
-
-
 }
