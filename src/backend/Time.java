@@ -1,5 +1,8 @@
 package backend;
 
+/**
+ *
+ */
 public class Time {
     private int hour;
 

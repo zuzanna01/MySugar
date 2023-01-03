@@ -8,88 +8,72 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class TxtMeasurementsReader implements MeasurementsReader {
-    private Measurement measurement;
     private ArrayList<Measurement> listOfMeasurements;
     private String fileName;
-    public TxtMeasurementsReader(String fileName){
+
+    private User currentUser;
+    public TxtMeasurementsReader(String fileName, User currentUser){
         this.listOfMeasurements = new ArrayList<>();
         this.fileName = fileName;
-    }
-
-    public void setMeasurement(Measurement measurement) {
-        this.measurement = measurement;
+        this.currentUser = currentUser;
     }
 
     public void setListOfMeasurements(ArrayList<Measurement> listOfMeasurements) {
         this.listOfMeasurements = listOfMeasurements;
     }
 
-    public Measurement getMeasurement() {
-        return measurement;
-    }
-
     public ArrayList<Measurement> getListOfMeasurements() {
         return listOfMeasurements;
     }
+
 
     // pobiera jeden pomiar z pliku
     // to jest używane w innej funkcji i samodzielnie tego nie będziemy używać
     public Measurement getMeasurementFromFile(Scanner reader){
 
-            while (reader.hasNextLine()) {
-                int suggarLevel = reader.nextInt();
+        int suggarLevel = reader.nextInt();
 
-                String Time = reader.next();
-                String[] tab1 = Time.split(":");
-                String hour = correctData(tab1[0]);
-                String minute = correctData(tab1[1]);
+        String Time = reader.next();
+        String[] tab1 = Time.split(":");
+        String hour = correctData(tab1[0]);
+        String minute = correctData(tab1[1]);
 
-                String Date = reader.next();
-                String[] tab2 = Date.split("-");
-                String day = correctData(tab2[0]);
-                String month = correctData(tab2[1]);
-                String year = correctData(tab2[2]);
+        String Date = reader.next();
+        String[] tab2 = Date.split("-");
+        String day = correctData(tab2[0]);
+        String month = correctData(tab2[1]);
+        String year = correctData(tab2[2]);
 
-                Measurement measurement = new Measurement(suggarLevel, Integer.parseInt(day), Integer.parseInt(month),
-                        Integer.parseInt(year), Integer.parseInt(hour), Integer.parseInt(minute));
-                return measurement;
-            }
+        Measurement measurement = new Measurement(suggarLevel, Integer.parseInt(day), Integer.parseInt(month),
+                Integer.parseInt(year), Integer.parseInt(hour), Integer.parseInt(minute));
+
         return measurement;
     }
 
     // o tutaj jest użyta ta funkcja do pobierania jednego pomiaru
     // ta metoda to pobranie wszystkich pomiarów z pliku
 
-    @Override
+
     public void getMeasurements() {
        try {
             Scanner reader = new Scanner(new File(fileName));
             while(reader.hasNextLine()) {
                 Measurement measurement = getMeasurementFromFile(reader);
-                saveMeasurements(measurement);
+                saveMeasurement(measurement);
             }
         }catch (FileNotFoundException e) {
         }catch (NoSuchElementException e){
        }
     }
+    @Override
+    public void saveNewMeasurements(){
+        getMeasurements();
+        currentUser.saveMeasurementsToUsersFile(this.listOfMeasurements);
+    }
 
     // zapisuje pojedyńczy pomiar do listy pomiarów
-    public void saveMeasurements(Measurement measurement){
+    public void saveMeasurement(Measurement measurement){
         this.listOfMeasurements.add(measurement);
-    }
-    // Z.P zapisuje pomiar do listy i pliku konkretnego użytkownika
-    public void saveMeasurements(Measurement measurement, User currentUser){
-        this.listOfMeasurements.add(measurement);
-
-        try{
-            File file = new File("./" + currentUser.getUserName() + ".txt");
-            FileWriter fileWriter = new FileWriter(file, true);
-            fileWriter.write( measurement + "\n"); // przy wpisywaniu pierwszego pomiar do pustego pliku tworzyłą się pusta linijka na początku
-            fileWriter.close();
-        }catch(Exception e){
-        }
-
-        //tu można by dać jakieś sortownaie
     }
 
     // to poprawia dane bo np. 02 to nie int więc zamienia na 2

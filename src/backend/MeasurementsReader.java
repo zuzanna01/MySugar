@@ -1,5 +1,5 @@
 package backend;
 
 public interface MeasurementsReader {
-    void getMeasurements();
+    void saveNewMeasurements();
 }

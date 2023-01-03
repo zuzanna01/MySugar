@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="poprawa średniej">
-      <change afterPath="$PROJECT_DIR$/src/backend/PdfRaportWritter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/RaportWritter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/TxtRaportWritter.java" afterDir="false" />
+    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="poprawa odchylenia standardowego">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/AllUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/AllUsers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/MeasurementsFromFileJson.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/CsvMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CsvMeasurementsReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/CsvRaportWritter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CsvRaportWritter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Measurement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/MeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/MeasurementsReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/PdfRaportWritter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/PdfRaportWritter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/RaportWritter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/RaportWritter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Time.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/TxtRaportWritter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/TxtRaportWritter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/UserMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/UserMeasurementsReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/AppModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBarController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

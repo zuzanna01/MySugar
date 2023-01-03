@@ -2,7 +2,7 @@ package backend;
 
 public class PdfRaportWritter implements RaportWritter{
     @Override
-    public void writeRaport() {
+    public void writeRaport(User user, Calculator calculator) {
 
     }
 }

@@ -1,5 +1,5 @@
 package backend;
 
 public interface RaportWritter {
-    void writeRaport();
+    void writeRaport(User user, Calculator calculator);
 }

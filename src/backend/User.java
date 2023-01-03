@@ -24,12 +24,6 @@ public class User {
     private int hipoglycemiaCounter;
     private int hiperglycemiaCounter;
 
-    private TxtMeasurementsReader measurementsFromFileTxt;
-
-    public TxtMeasurementsReader getMeasurementsFromFileTxt() {
-        return measurementsFromFileTxt;
-    }
-
     public User(String userName, String password, int typeOfDiabities, int upperTargetRage, int lowerTargetRage, int hipoglycemia, int hiperglycemia) {
         this.userName = userName;
         this.password = password;
@@ -38,7 +32,6 @@ public class User {
         this.lowerTargetRage = lowerTargetRage;
         this.hipoglycemia = hipoglycemia;
         this.hiperglycemia = hiperglycemia;
-        this.measurementsFromFileTxt = new TxtMeasurementsReader(userName +".txt");
     }
 
     public void setUserName(String userName) {
@@ -115,11 +108,6 @@ public class User {
             fileWriter.close();
         }catch(Exception e){
         }
-    }
-
-    //pobieranie zapisanych wcześniej pomiarów dla użytkownika z jego pliku
-    public void  getDataFromUsersFile(){
-        this.measurementsFromFileTxt.getMeasurements();
     }
 
     // zliczanie hipoglikemi i hiperglikemi dla pacjenta ze wszystkich jego pomiarów,

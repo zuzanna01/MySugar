@@ -84,8 +84,8 @@ public class AppModel {
         this.average = calculator.calculateAverage(this.currentDataSet);
         this.deviation = calculator.calculateDeviation(this.currentDataSet);
         this.calculator.countHipoAndHiper(this.currentDataSet);
-        this.timesHiper= calculator.getTimesHiper();
-        this.timesHipo = calculator.getTimesHipo();
+        this.timesHiper= calculator.getCounterHiper();
+        this.timesHipo = calculator.getCounterHipo();
     }
 
     private String sugarUnit = "mg/dL";

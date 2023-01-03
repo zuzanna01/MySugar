@@ -9,6 +9,8 @@ import java.util.Scanner;
 public class AllUsers {
     private ArrayList<User> listOfUsers;
 
+    private TxtMeasurementsReader dataFromUsersFileReader;
+
     public AllUsers(){
         this.listOfUsers = new ArrayList<>();
     }
@@ -24,7 +26,7 @@ public class AllUsers {
 
     // dodawanie użytkownika do listy użytkowników
     // po kliknięciu signIn program powinien zapytać o te dane
-    public void addUser(){
+    /*public void addUserFromString(){
         Scanner answerLogin = new Scanner(System.in);
         String login = answerLogin.next();
         Scanner answerPassword = new Scanner(System.in);
@@ -41,7 +43,7 @@ public class AllUsers {
         int hiperglycemia = answerHiperglycemia.nextInt();
 
         this.listOfUsers.add(new User(login, password, typeOfDiabities, upperTargetRage, lowerTargetRage, hipogycemia, hiperglycemia));
-    }
+    }*/
 
     public void addUser(User newUser){
         this.listOfUsers.add(newUser);
@@ -80,15 +82,14 @@ public class AllUsers {
         }
     }
 
-    // logowanie do aplikacji
-    // trzeba podać login i hasło a program zweryfikuje czy jest ok
-    // jeśli ok zwróci true
     public boolean logIn(String userName, String password){
         User user = findUser(userName);
         if(user != null){
             boolean authentication;
             authentication = user.checkPassword(password);
             if(authentication){
+                this.dataFromUsersFileReader = new TxtMeasurementsReader(user.getUserName() + ".txt", user);
+                dataFromUsersFileReader.getMeasurements();
                 return true;
             }
         }
@@ -97,7 +98,7 @@ public class AllUsers {
 
     // rejestracja nowego użytkownika
     // program pyta o dane i wyreyfikuje czy dany użytkownik o tym loginie już nie istnieje
-    // tworzy użytkownika, dodaje fo listy użytkowników, zapisuje w bazie użytkowników i tworzy bazę na pomiary użytkownika (plik.txt o nawie użytkownika)
+    // tworzy użytkownika, dodaje do listy użytkowników, zapisuje w bazie użytkowników i tworzy bazę na pomiary użytkownika (plik.txt o nawie użytkownika)
     public boolean signIn(String userName, String password, int typeOfDiabities, int upperTargetRage, int lowerTargetRage, int hipoglycemia, int hiperglycemia) throws IOException {
         User user = new User(userName, password, typeOfDiabities, upperTargetRage, lowerTargetRage, hipoglycemia, hiperglycemia);
 
@@ -114,5 +115,4 @@ public class AllUsers {
         file.createNewFile();
         return true;
     }
-
 }
