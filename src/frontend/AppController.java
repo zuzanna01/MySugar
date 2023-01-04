@@ -172,7 +172,7 @@ public class AppController implements ActionListener {
 
         //Zuzia
         // -> fajnie jakbyś zrobiła konstruktor kopiujący dla Usera (nie wiem czy użuwanie == jest tu bezpieczne)
-        // -> zmień signIn tak żeby jako argument można było podać obiekt typu User a nie poszczegulne pola
+        // -> zmień signIn tak żeby jako argument można było podać obiekt typu User a nie poszczególne pola
         // -> może warto signIn podzielić na dwie funkcje 1. sprawdzajacą czy dany login jest zajęty i 2. dodającą użytkownika
         // nie podoba mi się po prostu umieszczanie signIn w if()
 
