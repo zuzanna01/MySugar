@@ -96,23 +96,31 @@ public class AllUsers {
         return false;
     }
 
-    // rejestracja nowego użytkownika
-    // program pyta o dane i wyreyfikuje czy dany użytkownik o tym loginie już nie istnieje
-    // tworzy użytkownika, dodaje do listy użytkowników, zapisuje w bazie użytkowników i tworzy bazę na pomiary użytkownika (plik.txt o nawie użytkownika)
-    public boolean signIn(String userName, String password, int typeOfDiabities, int upperTargetRage, int lowerTargetRage, int hipoglycemia, int hiperglycemia) throws IOException {
-        User user = new User(userName, password, typeOfDiabities, upperTargetRage, lowerTargetRage, hipoglycemia, hiperglycemia);
-
+    //weryfikacja czy dany użytkownik o tym loginie już istnieje
+    public boolean verifyUserName(User currentUser){
+        User user = currentUser;
         for (User i : this.listOfUsers) {
             if (user.getUserName().equals(i.getUserName())) {
                 return false;
             }
         }
-        this.listOfUsers.add(user);
-        user.saveUser();
-        //utworzenie pliku o nazwie użytkownika
-        String pathname = userName + ".txt";
-        File file = new File(pathname);
-        file.createNewFile();
         return true;
+    }
+    // rejestracja nowego użytkownika
+    // dodaje do listy użytkowników, zapisuje w bazie użytkowników i tworzy bazę na pomiary użytkownika (plik.txt o nawie użytkownika)
+    public void signIn(User currentUser){
+        User user = currentUser;
+        if(verifyLogin(user)){
+            this.listOfUsers.add(user);
+            user.saveUser();
+            //utworzenie pliku o nazwie użytkownika
+            String pathname = user.getUserName() + ".txt";
+            File file = new File(pathname);
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }
