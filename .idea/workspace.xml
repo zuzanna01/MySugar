@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="poprawione signIn i logIn">
+    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="dodanie listy pomiarów do User">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/AllUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/AllUsers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672821189563</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="dodanie listy pomiarów do User">
+      <created>1672821762208</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1672821762208</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +276,8 @@
     <MESSAGE value="komentarze do LISTENERA logowania i dodawania nowego użytkownika" />
     <MESSAGE value="użycie UserMeasurementsReader" />
     <MESSAGE value="poprawione signIn i logIn" />
-    <option name="LAST_COMMIT_MESSAGE" value="poprawione signIn i logIn" />
+    <MESSAGE value="dodanie listy pomiarów do User" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodanie listy pomiarów do User" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -282,11 +290,6 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="26" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/backend/User.java</url>
-          <line>140</line>
-          <option name="timeStamp" value="76" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

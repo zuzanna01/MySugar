@@ -82,22 +82,25 @@ public class AllUsers {
         }
     }
 
-    public boolean logIn(String userName, String password){
+    // weryfikacja czy użytkownik o tym loginie istnieje i czy podano prawidłowe hasło
+    public boolean verifyUserNameAndPassword(String userName, String password){
         User user = findUser(userName);
-        if(user != null){
-            boolean authentication;
+        boolean authentication = false;
+        if(user != null)
+        {
             authentication = user.checkPassword(password);
-            if(authentication){
-                this.dataFromUsersFileReader = new TxtMeasurementsReader(user.getUserName() + ".txt", user);
-                dataFromUsersFileReader.getMeasurements();
-                user.setListOfUsersMeasurements(dataFromUsersFileReader.getListOfMeasurements());
-                return true;
-            }
         }
-        return false;
+        return authentication;
     }
 
-    //weryfikacja czy dany użytkownik o tym loginie już istnieje
+    public void logIn(User user){
+        this.dataFromUsersFileReader = new TxtMeasurementsReader(user.getUserName() + ".txt", user);
+        dataFromUsersFileReader.getMeasurements();
+        user.setListOfUsersMeasurements(dataFromUsersFileReader.getListOfMeasurements());
+
+    }
+
+    //weryfikacja czy dany użytkownik o tym loginie już istnieje przed REJESTRACJĄ
     public boolean verifyUserName(User currentUser){
         User user = currentUser;
         for (User i : this.listOfUsers) {
@@ -111,17 +114,17 @@ public class AllUsers {
     // dodaje do listy użytkowników, zapisuje w bazie użytkowników i tworzy bazę na pomiary użytkownika (plik.txt o nawie użytkownika)
     public void signIn(User currentUser){
         User user = currentUser;
-        if(verifyUserName(user)){
-            this.listOfUsers.add(user);
-            user.saveUser();
-            //utworzenie pliku o nazwie użytkownika
-            String pathname = user.getUserName() + ".txt";
-            File file = new File(pathname);
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+
+        this.listOfUsers.add(user);
+        user.saveUser();
+        //utworzenie pliku o nazwie użytkownika
+        String pathname = user.getUserName() + ".txt";
+        File file = new File(pathname);
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+
     }
 }
