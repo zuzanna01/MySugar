@@ -12,17 +12,15 @@ public class User {
     private int lowerTargetRage;
     private int hipoglycemia;
     private int hiperglycemia;
+    private ArrayList<Measurement> listOfUsersMeasurements;
 
-    public int getHipoglycemiaCounter() {
-        return hipoglycemiaCounter;
+    public ArrayList<Measurement> getListOfUsersMeasurements() {
+        return listOfUsersMeasurements;
     }
 
-    public int getHiperglycemiaCounter() {
-        return hiperglycemiaCounter;
+    public void setListOfUsersMeasurements(ArrayList<Measurement> listOfUsersMeasurements) {
+        this.listOfUsersMeasurements = listOfUsersMeasurements;
     }
-
-    private int hipoglycemiaCounter;
-    private int hiperglycemiaCounter;
 
     public User(String userName, String password, int typeOfDiabities, int upperTargetRage, int lowerTargetRage, int hipoglycemia, int hiperglycemia) {
         this.userName = userName;

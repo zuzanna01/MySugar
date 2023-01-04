@@ -90,6 +90,7 @@ public class AllUsers {
             if(authentication){
                 this.dataFromUsersFileReader = new TxtMeasurementsReader(user.getUserName() + ".txt", user);
                 dataFromUsersFileReader.getMeasurements();
+                user.setListOfUsersMeasurements(dataFromUsersFileReader.getListOfMeasurements());
                 return true;
             }
         }
@@ -110,7 +111,7 @@ public class AllUsers {
     // dodaje do listy użytkowników, zapisuje w bazie użytkowników i tworzy bazę na pomiary użytkownika (plik.txt o nawie użytkownika)
     public void signIn(User currentUser){
         User user = currentUser;
-        if(verifyLogin(user)){
+        if(verifyUserName(user)){
             this.listOfUsers.add(user);
             user.saveUser();
             //utworzenie pliku o nazwie użytkownika
