@@ -28,12 +28,6 @@ public class Measurement {
         this.sugarLevel= m.getSugarLevel();
     }
 
-    public Measurement(){
-        this.time=new Time(0,0);
-        this.date = new Date(0,0,0);
-        this.sugarLevel = 0;
-    }
-
     public Time getTime() {
         return time;
     }

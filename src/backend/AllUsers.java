@@ -13,6 +13,7 @@ public class AllUsers {
 
     public AllUsers(){
         this.listOfUsers = new ArrayList<>();
+        this.dataFromUsersFileReader = new TxtMeasurementsReader();
     }
 
     // Z.P.
@@ -94,7 +95,8 @@ public class AllUsers {
     }
 
     public void logIn(User user){
-        this.dataFromUsersFileReader = new TxtMeasurementsReader(user.getUserName() + ".txt", user);
+        this.dataFromUsersFileReader.setFileName(user.getUserName() + ".txt");
+        this.dataFromUsersFileReader.setCurrentUser(user);
         dataFromUsersFileReader.getMeasurements();
         user.setListOfUsersMeasurements(dataFromUsersFileReader.getListOfMeasurements());
 

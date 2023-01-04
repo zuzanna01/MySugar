@@ -11,14 +11,35 @@ public class TxtMeasurementsReader implements MeasurementsReader {
     private ArrayList<Measurement> listOfMeasurements;
     private String fileName;
 
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
+
     private User currentUser;
     public TxtMeasurementsReader(String fileName, User currentUser){
         this.listOfMeasurements = new ArrayList<>();
         this.fileName = fileName;
         this.currentUser = currentUser;
     }
+    public TxtMeasurementsReader() {
+        this.listOfMeasurements = new ArrayList<>();
+        this.fileName = null;
+        this.currentUser = null;
+    }
 
-    public void setListOfMeasurements(ArrayList<Measurement> listOfMeasurements) {
+        public void setListOfMeasurements(ArrayList<Measurement> listOfMeasurements) {
         this.listOfMeasurements = listOfMeasurements;
     }
 

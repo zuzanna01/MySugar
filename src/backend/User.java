@@ -112,8 +112,36 @@ public class User {
         try{
             File file = new File(this.userName + ".txt");
             FileWriter fileWriter = new FileWriter(file, true);
+            String hour;
+            String minute;
+            String day;
+            String month;
             for(Measurement i: listOfNewMeasurements){
-                fileWriter.write( i.getSugarLevel() + " " + i.getTime().getHour() + ":" + i.getTime().getMinute() + " " + i.getDate().getYear() + "-" + i.getDate().getMonth() + "-" + i.getDate().getDay());
+                if(i.getTime().getHour() < 10) {
+                    hour = "0" + i.getTime().getHour();
+                }else{
+                    hour = String.valueOf(i.getTime().getHour());
+                }
+                if(i.getTime().getMinute() < 10) {
+                    minute = "0" + i.getTime().getMinute();
+                }else{
+                    minute = String.valueOf(i.getTime().getMinute());
+                }
+                if(i.getDate().getDay() < 10) {
+                    day = "0" + i.getDate().getDay();
+                }else{
+                    day = String.valueOf(i.getDate().getDay());
+                }
+                if(i.getDate().getMonth() < 10) {
+                    month = "0" + i.getDate().getMonth();
+                }
+                else{
+                    month = String.valueOf(i.getDate().getMonth());
+                }
+                if(file.length() != 0){
+                    fileWriter.write('\n');
+                }
+                fileWriter.write(  i.getSugarLevel() + " " + hour + ":" + minute + " " + day + "-" + month + "-" + i.getDate().getYear());
             }
             fileWriter.close();
         }catch(Exception e){
