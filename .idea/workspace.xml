@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="usniety niprawidłowy pomiar z Zuzanna.txt">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="dodałam konstruktor kopiujący w Userze">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Zuzanna.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Zuzanna.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +139,8 @@
       <workItem from="1672829163461" duration="24000" />
       <workItem from="1672829202330" duration="554000" />
       <workItem from="1672829786637" duration="1919000" />
-      <workItem from="1672833021727" duration="456000" />
+      <workItem from="1672833021727" duration="672000" />
+      <workItem from="1672862529901" duration="1018000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -270,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672830694333</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="dodałam konstruktor kopiujący w Userze">
+      <created>1672833551327</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1672833551327</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +309,8 @@
     <MESSAGE value="." />
     <MESSAGE value="logowanie poprawione" />
     <MESSAGE value="zmiany do logowania" />
-    <option name="LAST_COMMIT_MESSAGE" value="zmiany do logowania" />
+    <MESSAGE value="dodałam konstruktor kopiujący w Userze" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodałam konstruktor kopiujący w Userze" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -380,21 +386,6 @@
           <url>file://$PROJECT_DIR$/src/backend/AllUsers.java</url>
           <line>60</line>
           <option name="timeStamp" value="91" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/AppController.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="92" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/AppController.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="93" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/AppController.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/backend/Calculator.java</url>
