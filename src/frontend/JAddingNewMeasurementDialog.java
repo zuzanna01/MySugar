@@ -15,8 +15,7 @@ import java.awt.*;
 
 public class JAddingNewMeasurementDialog extends JDialog {
 
-    private Measurement newMeasurement = null;
-    public Measurement getNewMeasurement() {return newMeasurement;}
+
 
     private JLabel lblSugarLevel;
     private JTextField txtSugarLevel;
@@ -25,6 +24,9 @@ public class JAddingNewMeasurementDialog extends JDialog {
     private JLabel lblTime;
     private JFormattedTextField txtTime;
     private JButton addButton;
+    public JButton getAddButton() {
+        return addButton;
+    }
 
     public JAddingNewMeasurementDialog(Frame parent) {
         super(parent, "Login", true);
@@ -81,18 +83,21 @@ public class JAddingNewMeasurementDialog extends JDialog {
         mainPanel.add(addingPanel);
         mainPanel.add(buttonPanel);
 
-      //  newMeasurement = Measurement();
-
+    }
+    private Measurement newMeasurement = null;
+    public Measurement getNewMeasurement() {
+        newMeasurement = new Measurement(getSugarLevel(),getTime(),getDate());
+       return newMeasurement;
+    }
+    private int getSugarLevel(){
+        return Integer.parseInt(txtSugarLevel.getText().trim());
+    }
+    private Date getDate(){
+       return new Date( txtDate.getText().trim());
+    }
+    private Time getTime(){
+        return new Time(txtTime.getText().trim());
     }
 
-    public void saveNewMeasurement() {
-        //newMeasurement = Measurement()
-        this.newMeasurement.setSugarLevel(Integer.parseInt(txtSugarLevel.getText().trim()));
-        this.newMeasurement.setDate(new Date(txtDate.getText().trim()));
-        this.newMeasurement.setTime(new Time(txtTime.getText().trim()));
-    }
 
-    public JButton getAddButton() {
-        return addButton;
-    }
 }

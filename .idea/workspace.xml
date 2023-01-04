@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="komentarze do LISTENERA logowania i dodawania nowego użytkownika">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/AppModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/JAddingNewMeasurementDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JAddingNewMeasurementDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/JAddingNewUserDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JAddingNewUserDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/UserValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBarController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +136,7 @@
       <workItem from="1672333581600" duration="1419000" />
       <workItem from="1672427324412" duration="17007000" />
       <workItem from="1672665307926" duration="4633000" />
-      <workItem from="1672782370338" duration="3358000" />
+      <workItem from="1672782370338" duration="8905000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -225,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672681493785</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="komentarze do LISTENERA logowania i dodawania nowego użytkownika">
+      <created>1672786742241</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1672786742241</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +258,8 @@
     <MESSAGE value="poprawa interfejsu MeasurementsReader" />
     <MESSAGE value="poprawa średniej" />
     <MESSAGE value="wybór pomiarów" />
-    <option name="LAST_COMMIT_MESSAGE" value="wybór pomiarów" />
+    <MESSAGE value="komentarze do LISTENERA logowania i dodawania nowego użytkownika" />
+    <option name="LAST_COMMIT_MESSAGE" value="komentarze do LISTENERA logowania i dodawania nowego użytkownika" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

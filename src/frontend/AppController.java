@@ -123,9 +123,10 @@ public class AppController implements ActionListener {
 
         //to wykonujemy przy próbie zalogowania
 
-        //->Zuzia
-        // poziom hipo i hiper glikemi pobierany z pliku jest argumentem currentUser
-        // w tym momencie powinnma Ci gdzieś przekazać te pobrane poziomy
+        //Zuzia
+        // -> nie wiem jak pobrać dane o użytkowniku bez getDataFromUsersFile()
+        // -> poziom hipo i hiper glikemi pobierany z pliku ustawia pola currentUsera
+        // w tym momencie kodu powinnma Ci gdzieś przekazać te pobrane poziomy
 
         if (e.getActionCommand().equals("Login")) {
             //sprawdzamy czy użytkownik istnieje w Users.txt
@@ -139,7 +140,7 @@ public class AppController implements ActionListener {
                 mView.getLoginDialog().dispose();
                 //tworzymy currentUsera pobierając jego wszytkie ustawienia z pliku
                 User currentUser = mModel.getAllUsers().findUser(mView.getLoginDialog().getUsername());
-                //ładowanie pomiarów z pliku użytkownika
+                //ładowanie pomiarów z pliku użytkownika -> a User nie ma już tego TxtReadera który miał listę wczytanych pomiarów :/
                 currentUser.getDataFromUsersFile();
                 //zapamiętujemy currentUsera w AppModel
                 mModel.setCurrentUser(currentUser);
@@ -170,12 +171,14 @@ public class AppController implements ActionListener {
         // to wykonujemy przy tworzeniu nowego użytkownika
 
         //Zuzia
-        // -> tu przydałby się konstruktor w User który przyjmuje jako argument User a nie poszczególne dane -> czytelniejszy kod
-        // - > SignIn fajnie jakby pobierało Usera jako argument a nie poszczególne argumnety
+        // -> fajnie jakbyś zrobiła konstruktor kopiujący dla Usera (nie wiem czy użuwanie == jest tu bezpieczne)
+        // -> zmień signIn tak żeby jako argument można było podać obiekt typu User a nie poszczegulne pola
+        // -> może warto signIn podzielić na dwie funkcje 1. sprawdzajacą czy dany login jest zajęty i 2. dodającą użytkownika
+        // nie podoba mi się po prostu umieszczanie signIn w if()
 
         if (e.getActionCommand().equals("Create account")) {
             // tworzymy newUser pobierając dane z okienka newUserDialog
-            User newUser = new User(mView.getNewUserDialog().getNewUserData());
+            User newUser = mView.getNewUserDialog().getNewUserData();
             //sprawdzamy czy użytkownik o podanym imieniu się nie powtarza
            if ( mModel.getAllUsers().signIn(newUser)==false){
                JOptionPane.showMessageDialog(mView.getLoginDialog(),

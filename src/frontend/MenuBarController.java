@@ -1,6 +1,8 @@
 package frontend;
 
 import backend.Measurement;
+import backend.MeasurementsReader;
+import backend.UserMeasurementsReader;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,11 +33,19 @@ public class MenuBarController implements ActionListener {
         if(e.getActionCommand().equals("from file")){
             mMenuBar.getChooser().showOpenDialog(null);
         }
+
+        //tu dodajemy nowy pomiar z klawiatury
+
         if (e.getActionCommand().equals("Add")){
-            mMenuBar.getAddDialog().saveNewMeasurement();
-            Measurement newMeasurement = new Measurement(mMenuBar.getAddDialog().getNewMeasurement());
-            mModel.getCurrentUser().getMeasurementsFromFileTxt().saveMeasurement(newMeasurement);
-            mMenuBar.getAddDialog().setVisible(false);
+            //pobiermay dane z okienka od użytkownika i tworzymy newMeasurement
+            Measurement newMeasurement = mMenuBar.getAddDialog().getNewMeasurement();
+            //ustawiamy measurementsReader
+            MeasurementsReader measurementsReader = new UserMeasurementsReader(String.valueOf(newMeasurement.getSugarLevel()),
+                    newMeasurement.getTime().toString(),newMeasurement.getDate().toString(),mModel.getCurrentUser());
+            //zapis pomiaru do pliku użytkownika
+            measurementsReader.saveNewMeasurements();
+            //zamykamy okno dodawania pomiaru;
+            mMenuBar.getAddDialog().dispose();
         }
         if (e.getActionCommand().equals("Target range")){
 
