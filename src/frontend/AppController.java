@@ -193,14 +193,14 @@ public class AppController implements ActionListener {
                mView.getPlotPanel().repaint();
                //zamykamy okno  LoginDialog i NewUserDialog i wyświtlamy komunikat że udało się zalogować
                mView.getLoginDialog().dispose();
-               JOptionPane.showMessageDialog(mView.getLoginDialog(),
+               JOptionPane.showMessageDialog(mView.getNewUserDialog(),
                        "Hi " + mView.getNewUserDialog().getTxtUsername().getText().trim() + "! You have successfully created account.",
                        "Create account",
                        JOptionPane.INFORMATION_MESSAGE);
                mView.getNewUserDialog().dispose();
            }
            else {
-               JOptionPane.showMessageDialog(mView.getLoginDialog(),
+               JOptionPane.showMessageDialog(mView.getNewUserDialog(),
                        "This User name is taken", "AddingNewUser", JOptionPane.ERROR_MESSAGE);
            }
         }

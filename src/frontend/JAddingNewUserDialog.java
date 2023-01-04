@@ -14,6 +14,7 @@ import java.awt.*;
 public class JAddingNewUserDialog extends JDialog {
 
     private JPanel mainPanel;
+
     private JPanel addingPanel;
     private JPanel buttonPanel;
 
@@ -172,7 +173,7 @@ public class JAddingNewUserDialog extends JDialog {
         return Integer.parseInt(getTxtUpperTargetRange().getText().trim());
     }
     public int  getLowerTargetRange(){
-        return Integer.parseInt(getTxtUpperTargetRange().getText().trim());
+        return Integer.parseInt(getTxtLowerTargetRange().getText().trim());
     }
     public int  getHipoglycemiaLevel(){
         return Integer.parseInt(getTxtHipoglycemia().getText().trim());
