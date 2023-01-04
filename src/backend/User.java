@@ -32,6 +32,16 @@ public class User {
         this.hiperglycemia = hiperglycemia;
     }
 
+    public User(User u){
+        this.userName = u.getUserName();
+        this.password = u.getPassword();
+        this.typeOfDiabities = u.getTypeOfDiabities();
+        this.upperTargetRage = u.getUpperTargetRage();
+        this.lowerTargetRage = u.getLowerTargetRage();
+        this.hipoglycemia = u.getHipoglycemia();
+        this.hiperglycemia = u.getHiperglycemia();
+    }
+
     public void setUserName(String userName) {
         this.userName = userName;
     }

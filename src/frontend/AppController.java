@@ -130,7 +130,7 @@ public class AppController implements ActionListener {
 
         if (e.getActionCommand().equals("Login")) {
             //sprawdzamy czy użytkownik istnieje w Users.txt
-            boolean isvalid = mModel.getAllUsers().verifyUserNameAndPassword(mView.getLoginDialog().getUsername(), mView.getLoginDialog().getPassword());
+
             if (mModel.getAllUsers().verifyUserNameAndPassword(mView.getLoginDialog().getUsername(), mView.getLoginDialog().getPassword())) {
                 JOptionPane.showMessageDialog(mView.getLoginDialog(),
                         "Hi " + mView.getLoginDialog().getUsername() + "! You have successfully logged in.",
@@ -140,7 +140,7 @@ public class AppController implements ActionListener {
                 mView.getLoginDialog().setSucceeded(true);
                 mView.getLoginDialog().dispose();
                 //tworzymy currentUsera pobierając jego wszytkie ustawienia z pliku
-                User currentUser = mModel.getAllUsers().findUser(mView.getLoginDialog().getUsername());
+                User currentUser = new User (mModel.getAllUsers().findUser(mView.getLoginDialog().getUsername()));
                 //ładowanie pomiarów z pliku użytkownika -> a User nie ma już tego TxtReadera który miał listę wczytanych pomiarów :/
                 mModel.getAllUsers().logIn(currentUser);
                 //zapamiętujemy currentUsera w AppModel
