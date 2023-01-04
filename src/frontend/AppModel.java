@@ -37,6 +37,7 @@ public class AppModel {
     public Date getWeekAgoDate(){return weekAgoDate;}
 
     public AppModel() {
+        allUsers.getUsersFromFile();
         localTodayDate = LocalDate.now();
         todayDate = new Date(localTodayDate.getDayOfMonth(), localTodayDate.getMonthValue(), localTodayDate.getYear());
         localYesterdayDate = localTodayDate.minusDays(1);
@@ -58,7 +59,7 @@ public class AppModel {
         return currentDataSet;
     }
     public void setCurrentDataSet(Date dateFrom, Date dateTo, User currentUser) {
-        this.currentDataSet = calculator.getDataFromGivenPeriod(dateFrom, dateTo, currentUser.getMeasurementsFromFileTxt().getListOfMeasurements());
+        this.currentDataSet = calculator.getDataFromGivenPeriod(dateFrom, dateTo, currentUser.getListOfUsersMeasurements());
     }
 
 

@@ -130,7 +130,8 @@ public class AppController implements ActionListener {
 
         if (e.getActionCommand().equals("Login")) {
             //sprawdzamy czy użytkownik istnieje w Users.txt
-            if (mModel.getAllUsers().logIn(mView.getLoginDialog().getUsername(), mView.getLoginDialog().getPassword())) {
+            boolean isvalid = mModel.getAllUsers().verifyUserNameAndPassword(mView.getLoginDialog().getUsername(), mView.getLoginDialog().getPassword());
+            if (mModel.getAllUsers().verifyUserNameAndPassword(mView.getLoginDialog().getUsername(), mView.getLoginDialog().getPassword())) {
                 JOptionPane.showMessageDialog(mView.getLoginDialog(),
                         "Hi " + mView.getLoginDialog().getUsername() + "! You have successfully logged in.",
                         "Login",
@@ -141,7 +142,7 @@ public class AppController implements ActionListener {
                 //tworzymy currentUsera pobierając jego wszytkie ustawienia z pliku
                 User currentUser = mModel.getAllUsers().findUser(mView.getLoginDialog().getUsername());
                 //ładowanie pomiarów z pliku użytkownika -> a User nie ma już tego TxtReadera który miał listę wczytanych pomiarów :/
-                currentUser.getDataFromUsersFile();
+                mModel.getAllUsers().logIn(currentUser);
                 //zapamiętujemy currentUsera w AppModel
                 mModel.setCurrentUser(currentUser);
                 //usawiamy położenie lini targetRange i hipoLevel i hiperLevel w panelu rysującym wykres
@@ -180,13 +181,10 @@ public class AppController implements ActionListener {
             // tworzymy newUser pobierając dane z okienka newUserDialog
             User newUser = mView.getNewUserDialog().getNewUserData();
             //sprawdzamy czy użytkownik o podanym imieniu się nie powtarza
-           if ( mModel.getAllUsers().signIn(newUser)==false){
-               JOptionPane.showMessageDialog(mView.getLoginDialog(),
-                       "This User name is taken", "AddingNewUser", JOptionPane.ERROR_MESSAGE);
-           }
-           else {
+           if ( mModel.getAllUsers().verifyUserName(newUser)){
                // nastęnie dopisujemy newUsera do pliku i
                // dodajemy do listy w obiekcie AllUser (który jest w AppModel)
+               mModel.getAllUsers().signIn(newUser);
                //ustawiamy currentUsera (który jest w AppModel)
                mModel.setCurrentUser(newUser);
                //usawiamy położenie lini targetRange i hipoLevel i hiperLevel w panelu rysującym wykres
@@ -200,6 +198,10 @@ public class AppController implements ActionListener {
                        "Create account",
                        JOptionPane.INFORMATION_MESSAGE);
                mView.getNewUserDialog().dispose();
+           }
+           else {
+               JOptionPane.showMessageDialog(mView.getLoginDialog(),
+                       "This User name is taken", "AddingNewUser", JOptionPane.ERROR_MESSAGE);
            }
         }
 
