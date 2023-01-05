@@ -85,6 +85,7 @@ public class TxtMeasurementsReader implements MeasurementsReader {
         }catch (FileNotFoundException e) {
         }catch (NoSuchElementException e){
        }
+       currentUser.checkHipoAndHiper(this.listOfMeasurements);
     }
     @Override
     public void saveNewMeasurements(){

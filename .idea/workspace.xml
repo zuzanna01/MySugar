@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="dodałam konstruktor kopiujący w Userze">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="tworzenie raportu csv">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/CsvMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CsvMeasurementsReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/CsvRaportWritter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CsvRaportWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/PdfRaportWritter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/RaportWritter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/RaportWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Measurement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/TxtRaportWritter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/TxtRaportWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/UserMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/UserMeasurementsReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zkrupska.txt" beforeDir="false" afterPath="$PROJECT_DIR$/zkrupska.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,6 +142,7 @@
       <workItem from="1672833021727" duration="672000" />
       <workItem from="1672862529901" duration="1018000" />
       <workItem from="1672866539956" duration="6362000" />
+      <workItem from="1672918494860" duration="1835000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -283,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672833551327</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="tworzenie raportu csv">
+      <created>1672918573593</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1672918573593</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +319,8 @@
     <MESSAGE value="logowanie poprawione" />
     <MESSAGE value="zmiany do logowania" />
     <MESSAGE value="dodałam konstruktor kopiujący w Userze" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodałam konstruktor kopiujący w Userze" />
+    <MESSAGE value="tworzenie raportu csv" />
+    <option name="LAST_COMMIT_MESSAGE" value="tworzenie raportu csv" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -347,7 +349,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java</url>
-          <line>90</line>
+          <line>91</line>
           <option name="timeStamp" value="122" />
         </line-breakpoint>
       </breakpoints>

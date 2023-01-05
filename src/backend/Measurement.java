@@ -69,4 +69,5 @@ public class Measurement {
         return  sugarLevel + " " + time + " " + date ;
     }
 
+
 }

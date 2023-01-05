@@ -160,9 +160,9 @@ public class User {
         }
     }
 
-    public void checkHipoAndHiper() {
+    public void checkHipoAndHiper(ArrayList<Measurement> listOfMeasurements) {
 
-        for (Measurement i : this.getListOfUsersMeasurements()) {
+        for (Measurement i : listOfMeasurements) {
 
             if (i.isHipoglycemia()) {
                 i.setHipoglycemia(true);

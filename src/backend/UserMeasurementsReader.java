@@ -33,6 +33,7 @@ import java.util.Scanner;
                     Integer.parseInt(year), Integer.parseInt(hour), Integer.parseInt(minute));
 
             saveMeasurement(measurement);
+            currentUser.checkHipoAndHiper(this.listOfMeasurements);
         }
 
         @Override
