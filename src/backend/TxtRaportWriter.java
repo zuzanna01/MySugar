@@ -4,19 +4,18 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class TxtRaportWritter implements RaportWritter{
+public class TxtRaportWriter implements RaportWriter {
     @Override
     public void writeRaport(User user, Calculator calculator) {
-        String pathname = "Raport" + user.getUserName() + ".txt";
+        String pathname = "Raport_User_Data" + user.getUserName() + ".txt";
         File file = new File(pathname);
         try {
             file.createNewFile();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        FileWriter fileWriter = null;
         try {
-            fileWriter = new FileWriter(file, true);
+            FileWriter fileWriter = new FileWriter(file, true);
             fileWriter.write("User: " + user.getUserName() + '\n' + '\n' + '\n' + "Type of diabities: "
                     + user.getTypeOfDiabities() + '\n' + '\n' + "Number of hipoglycemia: " + calculator.getCounterHipo()
                     + '\n' + "Numebr of hiperglycemia: " + calculator.getCounterHiper() + '\n'

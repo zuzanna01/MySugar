@@ -41,20 +41,13 @@ public class CsvMeasurementsReader implements MeasurementsReader {
     public Measurement getMeasurementFromFile(Scanner reader) {
         String data = reader.next();
 
-        String[] tab1 = data.split(",");
-        String sugarLevel = tab1[0];
-        String time = tab1[1];
-        String date = tab1[2];
-
-        String[] tab2 = time.split(":");
-        String hour = correctData(tab2[0]);
-        String minute = correctData(tab2[1]);
-
-
-        String[] tab3 = date.split("-");
-        String day = correctData(tab3[0]);
-        String month = correctData(tab3[1]);
-        String year = correctData(tab3[2]);
+        String[] tab = data.split(",");
+        String sugarLevel = tab[0];
+        String hour = tab[1];
+        String minute = tab[2];
+        String day = tab[3];
+        String month = tab[4];
+        String year = tab[5];
 
         Measurement measurement = new Measurement(Integer.parseInt(sugarLevel), Integer.parseInt(day), Integer.parseInt(month),
                 Integer.parseInt(year), Integer.parseInt(hour), Integer.parseInt(minute));

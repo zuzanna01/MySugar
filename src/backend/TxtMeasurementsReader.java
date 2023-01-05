@@ -90,6 +90,7 @@ public class TxtMeasurementsReader implements MeasurementsReader {
     public void saveNewMeasurements(){
         getMeasurements();
         currentUser.saveMeasurementsToUsersFile(this.listOfMeasurements);
+        currentUser.getListOfUsersMeasurements().addAll(this.listOfMeasurements);
     }
 
     // zapisuje pojedyńczy pomiar do listy pomiarów

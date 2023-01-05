@@ -30,6 +30,7 @@ public class User {
         this.lowerTargetRage = lowerTargetRage;
         this.hipoglycemia = hipoglycemia;
         this.hiperglycemia = hiperglycemia;
+        this.listOfUsersMeasurements = new ArrayList<Measurement>();
     }
 
     public User(User u){
@@ -40,6 +41,7 @@ public class User {
         this.lowerTargetRage = u.getLowerTargetRage();
         this.hipoglycemia = u.getHipoglycemia();
         this.hiperglycemia = u.getHiperglycemia();
+        this.listOfUsersMeasurements = u.getListOfUsersMeasurements();
     }
 
     public void setUserName(String userName) {
@@ -158,11 +160,9 @@ public class User {
         }
     }
 
+    public void checkHipoAndHiper() {
 
-    //user powinien miec swoją listę pomiarów
-    public void checkHipoAndHiper(ArrayList<Measurement> listOfMeasurements) {
-
-        for (Measurement i : listOfMeasurements) {
+        for (Measurement i : this.getListOfUsersMeasurements()) {
 
             if (i.isHipoglycemia()) {
                 i.setHipoglycemia(true);
@@ -172,5 +172,4 @@ public class User {
             }
         }
     }
-
 }

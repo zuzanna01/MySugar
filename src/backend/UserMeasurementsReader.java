@@ -39,6 +39,7 @@ import java.util.Scanner;
         public void saveNewMeasurements(){
             getMeasurement();
             currentUser.saveMeasurementsToUsersFile(this.listOfMeasurements);
+            currentUser.getListOfUsersMeasurements().addAll(this.listOfMeasurements);
         }
 
         public void saveMeasurement(Measurement measurement){
