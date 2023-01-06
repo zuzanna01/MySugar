@@ -137,7 +137,7 @@ public class Calculator {
         return listOfMeasurementsFromXDays;
     }
 
-    public void countHipoglycemia(ArrayList<Measurement> listOfMeasurements) {
+    public int countHipoglycemia(ArrayList<Measurement> listOfMeasurements) {
 
         this.counterHipo = 0;
 
@@ -147,8 +147,9 @@ public class Calculator {
                 this.counterHipo++;
             }
         }
+        return counterHipo;
     }
-    public void countHiperglycemia(ArrayList<Measurement> listOfMeasurements) {
+    public int countHiperglycemia(ArrayList<Measurement> listOfMeasurements) {
 
         this.counterHiper = 0;
 
@@ -158,6 +159,7 @@ public class Calculator {
                 this.counterHiper++;
             }
         }
+        return counterHiper;
     }
 
 }

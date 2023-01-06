@@ -48,6 +48,8 @@ public class AppView extends JFrame {
     private JLabel mtimesHipo;
     private JLabel mtimesHyper;
 
+    private JLabel mglycatedHemoglobin;
+
     private ImageIcon icon;
 
     public JLoginDialog getLoginDialog() {
@@ -100,14 +102,14 @@ public class AppView extends JFrame {
         labelsPanel.setLayout(new FlowLayout());
 
         maverage = new JLabel("Average: --");
-        maverage.setPreferredSize(new Dimension(250, 50));
+        maverage.setPreferredSize(new Dimension(200, 50));
         maverage.setFont(new Font(maverage.getFont().getName(), maverage.getFont().getStyle(), 17));
         maverage.setBackground(new Color(200, 230, 250));
         maverage.setBorder(BorderFactory.createLineBorder(new Color(100, 200, 250), 1));
         maverage.setOpaque(true);
 
         mmaxdeviation = new JLabel("Deviation: --");
-        mmaxdeviation.setPreferredSize(new Dimension(250, 50));
+        mmaxdeviation.setPreferredSize(new Dimension(200, 50));
         mmaxdeviation.setFont(new Font(mmaxdeviation.getFont().getName(), mmaxdeviation.getFont().getStyle(), 17));
         mmaxdeviation.setBackground(new Color(200, 230, 250));
         mmaxdeviation.setBorder(BorderFactory.createLineBorder(new Color(100, 200, 250), 1));
@@ -125,11 +127,19 @@ public class AppView extends JFrame {
         mtimesHipo.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 0), 1));
         mtimesHipo.setOpaque(true);
 
+        mglycatedHemoglobin = new JLabel("HbA1C: --");
+        mglycatedHemoglobin.setPreferredSize(new Dimension(100, 50));
+        mglycatedHemoglobin.setBackground(new Color(100, 200, 250));
+        mglycatedHemoglobin.setBorder(BorderFactory.createLineBorder(new Color(100, 255, 200), 1));
+        mglycatedHemoglobin.setOpaque(true);
+
         labelsPanel.add(maverage);
         labelsPanel.add(mmaxdeviation);
         labelsPanel.add(mtimesHipo);
         labelsPanel.add(mtimesHyper);
+        labelsPanel.add(mglycatedHemoglobin);
         mainPanel.add(labelsPanel);
+
 
         loginDialog = new JLoginDialog(this);
         newUserDialog = new JAddingNewUserDialog(this);
@@ -163,11 +173,15 @@ public class AppView extends JFrame {
     public void setLabelHiper(String hiper) {
         this.mtimesHyper.setText(hiper);
     }
+    public void setLabelGlycatedHemoglobin(Double glycatedHemoglobin) {
+        this.mglycatedHemoglobin.setText("HbA1C: "+String.valueOf(glycatedHemoglobin));
+    }
 
 public void setLabelsInfo(double average,double deviation,int hipo, int hiper,String sugarUnit){
      setLabelAverage("average: " + average + sugarUnit);
      setLabelDeviation("deviation: " +deviation+ sugarUnit);
      setLabelHiper("hiper: " + hiper);
      setLabelHipo("hipo: " + hipo);
+
 }
 }

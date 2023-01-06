@@ -46,6 +46,8 @@ public class MenuBarController implements ActionListener {
             measurementsReader.saveNewMeasurements();
             //zamykamy okno dodawania pomiaru;
             mMenuBar.getAddDialog().dispose();
+
+            mView.setLabelGlycatedHemoglobin(mModel.getCalculator().calculateGlycatedHemoglobin(mModel.getCurrentUser().getListOfUsersMeasurements()));
         }
         if (e.getActionCommand().equals("Target range")){
 

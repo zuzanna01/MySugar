@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="tworzenie raportu csv">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zuzanna.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Zuzanna.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Measurement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/UserMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/UserMeasurementsReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/AppModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/AppView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBarController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +27,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-17.0.4.1/lib/src.zip!/java.base/java/util/Scanner.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-17.0.4.1/lib/src.zip!/java.desktop/java/awt/event/ActionListener.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -337,16 +343,6 @@
           <properties class="java.lang.NumberFormatException" package="java.lang" />
           <option name="timeStamp" value="113" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/AppModel.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="117" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/backend/AllUsers.java</url>
-          <line>97</line>
-          <option name="timeStamp" value="120" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java</url>
           <line>91</line>

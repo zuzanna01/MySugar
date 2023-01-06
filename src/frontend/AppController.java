@@ -45,6 +45,7 @@ public class AppController implements ActionListener {
             mView.getPlotPanel().setDates(mModel.getTodayDate(),mModel.getTodayDate());
             System.out.print("TODAY: ");
             System.out.println(mModel.getCurrentDataSet());
+            if(mModel.getCurrentDataSet().size()==0) return;
             mView.getPlotPanel().repaint();
             mModel.setLabelsInfo();
             mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getTimesHipo(),mModel.getTimesHiper(),mModel.getSugarUnit());
@@ -61,6 +62,7 @@ public class AppController implements ActionListener {
             mView.getPlotPanel().setDates(mModel.getYesterdayDate(),mModel.getYesterdayDate());
             System.out.print("YESTERDAY: ");
             System.out.println(mModel.getCurrentDataSet());
+            if(mModel.getCurrentDataSet().size()==0) return;
             mView.getPlotPanel().repaint();
             mModel.setLabelsInfo();
             mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getTimesHipo(),mModel.getTimesHiper(),mModel.getSugarUnit());
@@ -73,10 +75,9 @@ public class AppController implements ActionListener {
             mModel.setCurrentDataSet(mModel.getWeekAgoDate(),mModel.getTodayDate(),mModel.getCurrentUser());
             System.out.println("FROM: "+mModel.getWeekAgoDate()+"TO: "+mModel.getTodayDate());
             System.out.println(mModel.getCurrentDataSet());
-
+            if(mModel.getCurrentDataSet().size()==0) return;
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
             mView.getPlotPanel().setDates(mModel.getWeekAgoDate(),mModel.getTodayDate());
-
             mView.getPlotPanel().repaint();
 
             mModel.setLabelsInfo();
@@ -123,11 +124,6 @@ public class AppController implements ActionListener {
 
         //to wykonujemy przy próbie zalogowania
 
-        //Zuzia
-        // -> nie wiem jak pobrać dane o użytkowniku bez getDataFromUsersFile()
-        // -> poziom hipo i hiper glikemi pobierany z pliku ustawia pola currentUsera
-        // w tym momencie kodu powinnma Ci gdzieś przekazać te pobrane poziomy
-
         if (e.getActionCommand().equals("Login")) {
             //sprawdzamy czy użytkownik istnieje w Users.txt
 
@@ -149,6 +145,9 @@ public class AppController implements ActionListener {
                 // i robimy repaint() żeby linie się pojawiły
                 mView.getPlotPanel().setLines(currentUser);
                 mView.getPlotPanel().repaint();
+                //set HbA1C if more than 30 measurements
+                mView.setLabelGlycatedHemoglobin(mModel.getCalculator().calculateGlycatedHemoglobin(mModel.getCurrentUser().getListOfUsersMeasurements()));
+
 
             } else {
                 //jeśli nie to wyświetlamy komunikat o niepoprawnych danych
@@ -171,12 +170,6 @@ public class AppController implements ActionListener {
 
         // to wykonujemy przy tworzeniu nowego użytkownika
 
-        //Zuzia
-        // -> fajnie jakbyś zrobiła konstruktor kopiujący dla Usera (nie wiem czy użuwanie == jest tu bezpieczne)
-        // -> zmień signIn tak żeby jako argument można było podać obiekt typu User a nie poszczególne pola
-        // -> może warto signIn podzielić na dwie funkcje 1. sprawdzajacą czy dany login jest zajęty i 2. dodającą użytkownika
-        // nie podoba mi się po prostu umieszczanie signIn w if()
-
         if (e.getActionCommand().equals("Create account")) {
             // tworzymy newUser pobierając dane z okienka newUserDialog
             User newUser = mView.getNewUserDialog().getNewUserData();
@@ -191,6 +184,7 @@ public class AppController implements ActionListener {
                // i robimy repaint() żeby linie się pojawiły
                mView.getPlotPanel().setLines(newUser);
                mView.getPlotPanel().repaint();
+
                //zamykamy okno  LoginDialog i NewUserDialog i wyświtlamy komunikat że udało się zalogować
                mView.getLoginDialog().dispose();
                JOptionPane.showMessageDialog(mView.getNewUserDialog(),
@@ -216,5 +210,6 @@ public class AppController implements ActionListener {
          button.setBackground(newbackground);
 
      }
+
 
 }

@@ -15,6 +15,10 @@ import java.util.ArrayList;
 
 public class AppModel {
 
+    public Calculator getCalculator() {
+        return calculator;
+    }
+
     private Calculator calculator = new Calculator();
 
     private AllUsers allUsers = new AllUsers();
@@ -83,10 +87,12 @@ public class AppModel {
     public void setLabelsInfo(){
         this.average = calculator.calculateAverage(this.currentDataSet);
         this.deviation = calculator.calculateDeviation(this.currentDataSet);
-        this.calculator.countHipoAndHiper(this.currentDataSet);
+        this.timesHipo=calculator.countHipoglycemia(this.currentDataSet);
+        this.timesHiper =this.calculator.countHiperglycemia(this.currentDataSet);
         this.timesHiper= calculator.getCounterHiper();
         this.timesHipo = calculator.getCounterHipo();
     }
+
 
     private String sugarUnit = "mg/dL";
     public String getSugarUnit() {
