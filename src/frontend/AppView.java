@@ -47,7 +47,6 @@ public class AppView extends JFrame {
     private JLabel mmaxdeviation;
     private JLabel mtimesHipo;
     private JLabel mtimesHyper;
-
     private JLabel mglycatedHemoglobin;
 
     private ImageIcon icon;
@@ -55,19 +54,43 @@ public class AppView extends JFrame {
     public JLoginDialog getLoginDialog() {
         return loginDialog;
     }
-
     public JAddingNewUserDialog getNewUserDialog() {
         return newUserDialog;
     }
-
     public JChooseDateRangeDialog getChooseDateRangeDialog() {
         return chooseDateRangeDialog;
     }
-
     public JScatterPlot getPlotPanel() {
         return plotPanel;
     }
 
+    /**
+     * Class constructor.
+     * Creates mainPanel which uses BoxLayout
+     * and ands to buttonPanel, plotPanel, labelsPanel
+     *
+     * buttonPanel consists of four buttons named
+     * 'Today', 'Yesterday','This week' and 'Your date range'
+     * each of them allows user to choose time(date) range
+     * from which measurements are displayed
+     *
+     * plotPanel is an object of  JScatterPlot class
+     * which is responsible for  the graphical representation
+     * of the chosen measurements set
+     * go to JScatterPlot class documentation to get more information
+     *
+     * labelsPanel consist of five labels displaying:
+     * 1) average sugar level from chosen measurements set
+     * 2) deviation shows maximum deviation from the current average
+     * 3) Hipo shows how many measurements in current set
+     * have exceeded the hypoglycemic level
+     * 4) Hiper shows how many measurements in current set
+     * have exceeded the hyperglycemia level
+     * 5) predicted glycated hemoglobin (HbA1C) based
+     * on past measurements
+     *
+     * donut icon source: https://www.flaticon.com/free-icon/donut_3173398?term=donut&page=1&position=55&origin=search&related_id=3173398
+     */
     public AppView() {
 
         mainPanel = new JPanel();
@@ -105,32 +128,32 @@ public class AppView extends JFrame {
         maverage.setPreferredSize(new Dimension(200, 50));
         maverage.setFont(new Font(maverage.getFont().getName(), maverage.getFont().getStyle(), 17));
         maverage.setBackground(new Color(200, 230, 250));
-        maverage.setBorder(BorderFactory.createLineBorder(new Color(100, 200, 250), 1));
+        maverage.setBorder(BorderFactory.createLineBorder(new Color(100, 200, 250), 2));
         maverage.setOpaque(true);
 
         mmaxdeviation = new JLabel("Deviation: --");
         mmaxdeviation.setPreferredSize(new Dimension(200, 50));
         mmaxdeviation.setFont(new Font(mmaxdeviation.getFont().getName(), mmaxdeviation.getFont().getStyle(), 17));
         mmaxdeviation.setBackground(new Color(200, 230, 250));
-        mmaxdeviation.setBorder(BorderFactory.createLineBorder(new Color(100, 200, 250), 1));
+        mmaxdeviation.setBorder(BorderFactory.createLineBorder(new Color(100, 200, 250), 2));
         mmaxdeviation.setOpaque(true);
 
         mtimesHyper = new JLabel("Hyper: --");
         mtimesHyper.setPreferredSize(new Dimension(100, 50));
-        mtimesHyper.setBackground(new Color(250, 50, 50));
-        mtimesHyper.setBorder(BorderFactory.createLineBorder(new Color(255, 0, 0), 1));
+        mtimesHyper.setBackground(new Color(250, 200, 200));
+        mtimesHyper.setBorder(BorderFactory.createLineBorder(new Color(255, 0, 0), 2));
         mtimesHyper.setOpaque(true);
 
         mtimesHipo = new JLabel("Hipo: --");
         mtimesHipo.setPreferredSize(new Dimension(100, 50));
-        mtimesHipo.setBackground(new Color(255, 250, 100));
-        mtimesHipo.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 0), 1));
+        mtimesHipo.setBackground(new Color(250, 200, 200));
+        mtimesHipo.setBorder(BorderFactory.createLineBorder(new Color(255, 0, 0), 2));
         mtimesHipo.setOpaque(true);
 
         mglycatedHemoglobin = new JLabel("HbA1C: --");
         mglycatedHemoglobin.setPreferredSize(new Dimension(100, 50));
-        mglycatedHemoglobin.setBackground(new Color(100, 200, 250));
-        mglycatedHemoglobin.setBorder(BorderFactory.createLineBorder(new Color(100, 255, 200), 1));
+        mglycatedHemoglobin.setBackground(new Color(150, 255, 200));
+        mglycatedHemoglobin.setBorder(BorderFactory.createLineBorder(new Color(100, 200, 200), 2));
         mglycatedHemoglobin.setOpaque(true);
 
         labelsPanel.add(maverage);
@@ -157,19 +180,15 @@ public class AppView extends JFrame {
         this.newUserDialog.getSaveButton().addActionListener(c);
         this.chooseDateRangeDialog.getShowButton().addActionListener(c);
     }
-
     public void setLabelAverage(String average) {
         this.maverage.setText(average);
     }
-
     public void setLabelDeviation(String deviation) {
         this.mmaxdeviation.setText(deviation);
     }
-
     public void setLabelHipo(String hipo) {
         this.mtimesHipo.setText(hipo);
     }
-
     public void setLabelHiper(String hiper) {
         this.mtimesHyper.setText(hiper);
     }
@@ -177,7 +196,17 @@ public class AppView extends JFrame {
         this.mglycatedHemoglobin.setText("HbA1C: "+String.valueOf(glycatedHemoglobin));
     }
 
-public void setLabelsInfo(double average,double deviation,int hipo, int hiper,String sugarUnit){
+    /**
+     * Changes the labels displayed text
+     * should be used after changing measurements set to display
+     * @param average  average from new measurements set
+     * @param deviation deviation from new measurement set
+     * @param hipo number of measurement which exceeded the hypoglycemic level in new set
+     * @param hiper number of measurement which exceeded the hyperglycemia level in new set
+     * @param sugarUnit sugar level unit (we add it to the average and deviation information)
+     */
+
+    public void setLabelsInfo(double average,double deviation,int hipo, int hiper,String sugarUnit){
      setLabelAverage("average: " + average + sugarUnit);
      setLabelDeviation("deviation: " +deviation+ sugarUnit);
      setLabelHiper("hiper: " + hiper);
