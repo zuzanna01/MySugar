@@ -7,34 +7,38 @@ import backend.User;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.AdjustmentEvent;
-import java.awt.event.AdjustmentListener;
 import java.awt.geom.Line2D;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * The  JScatterPlot class
+ *
+ * The  JScatterPlot class is responsible
+ * for  the graphical representation of the chosen measurements set
+ * It creates scatter plot with the sugar level on the vertical axis
+ * and the date/time of measurement on the horizontal  axis
+ * It can scale when the panel size is changed
  *
  * @author Zuzanna Popławska
  */
 
 public class JScatterPlot extends JPanel  {
 
-    private JScrollBar pasek;
+    /**
+     * list of measurements to display
+     */
     private ArrayList<Measurement> dataset = new ArrayList<Measurement>();
+    /**
+     * changes list of measurements to display
+     * @param dataset measurements from date range chosen by user
+     */
     public void setDataset(ArrayList<Measurement> dataset) {
         this.dataset = dataset;
-    }
-    public void setDataSet(){
-
-    }
-
-    public void addmeasurement(Measurement m) {
-        dataset.add(m);
     }
 
     private int lowerTargetRange = 300;
@@ -42,6 +46,13 @@ public class JScatterPlot extends JPanel  {
     private int hipoLevel = 300;
     private int hiperLevel = 300;
 
+    /**
+     * sets arguments which will be represented as horizontal lines:
+     * lowerTargetRange, upperTargetRange, hipoLevel, hiperLevel
+     * these parameters are individual for each user
+     *
+     * @param currentUser user whose measurements we are displaying
+     */
     public void setLines(User currentUser) {
         lowerTargetRange = currentUser.getLowerTargetRage();
         upperTargetRange = currentUser.getUpperTargetRage();
@@ -49,6 +60,10 @@ public class JScatterPlot extends JPanel  {
         hiperLevel = currentUser.getHiperglycemia();
     }
 
+    /**
+     * Class constructor
+     * Just sets layout
+    */
     public JScatterPlot() {
         setLayout(new BorderLayout());
     }
@@ -62,20 +77,11 @@ public class JScatterPlot extends JPanel  {
     int x;
 
 
-    private LocalDate localStartDate;
-    private LocalDate localEndDate;
-    List<LocalDate> dates;
-    public void setDates(Date datefrom,Date dateto) {
-        this.localStartDate = LocalDate.of(datefrom.getYear(),datefrom.getMonth(),datefrom.getDay());
-        this.localEndDate=LocalDate.of(dateto.getYear(),dateto.getMonth(),dateto.getDay());
-        dates = this.getDatesBetween(localStartDate,localEndDate.plusDays(1));
-    }
-    //https://www.baeldung.com/java-between-dates
-    public static List<LocalDate> getDatesBetween(LocalDate startDate, LocalDate endDate) {
-
-        return startDate.datesUntil(endDate)
-                .collect(Collectors.toList());
-    }
+    /**
+     * override function responsible for painting component
+     *
+     * @param g graphics
+     */
 
     @Override
     public void paintComponent(Graphics g) {
@@ -129,6 +135,12 @@ public class JScatterPlot extends JPanel  {
 
     }
 
+    /**
+     *
+     *
+     * @param level
+     * @return y
+     */
     private double county(double level) {
         int y = this.getHeight() - 30;
         y -= level * step_height;
@@ -262,9 +274,9 @@ public class JScatterPlot extends JPanel  {
     public void paintMeasurements(Graphics2D g2d){
         for (Measurement idx : dataset) {
 
-            if (idx.getSugarLevel() > hiperLevel||idx.getSugarLevel()<hipoLevel)
+            if (idx.getSugarLevel() >= hiperLevel||idx.getSugarLevel()<=hipoLevel)
                 g2d.setPaint(Color.RED);
-            else if (idx.getSugarLevel() > upperTargetRange||idx.getSugarLevel()<lowerTargetRange)
+            else if (idx.getSugarLevel() >= upperTargetRange||idx.getSugarLevel()<=lowerTargetRange)
                 g2d.setPaint(Color.YELLOW);
             else g2d.setPaint(Color.GREEN);
 
@@ -275,6 +287,19 @@ public class JScatterPlot extends JPanel  {
         }
     }
 
-}
+    private LocalDate localStartDate;
+    private LocalDate localEndDate;
+    List<LocalDate> dates;
+    public void setDates(Date datefrom,Date dateto) {
+        this.localStartDate = LocalDate.of(datefrom.getYear(),datefrom.getMonth(),datefrom.getDay());
+        this.localEndDate=LocalDate.of(dateto.getYear(),dateto.getMonth(),dateto.getDay());
+        dates = this.getDatesBetween(localStartDate,localEndDate.plusDays(1));
+    }
+    //https://www.baeldung.com/java-between-dates
+    public static List<LocalDate> getDatesBetween(LocalDate startDate, LocalDate endDate) {
 
-//uwzglednić daty w położeniu kropek
+        return startDate.datesUntil(endDate)
+                .collect(Collectors.toList());
+    }
+
+}
