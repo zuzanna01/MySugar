@@ -137,7 +137,6 @@ public class JScatterPlot extends JPanel  {
 
     /**
      *
-     *
      * @param level
      * @return y
      */

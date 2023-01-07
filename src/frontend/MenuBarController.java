@@ -2,6 +2,7 @@ package frontend;
 
 import backend.Measurement;
 import backend.MeasurementsReader;
+import backend.TxtMeasurementsReader;
 import backend.UserMeasurementsReader;
 
 import java.awt.event.ActionEvent;
@@ -32,6 +33,9 @@ public class MenuBarController implements ActionListener {
         }
         if(e.getActionCommand().equals("from file")){
             mMenuBar.getChooser().showOpenDialog(null);
+            String path = mMenuBar.getChooser().getSelectedFile().getAbsolutePath();
+            MeasurementsReader measurementsReader = new TxtMeasurementsReader(path,mModel.getCurrentUser());
+            measurementsReader.saveNewMeasurements();
         }
 
         //tu dodajemy nowy pomiar z klawiatury

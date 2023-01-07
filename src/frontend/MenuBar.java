@@ -41,14 +41,10 @@ public class MenuBar extends JMenuBar {
         mnReport.add(pzWeeklyRaport);
         mnReport.add(pzBeginningRaport);
 
-        JMenuItem pzBloodUnit = new JMenuItem("Blood sugar units");
         JMenuItem pzTargetRange = new JMenuItem("Target range");
-        mnSettings.add(pzBloodUnit);
         mnSettings.add(pzTargetRange);
 
         JMenuItem pzUserGuide = new JMenuItem("User guide");
-        JMenuItem pzInformation = new JMenuItem("Information");
-        mnHelp.add(pzInformation);
         mnHelp.add(pzUserGuide);
 
         add(mnAddMeasurement);
