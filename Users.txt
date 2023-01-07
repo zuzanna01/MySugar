@@ -5,3 +5,4 @@ Zuzanna1 haslo1 1 120 90 70 140
 Monika haslo 2 120 100 90 130
 zkrupska 321 1 150 80 70 160
 ela123 123 2 160 75 70 170
+dominik haslo 1 160 70 65 170

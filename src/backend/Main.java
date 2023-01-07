@@ -9,7 +9,7 @@ public class Main {
         allUsers.verifyUserNameAndPassword("zkrupska", "321");
         User currentUser = allUsers.findUser("zkrupska");
         allUsers.logIn(currentUser);
-        MeasurementsReader measurementsReader = new UserMeasurementsReader("199", "12:30", "05-01-2023", currentUser);
-        measurementsReader.saveNewMeasurements();
+        Calculator calculator = new Calculator();
+        calculator.calculateGlycatedHemoglobin(currentUser.getListOfUsersMeasurements());
     }
 }

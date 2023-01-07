@@ -57,7 +57,7 @@ public class Calculator {
     }
 
     // obliczanie średniej z dnia
-    public double calculateAverageFromToday(ArrayList<Measurement> listOfMeasurements) {
+   /* public double calculateAverageFromToday(ArrayList<Measurement> listOfMeasurements) {
         ArrayList<Measurement> listOfMeasurementsFromToday = new ArrayList<>();
         for (Measurement i : listOfMeasurements) {
             LocalDate dateNow = LocalDate.now();
@@ -72,18 +72,24 @@ public class Calculator {
         }
         this.average = sum / listOfMeasurementsFromToday.size();
         return this.average;
-    }
+    } */
 
     // szacownanie hemoglobiny glikowanej z max 30 dni TUTAJ MUSISZ DAĆ LISTĘ Z NIEWYCIĘTEGO ZAKRESU
     public double calculateGlycatedHemoglobin(ArrayList<Measurement> listOfMeasurements) {
         this.listOfMeasurements = listOfMeasurements;
         double average = 0;
+        LocalDate today = LocalDate.now();
+        LocalDate thirtyDaysBeforeToday = today.minusDays(30);
+        Date dateToday = new Date(today);
+        Date dateThirtyDaysBeforeToday = new Date(thirtyDaysBeforeToday);
 
-        average = calculateAverage(getDataFromPeriod(30, listOfMeasurements));
+        average = calculateAverage(getDataFromGivenPeriod(dateThirtyDaysBeforeToday, dateToday, listOfMeasurements));
 
-        this.glycatedHemoglobin = (average * CONSTANT_FIRST) / CONSTANT_SECOND;
-
-        return Math.round(this.glycatedHemoglobin * 100) / 100; // zwraca zaokrągloną wartość do 2 miejsc po przecinku
+        this.glycatedHemoglobin = (average + CONSTANT_FIRST) / CONSTANT_SECOND;
+        this.glycatedHemoglobin *=100;
+        this.glycatedHemoglobin = Math.round(this.glycatedHemoglobin);
+        this.glycatedHemoglobin /= 100;
+        return this.glycatedHemoglobin;
     }
 
     public double calculateDeviation(ArrayList<Measurement> listOfMeasurements) {
@@ -101,14 +107,14 @@ public class Calculator {
 
 
     // wyznaczanie
-    public LocalDate calculateDate(int numberOfDays) {
+    /*public LocalDate calculateDate(int numberOfDays) {
         LocalDate dateNow = LocalDate.now();
         LocalDate dateFrom = dateNow.minusDays(numberOfDays);
         return dateFrom;
-    }
+    } */
 
     // wycinanie danych dla x dni od dzisiaj
-    public ArrayList<Measurement> getDataFromPeriod(int numberOfDays, ArrayList<Measurement> listOfMeasurements) {
+    /*public ArrayList<Measurement> getDataFromPeriod(int numberOfDays, ArrayList<Measurement> listOfMeasurements) {
         LocalDate date = calculateDate(numberOfDays);
         ArrayList<Measurement> listOfMeasurementsFromXDays = new ArrayList<>();
         for (Measurement i : listOfMeasurements) {
@@ -117,7 +123,7 @@ public class Calculator {
             }
         }
         return listOfMeasurementsFromXDays;
-    }
+    }*/
 
     // wyciannie danych dla dowolnego zakresu
     public ArrayList<Measurement> getDataFromGivenPeriod(Date date1, Date date2, ArrayList<Measurement> listOfMeasurements) {
