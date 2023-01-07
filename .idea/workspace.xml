@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="poprawa obliczania hemoglobiny glikowanej">
+    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="poprawa hipo i hiper">
+      <change afterPath="$PROJECT_DIR$/Raport_Measurementszkrupska.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/CsvRaportWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CsvRaportWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Date.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Measurement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/TxtRaportWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/TxtRaportWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zkrupska.txt" beforeDir="false" afterPath="$PROJECT_DIR$/zkrupska.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +146,7 @@
       <workItem from="1672862529901" duration="1018000" />
       <workItem from="1672866539956" duration="6362000" />
       <workItem from="1672918494860" duration="1835000" />
-      <workItem from="1673087119013" duration="3996000" />
+      <workItem from="1673087119013" duration="9651000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -289,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673089643173</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="poprawa hipo i hiper">
+      <created>1673091189228</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1673091189228</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,7 +339,8 @@
     <MESSAGE value="dodałam konstruktor kopiujący w Userze" />
     <MESSAGE value="tworzenie raportu csv" />
     <MESSAGE value="poprawa obliczania hemoglobiny glikowanej" />
-    <option name="LAST_COMMIT_MESSAGE" value="poprawa obliczania hemoglobiny glikowanej" />
+    <MESSAGE value="poprawa hipo i hiper" />
+    <option name="LAST_COMMIT_MESSAGE" value="poprawa hipo i hiper" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -349,16 +363,6 @@
           <option name="timeStamp" value="122" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/backend/Main.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="123" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java</url>
-          <line>87</line>
-          <option name="timeStamp" value="127" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/backend/Calculator.java</url>
           <line>147</line>
           <option name="timeStamp" value="129" />
@@ -369,9 +373,14 @@
           <option name="timeStamp" value="130" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/backend/User.java</url>
-          <line>164</line>
-          <option name="timeStamp" value="131" />
+          <url>file://$PROJECT_DIR$/src/backend/CsvRaportWriter.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="132" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="134" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

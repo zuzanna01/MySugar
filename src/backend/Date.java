@@ -2,7 +2,7 @@ package backend;
 
 import java.time.LocalDate;
 
-public class Date {
+public class Date implements Comparable<Date> {
     private int day;
     private int month;
     private int year;
@@ -67,5 +67,22 @@ public class Date {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    @Override
+    public int compareTo(Date date){
+        if(this.year > date.getYear())
+            return 1;
+        if(this.year < date.getYear())
+            return -1;
+        if(this.month > date.getMonth())
+            return 1;
+        if(this.month < date.getMonth())
+            return -1;
+        if(this.day > date.getDay())
+            return 1;
+        if(this.day < date.getDay())
+            return -1;
+        return 0;
     }
 }

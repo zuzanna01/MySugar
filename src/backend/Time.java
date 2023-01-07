@@ -3,7 +3,7 @@ package backend;
 /**
  *
  */
-public class Time {
+public class Time implements Comparable<Time>{
     private int hour;
 
     private String hour_str;
@@ -44,5 +44,18 @@ public class Time {
 
     public int getMinute() {
         return minute;
+    }
+
+    @Override
+    public int compareTo(Time time){
+        if(this.hour > time.getHour())
+            return 1;
+        if(this.hour < time.getHour())
+            return -1;
+        if(this.minute > time.getMinute())
+            return 1;
+        if(this.minute < time.getMinute())
+            return -1;
+        return 0;
     }
 }

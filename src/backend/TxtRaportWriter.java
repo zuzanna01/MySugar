@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class TxtRaportWriter implements RaportWriter {
+
     @Override
     public void writeRaport(User user, Calculator calculator) {
         String pathname = "Raport_User_Data" + user.getUserName() + ".txt";

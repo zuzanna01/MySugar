@@ -1,6 +1,6 @@
 package backend;
 
-public class Measurement {
+public class Measurement implements Comparable<Measurement> {
 
     private int sugarLevel;
     private Date date;
@@ -69,5 +69,11 @@ public class Measurement {
         return  sugarLevel + " " + time + " " + date ;
     }
 
-
+    @Override
+    public int compareTo(Measurement measurement){
+        int compared = this.getDate().compareTo(measurement.getDate());
+        if(compared == 0)
+            return this.getTime().compareTo(measurement.getTime());
+        else return compared;
+    }
 }
