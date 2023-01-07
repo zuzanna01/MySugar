@@ -164,11 +164,11 @@ public class User {
 
         for (Measurement i : listOfMeasurements) {
 
-            if (i.isHipoglycemia()) {
+            if (i.getSugarLevel() <= hipoglycemia) {
                 i.setHipoglycemia(true);
             }
-            if (i.isHiperglycemia()) {
-                i.setHipoglycemia(true);
+            if (i.getSugarLevel() >= hiperglycemia) {
+                i.setHiperglycemia(true);
             }
         }
     }

@@ -10,6 +10,6 @@ public class Main {
         User currentUser = allUsers.findUser("zkrupska");
         allUsers.logIn(currentUser);
         Calculator calculator = new Calculator();
-        calculator.calculateGlycatedHemoglobin(currentUser.getListOfUsersMeasurements());
+        calculator.countHipoglycemia(currentUser.getListOfUsersMeasurements());
     }
 }
