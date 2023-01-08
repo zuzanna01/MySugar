@@ -4,16 +4,27 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
 
+/**
+ * This class allows to create raport in .txt file.
+ * @author Zuzanna Krupska
+ */
 public class TxtRaportWriter implements RaportWriter {
     private int numberOfDays;
 
+    /**
+     * constructor
+     * @param numberOfDays
+     */
     public TxtRaportWriter(int numberOfDays){
         this.numberOfDays = numberOfDays;
     }
 
+    /**
+     * This method writes the raport of user's data.
+     * @param user
+     * @param calculator
+     */
     @Override
     public void writeRaport(User user, Calculator calculator) {
         LocalDate today = LocalDate.now();

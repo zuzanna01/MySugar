@@ -2,6 +2,10 @@ package backend;
 
 import java.util.ArrayList;
 
+/**
+ * This class contains list of measurements added from keybord.
+ * @author Zuzanna Krupska
+ */
     public class UserMeasurementsReader implements MeasurementsReader {
         private ArrayList<Measurement> listOfMeasurements;
         private User currentUser;
@@ -9,6 +13,13 @@ import java.util.ArrayList;
         private String dataSecond;
         private String dataThird;
 
+    /**
+     * constructor
+     * @param dataFirst
+     * @param dataSecond
+     * @param dataThird
+     * @param currentUser
+     */
         public UserMeasurementsReader(String dataFirst, String dataSecond, String dataThird, User currentUser){
             this.listOfMeasurements = new ArrayList<Measurement>();
             this.currentUser = currentUser;
@@ -17,7 +28,7 @@ import java.util.ArrayList;
             this.dataThird = dataThird;
         }
 
-        public void getMeasurement(){
+    private void getMeasurement(){
             String[] time = dataSecond.split(":");
             String hour = correctData(time[0]);
             String minute = correctData(time[1]);
@@ -34,18 +45,21 @@ import java.util.ArrayList;
             currentUser.checkHipoAndHiper(this.listOfMeasurements);
         }
 
-        @Override
+    /**
+     * This method gets measurement from user and saves it to user's file and to user's list of measurements.
+     */
+    @Override
         public void saveNewMeasurements(){
             getMeasurement();
             currentUser.saveMeasurementsToUsersFile(this.listOfMeasurements);
             currentUser.getListOfUsersMeasurements().addAll(this.listOfMeasurements);
         }
 
-        public void saveMeasurement(Measurement measurement){
+        private void saveMeasurement(Measurement measurement){
             this.listOfMeasurements.add(measurement);
         }
 
-        public String correctData(String data){
+        private String correctData(String data){
             if(data.startsWith("0")){
                 return data.replaceFirst("0", "");
             }

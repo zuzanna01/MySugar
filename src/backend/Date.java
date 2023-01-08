@@ -2,6 +2,9 @@ package backend;
 
 import java.time.LocalDate;
 
+/**
+ * This class represents date.
+ */
 public class Date implements Comparable<Date> {
     private int day;
     private int month;
@@ -34,23 +37,52 @@ public class Date implements Comparable<Date> {
         this.year = year;
     }
 
+    /**
+     * constructor
+     * @param day
+     * @param month
+     * @param year
+     */
     public Date(int day, int month, int year){
         this.day = day;
         this.month= month;
         this.year = year;
     }
 
+    /**
+     * constructor
+     * @param localDate date in localDate format
+     */
     public Date (LocalDate localDate){
         this.day = localDate.getDayOfMonth();
         this.month =localDate.getMonthValue();
         this.year=localDate.getYear();
     }
 
+    /**
+     * constructor
+     * @param date  date in String format
+     */
+    public Date(String date){
+        String[] splitdate = date.split("-") ;
+        this.day = Integer.parseInt(splitdate[0]);
+        this.month = Integer.parseInt(splitdate[1]);
+        this.year = Integer.parseInt(splitdate[2]);
+    }
+
+    /**
+     * This method changes date to localDate format
+     * @return  date in localDate format
+     */
     public LocalDate toLocalDate(){
         localDateFormat = LocalDate.of(this.getYear(),this.getMonth(),this.getDay());
         return localDateFormat;
     }
 
+    /**
+     * This method overrides toString method. It allows to change date to String format
+     * @return date in String format
+     */
     @Override
     public String toString() {
         day_str= String.valueOf(day);
@@ -61,13 +93,13 @@ public class Date implements Comparable<Date> {
         return day_str + "-" + month_str + "-" + year;
     }
 
-    public Date(String date){
-      String[] splitdate = date.split("-") ;
-      this.day = Integer.parseInt(splitdate[0]);
-      this.month = Integer.parseInt(splitdate[1]);
-      this.year = Integer.parseInt(splitdate[2]);
-    }
-
+    /**
+     * This method overrides compareTo method. It allows to compare two Date objects.
+     * @param date the object to be compared.
+     * @return     0 if objects are equal
+     *             1 if given object is smaller
+     *             -1 if given object is bigger
+     */
     @Override
     public int compareTo(Date date){
         if(this.year > date.getYear())

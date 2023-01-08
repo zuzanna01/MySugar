@@ -6,17 +6,29 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+/**
+ * This class contains list of measurements red from the .txt file
+ * @author Zuzanna Krupska
+ */
 public class TxtMeasurementsReader implements MeasurementsReader {
     private ArrayList<Measurement> listOfMeasurements;
     private String fileName;
     private User currentUser;
 
+    /**
+     * constructor
+     * @param fileName
+     * @param currentUser
+     */
     public TxtMeasurementsReader(String fileName, User currentUser){
         this.listOfMeasurements = new ArrayList<>();
         this.fileName = fileName;
         this.currentUser = currentUser;
     }
 
+    /**
+     * constructor
+     */
     public TxtMeasurementsReader() {
         this.listOfMeasurements = new ArrayList<>();
         this.fileName = null;
@@ -47,7 +59,7 @@ public class TxtMeasurementsReader implements MeasurementsReader {
         this.currentUser = currentUser;
     }
 
-    public Measurement getMeasurementFromFile(Scanner reader) {
+    private Measurement getMeasurementFromFile(Scanner reader) {
 
         int suggarLevel = reader.nextInt();
 
@@ -68,7 +80,10 @@ public class TxtMeasurementsReader implements MeasurementsReader {
         return measurement;
     }
 
-    public void getMeasurements() {
+    /**
+     * This method reads measurements from file and checks wheter red measurements is hipo- or hiperglycemia.
+     */
+    public void readMeasurements() {
        try {
             Scanner reader = new Scanner(new File(fileName));
             while(reader.hasNextLine()) {
@@ -81,18 +96,21 @@ public class TxtMeasurementsReader implements MeasurementsReader {
        currentUser.checkHipoAndHiper(this.listOfMeasurements);
     }
 
+    /**
+     * This method reads measurements from file and saves them to user's file and users' list of measurements.
+     */
     @Override
     public void saveNewMeasurements(){
-        getMeasurements();
+        readMeasurements();
         currentUser.saveMeasurementsToUsersFile(this.listOfMeasurements);
         currentUser.getListOfUsersMeasurements().addAll(this.listOfMeasurements);
     }
 
-    public void saveMeasurement(Measurement measurement){
+    private void saveMeasurement(Measurement measurement){
         this.listOfMeasurements.add(measurement);
     }
 
-    public String correctData(String data){
+    private String correctData(String data){
         if(data.startsWith("0")){
             return data.replaceFirst("0", "");
         }

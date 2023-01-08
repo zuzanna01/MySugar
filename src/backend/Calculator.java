@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * This class allows to calculate data.
+ * @author Zuzanna Krupska
+ */
 public class Calculator {
     final double CONSTANT_FIRST = 46.7;
     final double CONSTANT_SECOND = 28.7;
@@ -46,6 +50,11 @@ public class Calculator {
         return glycatedHemoglobin;
     }
 
+    /**
+     * This method simply calculates average sugar level.
+     * @param listOfMeasurements    list of measurements from which the average should be calculated
+     * @return                      calculated average sugar level
+     */
     public double calculateAverage(ArrayList<Measurement> listOfMeasurements) {
         int sum = 0;
         for (Measurement i : listOfMeasurements) {
@@ -55,7 +64,11 @@ public class Calculator {
         return this.average;
     }
 
-    // szacownanie hemoglobiny glikowanej z max 30 dni TUTAJ MUSISZ DAĆ LISTĘ Z NIEWYCIĘTEGO ZAKRESU
+    /**
+     * This method simply calculates glycated hemoglobin from last thirty days.
+     * @param listOfMeasurements    list of measurements from which the glycated hemoglobin should be calculated
+     * @return                      calculated glycated hemoglobin rounded up to two decimal places
+     */
     public double calculateGlycatedHemoglobin(ArrayList<Measurement> listOfMeasurements) {
         this.listOfMeasurements = listOfMeasurements;
         double average = 0;
@@ -73,6 +86,11 @@ public class Calculator {
         return this.glycatedHemoglobin;
     }
 
+    /**
+     * This method simply calculates the sugar level deviation.
+     * @param listOfMeasurements    list of measurements from which the deviation should be calculated
+     * @return                      calculated deviation rounded up to two decimal places
+     */
     public double calculateDeviation(ArrayList<Measurement> listOfMeasurements) {
         this.listOfMeasurements = listOfMeasurements;
         double average = 0;
@@ -86,6 +104,13 @@ public class Calculator {
         return Math.round(this.deviation * 100) / 100; // zwraca zaokrągloną wartość do 2 miejsc po przecinku
     }
 
+    /**
+     * This method cuts out measurements from list of measurements that are from given period.
+     * @param date1                 begining of the period date
+     * @param date2                 end of the period date
+     * @param listOfMeasurements    list of measurements from which measurements should be cut
+     * @return                      list of measurements from given period
+     */
     public ArrayList<Measurement> getDataFromGivenPeriod(Date date1, Date date2, ArrayList<Measurement> listOfMeasurements) {
         LocalDate localStartDate = date1.toLocalDate();
         LocalDate localEndDate = date2.toLocalDate();
@@ -102,6 +127,11 @@ public class Calculator {
         return listOfMeasurementsFromXDays;
     }
 
+    /**
+     * This method counts hypoglycemia.
+     * @param listOfMeasurements    list of measurements from which hypoglycemia should be counted.
+     * @return                      number of hypoglycemia
+     */
     public int countHipoglycemia(ArrayList<Measurement> listOfMeasurements) {
         this.counterHipo = 0;
         for (Measurement i : listOfMeasurements) {
@@ -111,6 +141,12 @@ public class Calculator {
         }
         return counterHipo;
     }
+
+    /**
+     * This method counts hyperglycemia.
+     * @param listOfMeasurements    list of measurements from which hyperglycemia should be counted.
+     * @return                      number of hyperglycemia
+     */
     public int countHiperglycemia(ArrayList<Measurement> listOfMeasurements) {
         this.counterHiper = 0;
         for (Measurement i : listOfMeasurements) {

@@ -7,15 +7,28 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * This class allows to create raport in .csv file.
+ * @author Zuzanna Krupska
+ */
 public class CsvRaportWriter implements RaportWriter {
     private int numberOfDays;
     private ArrayList<Measurement> listOfMeasurements;
 
+    /**
+     * constructor
+     * @param numberOfDays  number of days from which raport should be generated
+     */
     public CsvRaportWriter(int numberOfDays){
         this.numberOfDays = numberOfDays;
         this.listOfMeasurements = new ArrayList<>();
     }
 
+    /**
+     * This method writes the raport of measurements (sugar level, time, date).
+     * @param user
+     * @param calculator
+     */
     @Override
     public void writeRaport(User user, Calculator calculator){
         LocalDate today = LocalDate.now();

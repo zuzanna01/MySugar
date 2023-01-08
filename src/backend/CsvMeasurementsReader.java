@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+/**
+ * This class contains list of measurements red from the .csv file
+ * @author Zuzanna Krupska
+ */
 public class CsvMeasurementsReader implements MeasurementsReader {
     private ArrayList<Measurement> listOfMeasurements;
     private Measurement measurement;
@@ -16,6 +20,11 @@ public class CsvMeasurementsReader implements MeasurementsReader {
         return fileName;
     }
 
+    /**
+     * constructor
+     * @param fileName      name of file from which measurements should be red
+     * @param currentUser   to current user's file measurements should be saved
+     */
     public CsvMeasurementsReader(String fileName, User currentUser) {
         this.listOfMeasurements = new ArrayList<>();
         this.fileName = fileName;
@@ -38,7 +47,7 @@ public class CsvMeasurementsReader implements MeasurementsReader {
         return listOfMeasurements;
     }
 
-    public Measurement getMeasurementFromFile(Scanner reader) {
+    private Measurement getMeasurementFromFile(Scanner reader) {
         String data = reader.next();
         String[] tab = data.split(",");
         String sugarLevel = tab[0];
@@ -54,24 +63,20 @@ public class CsvMeasurementsReader implements MeasurementsReader {
         return measurement;
     }
 
-    public String correctData(String data) {
-        if (data.startsWith("0")) {
-            return data.replaceFirst("0", "");
-        }
-        return data;
-    }
-
-    public void saveMeasurements(Measurement measurement){
+    private void saveMeasurements(Measurement measurement){
         this.listOfMeasurements.add(measurement);
     }
 
+    /**
+     * This method reads measurements from file and saves them to user's list of measurements.
+     */
     @Override
     public void saveNewMeasurements(){
-        getMeasurements();
+        readMeasurements();
         currentUser.saveMeasurementsToUsersFile(this.listOfMeasurements);
     }
 
-    public void getMeasurements(){
+    private void readMeasurements(){
         try {
             Scanner reader = new Scanner(new File(fileName));
             while(reader.hasNextLine()) {

@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
+/**
+ * This class represents user.
+ * @author Zuzanna Krupska
+ */
 public class User {
     private String userName;
     private String password;
@@ -14,14 +18,16 @@ public class User {
     private int hiperglycemia;
     private ArrayList<Measurement> listOfUsersMeasurements;
 
-    public ArrayList<Measurement> getListOfUsersMeasurements() {
-        return listOfUsersMeasurements;
-    }
-
-    public void setListOfUsersMeasurements(ArrayList<Measurement> listOfUsersMeasurements) {
-        this.listOfUsersMeasurements = listOfUsersMeasurements;
-    }
-
+    /**
+     * constructor
+     * @param userName
+     * @param password
+     * @param typeOfDiabities
+     * @param upperTargetRage
+     * @param lowerTargetRage
+     * @param hipoglycemia
+     * @param hiperglycemia
+     */
     public User(String userName, String password, int typeOfDiabities, int upperTargetRage, int lowerTargetRage, int hipoglycemia, int hiperglycemia) {
         this.userName = userName;
         this.password = password;
@@ -33,6 +39,10 @@ public class User {
         this.listOfUsersMeasurements = new ArrayList<Measurement>();
     }
 
+    /**
+     * copy constructor
+     * @param u
+     */
     public User(User u){
         this.userName = u.getUserName();
         this.password = u.getPassword();
@@ -42,6 +52,14 @@ public class User {
         this.hipoglycemia = u.getHipoglycemia();
         this.hiperglycemia = u.getHiperglycemia();
         this.listOfUsersMeasurements = u.getListOfUsersMeasurements();
+    }
+
+    public ArrayList<Measurement> getListOfUsersMeasurements() {
+        return listOfUsersMeasurements;
+    }
+
+    public void setListOfUsersMeasurements(ArrayList<Measurement> listOfUsersMeasurements) {
+        this.listOfUsersMeasurements = listOfUsersMeasurements;
     }
 
     public void setUserName(String userName) {
@@ -100,6 +118,12 @@ public class User {
         return hiperglycemia;
     }
 
+    /**
+     * This method verifies whether given password is correct
+     * @param password  password to be checked
+     * @return          true if password is correct
+     *                  false if oassword is incorrect
+     */
     public boolean checkPassword(String password){
         if(this.password.equals(password))
         {
@@ -108,6 +132,9 @@ public class User {
         return false;
     }
 
+    /**
+     * THis method saves user to database Users.txt.
+     */
     public void saveUser(){
         try{
             File file = new File("./Users.txt");
@@ -118,6 +145,10 @@ public class User {
         }
     }
 
+    /**
+     * This method saves measurements to user's file.
+     * @param listOfNewMeasurements list of measurements that should be saved
+     */
     public void saveMeasurementsToUsersFile(ArrayList<Measurement> listOfNewMeasurements){
         try{
             File file = new File(this.userName + ".txt");
@@ -158,6 +189,10 @@ public class User {
         }
     }
 
+    /**
+     * This method verifies whether measurements are hipo- or -hiperglycemia
+     * @param listOfMeasurements list of measurements to be checked
+     */
     public void checkHipoAndHiper(ArrayList<Measurement> listOfMeasurements) {
         for (Measurement i : listOfMeasurements) {
             if (i.getSugarLevel() <= hipoglycemia) {
