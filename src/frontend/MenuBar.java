@@ -10,8 +10,11 @@ import java.awt.event.ActionListener;
  *
  */
 public class MenuBar extends JMenuBar {
-    JMenuItem pzFromFile= null;
-    JMenuItem pzFromKeyboard= null;
+    JMenuItem pzFromFile;
+    JMenuItem pzFromKeyboard;
+    JMenuItem pzDailyRaport ;
+    JMenuItem pzWeeklyRaport;
+    JMenuItem pzBeginningRaport;
 
     private JFileChooser chooser;
 
@@ -35,9 +38,9 @@ public class MenuBar extends JMenuBar {
         mnAddMeasurement.add(pzFromKeyboard);
         mnAddMeasurement.add(pzFromFile);
 
-        JMenuItem pzDailyRaport = new JMenuItem("daily");
-        JMenuItem pzWeeklyRaport = new JMenuItem("weekly");
-        JMenuItem pzBeginningRaport = new JMenuItem("from the beginning");
+        pzDailyRaport = new JMenuItem("daily");
+        pzWeeklyRaport = new JMenuItem("weekly");
+        pzBeginningRaport = new JMenuItem("from the beginning");
         mnReport.add(pzDailyRaport);
         mnReport.add(pzWeeklyRaport);
         mnReport.add(pzBeginningRaport);
@@ -58,5 +61,8 @@ public class MenuBar extends JMenuBar {
         this.pzFromKeyboard.addActionListener(c);
         this.pzFromFile.addActionListener(c);
         this.getAddDialog().getAddButton().addActionListener(c);
+        this.pzDailyRaport.addActionListener(c);
+        this.pzBeginningRaport.addActionListener(c);
+        this.pzWeeklyRaport.addActionListener(c);
     }
 }

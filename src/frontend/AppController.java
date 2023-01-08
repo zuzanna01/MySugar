@@ -111,8 +111,6 @@ public class AppController implements ActionListener {
                         "",
                         JOptionPane.ERROR_MESSAGE);
 
-                // reset date TO DO:
-
             }
 
 

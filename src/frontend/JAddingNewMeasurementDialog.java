@@ -113,5 +113,13 @@ public class JAddingNewMeasurementDialog extends JDialog {
         return true;
     }
 
+    public void cleanFields(){
+        this.txtSugarLevel.setText("");
+        this.txtTime.setText("00:00");
+        this.txtDate.setText("00-00-0000");
+    }
+
+
+
 
 }

@@ -1,9 +1,6 @@
 package frontend;
 
-import backend.Measurement;
-import backend.MeasurementsReader;
-import backend.TxtMeasurementsReader;
-import backend.UserMeasurementsReader;
+import backend.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -39,13 +36,16 @@ public class MenuBarController implements ActionListener {
         }
 
         if (e.getActionCommand().equals("daily")) {
-
+            RaportWriter csvraportWriter = new CsvRaportWriter(1);
+            csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
         }
         if (e.getActionCommand().equals("weekly")) {
-
+            RaportWriter csvraportWriter = new CsvRaportWriter(7);
+            csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
         }
         if (e.getActionCommand().equals("from the beginning")) {
-
+            RaportWriter txtraportWriter = new TxtRaportWriter();
+            txtraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
         }
     }
 
@@ -63,11 +63,13 @@ public class MenuBarController implements ActionListener {
             mMenuBar.getAddDialog().dispose();
 
             mView.setLabelGlycatedHemoglobin(mModel.getCalculator().calculateGlycatedHemoglobin(mModel.getCurrentUser().getListOfUsersMeasurements()));
+            mMenuBar.getAddDialog().cleanFields();
         } else {
             JOptionPane.showMessageDialog(mView.getLoginDialog(),
                     "Incorrect data ",
                     "",
                     JOptionPane.ERROR_MESSAGE);
+
         }
 
     }

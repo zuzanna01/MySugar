@@ -27,6 +27,7 @@ public class HourValidator {
             }
 
         }
+
         return true;
     }
 }
