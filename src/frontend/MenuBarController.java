@@ -44,7 +44,7 @@ public class MenuBarController implements ActionListener {
             csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
         }
         if (e.getActionCommand().equals("from the beginning")) {
-            RaportWriter txtraportWriter = new TxtRaportWriter();
+            RaportWriter txtraportWriter = new TxtRaportWriter(7);
             txtraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
         }
     }

@@ -2,6 +2,7 @@ package backend;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Calculator {
     final double CONSTANT_FIRST = 46.7;
@@ -118,6 +119,15 @@ public class Calculator {
             }
         }
         return counterHiper;
+    }
+
+    public int findCurrentSugarLevel(ArrayList<Measurement> listOfMeasurements){
+        int currentSugarLevel = 0;
+        Collections.sort(this.listOfMeasurements);
+        int lastIdx = listOfMeasurements.size() - 1;
+        Measurement lastElement = listOfMeasurements.get(lastIdx);
+        currentSugarLevel = lastElement.getSugarLevel();
+        return currentSugarLevel;
     }
 
 }
