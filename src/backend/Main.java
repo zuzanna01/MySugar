@@ -11,7 +11,7 @@ public class Main {
         allUsers.logIn(currentUser);
         Calculator calculator = new Calculator();
         calculator.countHipoglycemia(currentUser.getListOfUsersMeasurements());
-        RaportWriter raportWriter = new TxtRaportWriter(30);
+        RaportWriter raportWriter = new CsvRaportWriter(30);
         raportWriter.writeRaport(currentUser, calculator);
     }
 }

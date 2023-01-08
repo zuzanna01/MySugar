@@ -157,13 +157,11 @@ public class Calculator {
         return counterHiper;
     }
 
-    public int findCurrentSugarLevel(ArrayList<Measurement> listOfMeasurements){
-        int currentSugarLevel = 0;
-        Collections.sort(this.listOfMeasurements);
+    public Measurement findCurrentSugarLevel(ArrayList<Measurement> listOfMeasurements){
+        Collections.sort(listOfMeasurements);
         int lastIdx = listOfMeasurements.size() - 1;
         Measurement lastElement = listOfMeasurements.get(lastIdx);
-        currentSugarLevel = lastElement.getSugarLevel();
-        return currentSugarLevel;
+        return lastElement;
     }
 
 }

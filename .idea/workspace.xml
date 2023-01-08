@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c13351c5-bb81-4df4-871d-7f1f5d17dd44" name="Changes" comment="znajdowanie obecnego poziomu cukru">
+    <list default="true" id="c13351c5-bb81-4df4-871d-7f1f5d17dd44" name="Changes" comment="dokumentacja backend">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/AllUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/AllUsers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/CsvMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CsvMeasurementsReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/CsvRaportWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CsvRaportWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Date.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Measurement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/MeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/MeasurementsReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/RaportWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/RaportWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Time.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/TxtRaportWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/TxtRaportWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/UserMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/UserMeasurementsReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zkrupska.txt" beforeDir="false" afterPath="$PROJECT_DIR$/zkrupska.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +63,7 @@
       <recent name="C:\Users\User\IdeaProjects\PJAVA_MySugar\src\backend" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.backend.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="frontend.Main" />
       <module name="PJAVA_MySugar" />
@@ -153,7 +143,7 @@
       <workItem from="1672918494860" duration="1835000" />
       <workItem from="1673087119013" duration="9651000" />
       <workItem from="1673171073720" duration="10617000" />
-      <workItem from="1673189931686" duration="8857000" />
+      <workItem from="1673189931686" duration="9309000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -351,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673189495087</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="dokumentacja backend">
+      <created>1673202286871</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1673202286871</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,7 +366,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="klasa JScatterPlot - pierwsza wersja wykresu tylko dla Today&#10;, dodałam getTime do Measurement" />
     <MESSAGE value="nowe okienka do logowania, dodawania użytkowników i pomiarów + zaczełam javadocy" />
     <MESSAGE value="moduł do rejestracji, logowania, weryfikacji hasła, tworzenie bazy użytkowników, bazy pomiarów użytkownika, zliczanie hipo i hiper, moduł do wycinania danych z danego okresu" />
     <MESSAGE value="działa logowanie i tworzenie nowych kont i dodałam hipo i hiper na wykresie" />
@@ -394,7 +390,8 @@
     <MESSAGE value="zabezpieczenie okna wyboru przedziału daty" />
     <MESSAGE value="komentarze pt.1" />
     <MESSAGE value="znajdowanie obecnego poziomu cukru" />
-    <option name="LAST_COMMIT_MESSAGE" value="znajdowanie obecnego poziomu cukru" />
+    <MESSAGE value="dokumentacja backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="dokumentacja backend" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -415,6 +412,11 @@
           <url>file://$PROJECT_DIR$/src/backend/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="134" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/Calculator.java</url>
+          <line>160</line>
+          <option name="timeStamp" value="135" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
