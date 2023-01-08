@@ -10,10 +10,15 @@ import java.awt.event.ActionListener;
  *
  */
 public class MenuBar extends JMenuBar {
-    JMenuItem pzFromFile= null;
-    JMenuItem pzFromKeyboard= null;
+    JMenuItem pzFromFile;
+    JMenuItem pzFromKeyboard;
+    JMenuItem pzDailyRaport ;
+    JMenuItem pzWeeklyRaport;
+    JMenuItem pzBeginningRaport;
 
     private JFileChooser chooser;
+
+
     private JAddingNewMeasurementDialog add;
     public JAddingNewMeasurementDialog getAddDialog() {
         return add;
@@ -26,7 +31,6 @@ public class MenuBar extends JMenuBar {
     public MenuBar(){
         JMenu mnAddMeasurement = new JMenu("Add measurement");
         JMenu mnReport = new JMenu("Report");
-        JMenu mnSettings = new JMenu("Settings");
         JMenu mnHelp = new JMenu("Help");
 
         pzFromKeyboard = new JMenuItem("from keyboard");
@@ -34,25 +38,17 @@ public class MenuBar extends JMenuBar {
         mnAddMeasurement.add(pzFromKeyboard);
         mnAddMeasurement.add(pzFromFile);
 
-        JMenuItem pzDailyRaport = new JMenuItem("daily");
-        JMenuItem pzWeeklyRaport = new JMenuItem("weekly");
-        JMenuItem pzBeginningRaport = new JMenuItem("from the beginning");
+        pzDailyRaport = new JMenuItem("daily");
+        pzWeeklyRaport = new JMenuItem("weekly");
+        pzBeginningRaport = new JMenuItem("from the beginning");
         mnReport.add(pzDailyRaport);
         mnReport.add(pzWeeklyRaport);
         mnReport.add(pzBeginningRaport);
 
-        JMenuItem pzBloodUnit = new JMenuItem("Blood sugar units");
-        JMenuItem pzTargetRange = new JMenuItem("Target range");
-        mnSettings.add(pzBloodUnit);
-        mnSettings.add(pzTargetRange);
-
         JMenuItem pzUserGuide = new JMenuItem("User guide");
-        JMenuItem pzInformation = new JMenuItem("Information");
-        mnHelp.add(pzInformation);
         mnHelp.add(pzUserGuide);
 
         add(mnAddMeasurement);
-        add(mnSettings);
         add(mnReport);
         add(mnHelp);
 
@@ -65,5 +61,8 @@ public class MenuBar extends JMenuBar {
         this.pzFromKeyboard.addActionListener(c);
         this.pzFromFile.addActionListener(c);
         this.getAddDialog().getAddButton().addActionListener(c);
+        this.pzDailyRaport.addActionListener(c);
+        this.pzBeginningRaport.addActionListener(c);
+        this.pzWeeklyRaport.addActionListener(c);
     }
 }

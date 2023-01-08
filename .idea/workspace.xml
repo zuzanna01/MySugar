@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="sortowanie i generowanie raportu csv">
+    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="komentarze pt.1">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/AllUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/AllUsers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/CsvMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CsvMeasurementsReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/CsvRaportWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CsvRaportWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Date.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Measurement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Time.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/TxtRaportWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/TxtRaportWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/UserMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/UserMeasurementsReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/AppView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/DateValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/DateValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/JChooseDateRangeDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JChooseDateRangeDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/JScatterPlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JScatterPlot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/SugarLevelValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/SugarLevelValidator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +27,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-17.0.4.1/lib/src.zip!/java.base/java/util/Scanner.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-17.0.4.1/lib/src.zip!/java.desktop/java/awt/event/ActionListener.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -71,7 +71,7 @@
       <recent name="C:\Users\User\IdeaProjects\PJAVA_MySugar\src\backend" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.backend.Main">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="frontend.Main" />
       <module name="PJAVA_MySugar" />
@@ -149,8 +149,8 @@
       <workItem from="1672862529901" duration="1018000" />
       <workItem from="1672866539956" duration="6362000" />
       <workItem from="1672918494860" duration="1835000" />
-      <workItem from="1673087119013" duration="12538000" />
-      <workItem from="1673186104487" duration="582000" />
+      <workItem from="1673087119013" duration="9651000" />
+      <workItem from="1673171073720" duration="10617000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -306,14 +306,42 @@
       <option name="project" value="LOCAL" />
       <updated>1673091189228</updated>
     </task>
-    <task id="LOCAL-00023" summary="sortowanie i generowanie raportu csv">
-      <created>1673119289855</created>
+    <task id="LOCAL-00023" summary="dodawanie pomiarów z innego pliku">
+      <created>1673134117205</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1673119289855</updated>
+      <updated>1673134117205</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="zabezpieczenie okienka do dawania pomiaru przed nieprawidłowymi danymi">
+      <created>1673139523782</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1673139523782</updated>
+    </task>
+    <task id="LOCAL-00025" summary="jakoś podpięte raporty i okienko nowego pomiaru się czyści">
+      <created>1673142634031</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1673142634031</updated>
+    </task>
+    <task id="LOCAL-00026" summary="zabezpieczenie okna wyboru przedziału daty">
+      <created>1673174145841</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1673174145841</updated>
+    </task>
+    <task id="LOCAL-00027" summary="komentarze pt.1">
+      <created>1673181176174</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1673181176174</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,8 +379,12 @@
     <MESSAGE value="tworzenie raportu csv" />
     <MESSAGE value="poprawa obliczania hemoglobiny glikowanej" />
     <MESSAGE value="poprawa hipo i hiper" />
-    <MESSAGE value="sortowanie i generowanie raportu csv" />
-    <option name="LAST_COMMIT_MESSAGE" value="sortowanie i generowanie raportu csv" />
+    <MESSAGE value="dodawanie pomiarów z innego pliku" />
+    <MESSAGE value="zabezpieczenie okienka do dawania pomiaru przed nieprawidłowymi danymi" />
+    <MESSAGE value="jakoś podpięte raporty i okienko nowego pomiaru się czyści" />
+    <MESSAGE value="zabezpieczenie okna wyboru przedziału daty" />
+    <MESSAGE value="komentarze pt.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="komentarze pt.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -370,9 +402,89 @@
           <option name="timeStamp" value="113" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/Calculator.java</url>
+          <line>147</line>
+          <option name="timeStamp" value="129" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/Calculator.java</url>
+          <line>159</line>
+          <option name="timeStamp" value="130" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/CsvRaportWriter.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="132" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/backend/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="134" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/CsvRaportWriter.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="155" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/CsvRaportWriter.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="156" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/TxtRaportWriter.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="157" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/TxtRaportWriter.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/TxtRaportWriter.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="159" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/frontend/MenuBarController.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="160" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/frontend/MenuBarController.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="161" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/frontend/MenuBarController.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="162" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/frontend/MenuBarController.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="163" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/CsvRaportWriter.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="164" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/CsvRaportWriter.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="165" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/CsvRaportWriter.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="166" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

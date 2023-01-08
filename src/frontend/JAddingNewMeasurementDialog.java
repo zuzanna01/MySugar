@@ -6,6 +6,9 @@ import backend.Date;
 
 import javax.swing.*;
 import java.awt.*;
+import java.time.format.DateTimeFormatter;
+import java.time.format.ResolverStyle;
+import java.util.Locale;
 
 /**
  * The  JAddingNewMeasurementDialog class
@@ -14,8 +17,6 @@ import java.awt.*;
  */
 
 public class JAddingNewMeasurementDialog extends JDialog {
-
-
 
     private JLabel lblSugarLevel;
     private JTextField txtSugarLevel;
@@ -27,6 +28,14 @@ public class JAddingNewMeasurementDialog extends JDialog {
     public JButton getAddButton() {
         return addButton;
     }
+
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-uuuu", Locale.US)
+            .withResolverStyle(ResolverStyle.STRICT);
+
+
+    private DateValidator checkDate = new DateValidator(dateFormatter);
+    private HourValidator checkTime = new HourValidator();
+    private SugarLevelValidator checkSugarLevel = new SugarLevelValidator();
 
     public JAddingNewMeasurementDialog(Frame parent) {
         super(parent, "Login", true);
@@ -98,6 +107,21 @@ public class JAddingNewMeasurementDialog extends JDialog {
     private Time getTime(){
         return new Time(txtTime.getText().trim());
     }
+
+    public boolean areDataValid(){
+        if(!checkDate.isValid(txtDate.getText().trim()))return false;
+        if(!checkTime.isHourValid(getTime(),getDate())) return false;
+        if(!checkSugarLevel.isSugarLevelValid(txtSugarLevel.getText().trim()))return false;
+        return true;
+    }
+
+    public void cleanFields(){
+        this.txtSugarLevel.setText("");
+        this.txtTime.setText("00:00");
+        this.txtDate.setText("00-00-0000");
+    }
+
+
 
 
 }

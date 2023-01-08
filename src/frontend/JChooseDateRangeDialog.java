@@ -1,9 +1,12 @@
 package frontend;
 
+import backend.Date;
+
 import javax.swing.*;
-import javax.swing.text.MaskFormatter;
 import java.awt.*;
-import java.text.ParseException;
+import java.time.format.DateTimeFormatter;
+import java.time.format.ResolverStyle;
+import java.util.Locale;
 
 
 /**
@@ -28,6 +31,10 @@ public class JChooseDateRangeDialog extends JDialog {
     public JButton getShowButton() {
         return showButton;
     }
+
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-uuuu", Locale.US)
+            .withResolverStyle(ResolverStyle.STRICT);
+    DateValidator checkDate = new DateValidator(dateFormatter);
 
     public JChooseDateRangeDialog(Frame parent) {
         super(parent, "Choose date range", true);
@@ -72,5 +79,20 @@ public class JChooseDateRangeDialog extends JDialog {
 
     public String getTo() {
         return txtTo.getText().trim();
+    }
+
+    public Date getToDate(){
+        return new Date(getTo());
+    }
+    public Date getFromDate(){
+        return new Date(getFrom());
+    }
+
+    public boolean areDataValid(){
+        if(!checkDate.isValid(getTo())) return false;
+        if(!checkDate.isValid(getFrom())) return false;
+        if(getToDate().toLocalDate().isBefore(getFromDate().toLocalDate()))return false;
+
+        return true;
     }
 }
