@@ -17,17 +17,20 @@ public class MenuBar extends JMenuBar {
     JMenuItem pzBeginningRaport;
 
     private JFileChooser chooser;
-
-
     private JAddingNewMeasurementDialog add;
     public JAddingNewMeasurementDialog getAddDialog() {
         return add;
     }
-
     public JFileChooser getChooser() {
         return chooser;
     }
-
+    /**
+     * Class constructor.
+     * menu has two main tabs:
+     * 1)'Add measurement' with options 'from keyboard' and 'from file'
+     * and 'Report' with options ?
+     *
+     */
     public MenuBar(){
         JMenu mnAddMeasurement = new JMenu("Add measurement");
         JMenu mnReport = new JMenu("Report");
@@ -40,13 +43,13 @@ public class MenuBar extends JMenuBar {
 
         pzDailyRaport = new JMenuItem("daily");
         pzWeeklyRaport = new JMenuItem("weekly");
-        pzBeginningRaport = new JMenuItem("from the beginning");
+        pzBeginningRaport = new JMenuItem("your date range");
         mnReport.add(pzDailyRaport);
         mnReport.add(pzWeeklyRaport);
         mnReport.add(pzBeginningRaport);
 
-        JMenuItem pzUserGuide = new JMenuItem("User guide");
-        mnHelp.add(pzUserGuide);
+       // JMenuItem pzUserGuide = new JMenuItem("User guide");
+       // mnHelp.add(pzUserGuide);
 
         add(mnAddMeasurement);
         add(mnReport);
@@ -56,7 +59,9 @@ public class MenuBar extends JMenuBar {
         add = new JAddingNewMeasurementDialog(null);
 
     }
-
+    /**
+     * Adds action listeners to menu positions
+     */
     public void setMenuBarController(ActionListener c) {
         this.pzFromKeyboard.addActionListener(c);
         this.pzFromFile.addActionListener(c);

@@ -6,7 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * The JAddingNewUserDialog class
+ * The JAddingNewUserDialog class extends JDialog
+ * creates new window for creating  manually new account
  *
  * @author Zuzanna Popławska
  */
@@ -33,6 +34,11 @@ public class JAddingNewUserDialog extends JDialog {
     private JTextField txtUpperTargetRange;
     private JLabel lblUpperTargetRange;
     private JTextField txtLowerTargetRange;
+    private JLabel lblLowerTargetRange;
+    private JTextField txtHipoglycemia;
+    private JLabel lblHipoglycemia;
+    private JTextField txtHiperglycemia;
+    private JLabel lblHiperglycemia;
 
     public JTextField getTxtUsername() {
         return txtUsername;
@@ -62,11 +68,19 @@ public class JAddingNewUserDialog extends JDialog {
         return txtHiperglycemia;
     }
 
-    private JLabel lblLowerTargetRange;
-    private JTextField txtHipoglycemia;
-    private JLabel lblHipoglycemia;
-    private JTextField txtHiperglycemia;
-    private JLabel lblHiperglycemia;
+
+    /**
+     * Class Constructor
+     * creates seven fields for:
+     * username, password, type of diabetes,
+     * lower and upper target range,hyperglycemia and hypoglycemic level
+     * and labels for them
+     * fields are build using JFormattedTextField
+     *
+     * dialog have one button 'Create account' to save measurement
+     *
+     * @param parent parent window for dialog
+     */
 
     public JAddingNewUserDialog(Frame parent) {
         super(parent, "Adding new user", true);
@@ -150,35 +164,40 @@ public class JAddingNewUserDialog extends JDialog {
         this.add(mainPanel);
         mainPanel.add(addingPanel);
         mainPanel.add(buttonPanel);
-
-
-
     }
+
     User newUser;
-    public User getNewUserData(){
-        newUser = new User(getUserName(),getPassword(),getTypeOfDiabetes(),getUpperTargetRange(),getLowerTargetRange(),
-                getHipoglycemiaLevel(),getHiperglycemiaLevel());
+
+    /**
+     * creates newUser based on inputted by user data
+     * @return newUser
+     */
+
+    public User getNewUserData() {
+        newUser = new User(getUserName(), getPassword(), getTypeOfDiabetes(), getUpperTargetRange(), getLowerTargetRange(),
+                getHipoglycemiaLevel(), getHiperglycemiaLevel());
         return newUser;
     }
-    public String getUserName(){
+
+    public String getUserName() {
         return getTxtUsername().getText().trim();
     }
-    public String getPassword(){
+    public String getPassword() {
         return getTxtPassword().getText().trim();
     }
-    public int getTypeOfDiabetes(){
+    public int getTypeOfDiabetes() {
         return Integer.parseInt(getTxtTypeOfDiabetes().getText().trim());
     }
-    public int  getUpperTargetRange(){
+    public int getUpperTargetRange() {
         return Integer.parseInt(getTxtUpperTargetRange().getText().trim());
     }
-    public int  getLowerTargetRange(){
+    public int getLowerTargetRange() {
         return Integer.parseInt(getTxtLowerTargetRange().getText().trim());
     }
-    public int  getHipoglycemiaLevel(){
+    public int getHipoglycemiaLevel() {
         return Integer.parseInt(getTxtHipoglycemia().getText().trim());
     }
-    public int  getHiperglycemiaLevel(){
+    public int getHiperglycemiaLevel() {
         return Integer.parseInt(getTxtHiperglycemia().getText().trim());
     }
 

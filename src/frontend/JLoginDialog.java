@@ -25,10 +25,6 @@ public class JLoginDialog extends JDialog {
     private JButton cancelButton;
     private JButton newAccountButton;
 
-    public boolean isSucceeded() {
-        return succeeded;
-    }
-
     public String getUsername() {
         return txtUsername.getText().trim();
     }
@@ -62,6 +58,17 @@ public class JLoginDialog extends JDialog {
     }
 
 
+    /**
+     * Class Constructor
+     * creates two fields for:
+     * username and password
+     * and labels for them
+     *
+     * dialog have three buttons:
+     * 'Login' 'Exit' and 'New'
+     *
+     * @param parent parent window for dialog
+     */
     public JLoginDialog(Frame parent) {
 
         super(parent, "Login", true);

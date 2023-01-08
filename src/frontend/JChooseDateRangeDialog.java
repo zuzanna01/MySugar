@@ -10,7 +10,8 @@ import java.util.Locale;
 
 
 /**
- * The JChooseDateRangeDialog class
+ * The JChooseDateRangeDialog class extends JDialog
+ * creates new window for choosing date range
  *
  * @author Zuzanna Popławska
  */
@@ -36,6 +37,17 @@ public class JChooseDateRangeDialog extends JDialog {
             .withResolverStyle(ResolverStyle.STRICT);
     DateValidator checkDate = new DateValidator(dateFormatter);
 
+    /**
+     * Class Constructor
+     * creates two fields for:
+     * start date and end date
+     * fields are build using JFormattedTextField
+     * and labels for them
+     *
+     * dialog have one button 'Show' to save measurement
+     *
+     * @param parent parent window for dialog
+     */
     public JChooseDateRangeDialog(Frame parent) {
         super(parent, "Choose date range", true);
 
@@ -88,6 +100,9 @@ public class JChooseDateRangeDialog extends JDialog {
         return new Date(getFrom());
     }
 
+    /**
+     * Checks if inputted by user data are correct
+     */
     public boolean areDataValid(){
         if(!checkDate.isValid(getTo())) return false;
         if(!checkDate.isValid(getFrom())) return false;

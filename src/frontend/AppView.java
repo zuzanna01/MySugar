@@ -96,7 +96,6 @@ public class AppView extends JFrame {
      *
      * @see JScatterPlot
      *
-     *
      */
     //donut icon source:
     //https://www.flaticon.com/free-icon/donut_3173398?term=donut&page=1&position=55&origin=search&related_id=3173398
@@ -191,6 +190,9 @@ public class AppView extends JFrame {
         chooseDateRangeDialog = new JChooseDateRangeDialog(this);
     }
 
+    /**
+     * Adds action listeners to all buttons.
+     */
     public void setController(ActionListener c) {
         this.mbutton1.addActionListener(c);
         this.mbutton2.addActionListener(c);
@@ -214,11 +216,19 @@ public class AppView extends JFrame {
     public void setLabelHiper(String hiper) {
         this.mtimesHyper.setText(hiper);
     }
+    /**
+     * Changes the glycatedHemoglobinLabel displayed text
+     * @param glycatedHemoglobin new glycatedHemoglobin value
+     */
     public void setLabelGlycatedHemoglobin(Double glycatedHemoglobin) {
         this.mglycatedHemoglobin.setText("HbA1C: "+String.valueOf(glycatedHemoglobin));
     }
-    public void setCurrentSugarLevel (Double sugarLevel){
-        this.mcurrentSugarLevel.setText("Current sugar level: --"+sugarLevel);
+    /**
+     * Changes the currentSugarLevelLabels displayed text
+     * @param currentSugarLevel new glycatedHemoglobin value
+     */
+    public void setCurrentSugarLevelLabel (Double currentSugarLevel){
+        this.mcurrentSugarLevel.setText("Current sugar level: "+currentSugarLevel);
     }
 
     /**
