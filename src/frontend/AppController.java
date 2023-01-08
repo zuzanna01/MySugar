@@ -50,14 +50,14 @@ public class AppController implements ActionListener {
         if (e.getActionCommand().equals("Today")) {
             this.paintButton(mView.getMbutton1());
             mView.getPlotPanel().setDataset(null);
-            mModel.setCurrentDataSet(mModel.getTodayDate(), mModel.getTodayDate(), mModel.getCurrentUser());
+            mModel.setCurrentDataSet(mModel.getTodayDate(), mModel.getTodayDate());
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
             mView.getPlotPanel().setDates(mModel.getTodayDate(), mModel.getTodayDate());
             System.out.print("TODAY: ");
             System.out.println(mModel.getCurrentDataSet());
             if (mModel.getCurrentDataSet().size() == 0) return;
             mView.getPlotPanel().repaint();
-            mModel.setLabelsInfo();
+            mModel.countLabelsInfo();
             mView.setLabelsInfo(mModel.getAverage(), mModel.getDeviation(), mModel.getTimesHipo(), mModel.getTimesHiper(), mModel.getSugarUnit());
         }
         if (e.getActionCommand().equals("Yesterday")) {
@@ -65,14 +65,14 @@ public class AppController implements ActionListener {
             mView.getMbutton2().getBackground();
 
             mView.getPlotPanel().setDataset(null);
-            mModel.setCurrentDataSet(mModel.getYesterdayDate(), mModel.getYesterdayDate(), mModel.getCurrentUser());
+            mModel.setCurrentDataSet(mModel.getYesterdayDate(), mModel.getYesterdayDate());
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
             mView.getPlotPanel().setDates(mModel.getYesterdayDate(), mModel.getYesterdayDate());
             System.out.print("YESTERDAY: ");
             System.out.println(mModel.getCurrentDataSet());
             if (mModel.getCurrentDataSet().size() == 0) return;
             mView.getPlotPanel().repaint();
-            mModel.setLabelsInfo();
+            mModel.countLabelsInfo();
             mView.setLabelsInfo(mModel.getAverage(), mModel.getDeviation(), mModel.getTimesHipo(), mModel.getTimesHiper(), mModel.getSugarUnit());
 
         }
@@ -80,7 +80,7 @@ public class AppController implements ActionListener {
             this.paintButton(mView.getMbutton3());
 
             mView.getPlotPanel().setDataset(null);
-            mModel.setCurrentDataSet(mModel.getWeekAgoDate(), mModel.getTodayDate(), mModel.getCurrentUser());
+            mModel.setCurrentDataSet(mModel.getWeekAgoDate(), mModel.getTodayDate());
             System.out.println("FROM: " + mModel.getWeekAgoDate() + "TO: " + mModel.getTodayDate());
             System.out.println(mModel.getCurrentDataSet());
             if (mModel.getCurrentDataSet().size() == 0) return;
@@ -88,7 +88,7 @@ public class AppController implements ActionListener {
             mView.getPlotPanel().setDates(mModel.getWeekAgoDate(), mModel.getTodayDate());
             mView.getPlotPanel().repaint();
 
-            mModel.setLabelsInfo();
+            mModel.countLabelsInfo();
             mView.setLabelsInfo(mModel.getAverage(), mModel.getDeviation(), mModel.getTimesHipo(), mModel.getTimesHiper(), mModel.getSugarUnit());
 
         }
@@ -106,14 +106,13 @@ public class AppController implements ActionListener {
                 mView.getChooseDateRangeDialog().dispose();
 
                 mView.getPlotPanel().setDataset(null);
-                mModel.setCurrentDataSet(fromdate, todate, mModel.getCurrentUser());
+                mModel.setCurrentDataSet(fromdate, todate);
                 mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
                 mView.getPlotPanel().setDates(fromdate, todate);
                 System.out.println("FROM: " + fromdate + "TO: " + todate);
                 System.out.println(mModel.getCurrentDataSet());
                 mView.getPlotPanel().repaint();
-
-                mModel.setLabelsInfo();
+                mModel.countLabelsInfo();
                 mView.setLabelsInfo(mModel.getAverage(), mModel.getDeviation(), mModel.getTimesHipo(), mModel.getTimesHiper(), mModel.getSugarUnit());
 
             } else {
