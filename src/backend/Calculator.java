@@ -74,7 +74,7 @@ public class Calculator {
         return this.average;
     } */
 
-    // szacownanie hemoglobiny glikowanej z max 30 dni TUTAJ MUSISZ DAĆ LISTĘ Z NIEWYCIĘTEGO ZAKRESU
+    // szacownanie hemoglobiny glikowanej z max 30 dni TUTAJ MUSISZ DAĆ LISTE Z NIEWYCIETEGO ZAKRESU
     public double calculateGlycatedHemoglobin(ArrayList<Measurement> listOfMeasurements) {
         this.listOfMeasurements = listOfMeasurements;
         double average = 0;

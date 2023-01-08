@@ -96,10 +96,10 @@ public class AppView extends JFrame {
      *
      * @see JScatterPlot
      *
-     * donut icon source:
-     * @link https://www.flaticon.com/free-icon/donut_3173398?term=donut&page=1&position=55&origin=search&related_id=3173398
      *
      */
+    //donut icon source:
+    //https://www.flaticon.com/free-icon/donut_3173398?term=donut&page=1&position=55&origin=search&related_id=3173398
     public AppView() {
 
         mainPanel = new JPanel();

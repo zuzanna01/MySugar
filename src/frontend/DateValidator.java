@@ -7,11 +7,11 @@ import java.time.format.DateTimeParseException;
 /**
  * The DateValidator class checks if inputted hour is valid
  *
- * Modified code from:
- * @link https://www.baeldung.com/java-string-valid-date
- *
  * @author Zuzanna Popławska
  */
+// Modified code from:
+// https://www.baeldung.com/java-string-valid-date
+
 public class DateValidator {
     private DateTimeFormatter dateFormatter;
     private LocalDate todayDate ;

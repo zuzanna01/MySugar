@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="zabezpieczenie okna wyboru przedziału daty">
+    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="komentarze pt.1">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Calculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/AppView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/DateMask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/DateMask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/DateValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/DateValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/HourMask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/HourMask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/HourValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/HourValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/JChooseDateRangeDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JChooseDateRangeDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/JScatterPlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JScatterPlot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/SugarLevelValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/SugarLevelValidator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +150,7 @@
       <workItem from="1672866539956" duration="6362000" />
       <workItem from="1672918494860" duration="1835000" />
       <workItem from="1673087119013" duration="9651000" />
-      <workItem from="1673171073720" duration="7920000" />
+      <workItem from="1673171073720" duration="10617000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -333,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673174145841</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="komentarze pt.1">
+      <created>1673181176174</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1673181176174</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,7 +383,8 @@
     <MESSAGE value="zabezpieczenie okienka do dawania pomiaru przed nieprawidłowymi danymi" />
     <MESSAGE value="jakoś podpięte raporty i okienko nowego pomiaru się czyści" />
     <MESSAGE value="zabezpieczenie okna wyboru przedziału daty" />
-    <option name="LAST_COMMIT_MESSAGE" value="zabezpieczenie okna wyboru przedziału daty" />
+    <MESSAGE value="komentarze pt.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="komentarze pt.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -416,31 +425,6 @@
           <url>file://$PROJECT_DIR$/src/backend/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="134" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/DateValidator.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="149" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/DateValidator.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="150" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/DateValidator.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="151" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/SugarLevelValidator.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="153" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/SugarLevelValidator.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="154" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/backend/CsvRaportWriter.java</url>
@@ -501,20 +485,6 @@
           <url>file://$PROJECT_DIR$/src/backend/CsvRaportWriter.java</url>
           <line>35</line>
           <option name="timeStamp" value="166" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/DateValidator.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="167" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/frontend/SugarLevelValidator.java</url>
-          <line>9</line>
-          <properties class="frontend.SugarLevelValidator" method="isSugarLevelValid">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="152" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
