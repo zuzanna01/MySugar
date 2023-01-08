@@ -227,8 +227,8 @@ public class AppView extends JFrame {
      * Changes the currentSugarLevelLabels displayed text
      * @param currentSugarLevel new glycatedHemoglobin value
      */
-    public void setCurrentSugarLevel (Double currentSugarLevel){
-        this.mcurrentSugarLevel.setText("Current sugar level: --"+currentSugarLevel);
+    public void setCurrentSugarLevelLabel (Double currentSugarLevel){
+        this.mcurrentSugarLevel.setText("Current sugar level: "+currentSugarLevel);
     }
 
     /**

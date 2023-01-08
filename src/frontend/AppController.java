@@ -162,6 +162,7 @@ public class AppController implements ActionListener {
      * creates current user and saves  its settings in the program (in AppModel class)
      * loads measurements from a file into the program
      * draws appropriate lines responsible for hypo- and hyper- levels and target range
+     * finds the current sugar level (newest)
      *
      * @see AppModel
      * @see backend.User
@@ -183,6 +184,8 @@ public class AppController implements ActionListener {
             mModel.getAllUsers().logIn(currentUser);
             //zapamiętujemy currentUsera w AppModel
             mModel.setCurrentUser(currentUser);
+            mModel.setCurrentSugarLevel(mModel.getCalculator().findCurrentSugarLevel(mModel.getCurrentUser().getListOfUsersMeasurements()));
+            mView.setCurrentSugarLevelLabel(mModel.getCurrentSugarLevel());
             //usawiamy położenie lini targetRange i hipoLevel i hiperLevel w panelu rysującym wykres
             // i robimy repaint() żeby linie się pojawiły
             mView.getPlotPanel().setLines(currentUser);
