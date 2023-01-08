@@ -69,7 +69,7 @@ public class AppView extends JFrame {
     /**
      * Class constructor.
      * Creates mainPanel which uses BoxLayout
-     * and ands to buttonPanel, plotPanel, labelsPanel
+     * and ands to buttonPanel, plotPanel, labelsPanel, labelsPanel2
      *
      * buttonPanel consists of four buttons named
      * 'Today', 'Yesterday','This week' and 'Your date range'
@@ -81,17 +81,24 @@ public class AppView extends JFrame {
      * of the chosen measurements set
      * go to JScatterPlot class documentation to get more information
      *
-     * labelsPanel consist of five labels displaying:
+     * labelsPanel consist of four labels displaying:
      * 1) average sugar level from chosen measurements set
      * 2) deviation shows maximum deviation from the current average
      * 3) Hipo shows how many measurements in current set
      * have exceeded the hypoglycemic level
      * 4) Hiper shows how many measurements in current set
      * have exceeded the hyperglycemia level
-     * 5) predicted glycated hemoglobin (HbA1C) based
+     *
+     * labelsPanel2 consist of two labels displaying:
+     * 5) current sugar level - the last measurement
+     * 6) predicted glycated hemoglobin (HbA1C) based
      * on past measurements
      *
-     * donut icon source: https://www.flaticon.com/free-icon/donut_3173398?term=donut&page=1&position=55&origin=search&related_id=3173398
+     * @see JScatterPlot
+     *
+     * donut icon source:
+     * @link https://www.flaticon.com/free-icon/donut_3173398?term=donut&page=1&position=55&origin=search&related_id=3173398
+     *
      */
     public AppView() {
 

@@ -7,9 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.format.DateTimeFormatter;
-import java.time.format.ResolverStyle;
-import java.util.Locale;
 
 /**
  * The AppController class is responsible for reacting to
@@ -32,6 +29,9 @@ public class AppController implements ActionListener {
      * @param view  AppView class responsible for GUI from which comes ActionEvents
      *              that we want to handle
      * @param model AppModel class  that stores application current state
+     *
+     * @see AppModel
+     * @see AppView
      */
     public AppController(AppView view, AppModel model) {
         this.mView = view;
@@ -39,11 +39,10 @@ public class AppController implements ActionListener {
     }
 
     /**
-     * Class constructor.
-     * We need to store references to the model and view in the controller so that the
-     * communication between them is possible
+     * Invoked when an action occurs.
+     * Responsible for handling it
      *
-     * @param e
+     * @param e the event to be processed
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -143,7 +142,11 @@ public class AppController implements ActionListener {
         }
 
     }
-
+    /**
+     * Paints the button clicked by the user dark blue
+     *
+     * @param button the button to be highlighted
+     */
     private void paintButton(JButton button) {
         Color background = mView.getLoginDialog().getLoginButton().getBackground();
         Color newbackground = new Color(100, 100, 255);
@@ -154,9 +157,19 @@ public class AppController implements ActionListener {
         button.setBackground(newbackground);
     }
 
+    /**
+     * responsible for user login
+     * verifies if the password and username are correct
+     * creates current user and saves  its settings in the program (in AppModel class)
+     * loads measurements from a file into the program
+     * draws appropriate lines responsible for hypo- and hyper- levels and target range
+     *
+     * @see AppModel
+     * @see backend.User
+     * @see backend.AllUsers
+     */
     private void loginAction() {
         //sprawdzamy czy użytkownik istnieje w Users.txt
-
         if (mModel.getAllUsers().verifyUserNameAndPassword(mView.getLoginDialog().getUsername(), mView.getLoginDialog().getPassword())) {
             JOptionPane.showMessageDialog(mView.getLoginDialog(),
                     "Hi " + mView.getLoginDialog().getUsername() + "! You have successfully logged in.",
@@ -191,6 +204,16 @@ public class AppController implements ActionListener {
         }
     }
 
+    /**
+     * responsible creating new account
+     * checks if username is not taken
+     * if not, saves new User and log him in
+     * using methods from AllUsers class
+     * closes create new account dialog window
+     *
+     * @see backend.User
+     * @see backend.AllUsers
+     */
     private void createNewAccountAction() {
         // tworzymy newUser pobierając dane z okienka newUserDialog
         User newUser = mView.getNewUserDialog().getNewUserData();

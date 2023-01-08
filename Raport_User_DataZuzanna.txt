@@ -1,0 +1,11 @@
+User: Zuzanna
+
+
+Type of diabities: 1
+
+Number of hipoglycemia: 0
+Numebr of hiperglycemia: 0
+
+Average: 116.0
+Deviation: 0.0
+Glycated Hemoglobin: 5.67
