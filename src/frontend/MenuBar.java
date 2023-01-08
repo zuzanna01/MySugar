@@ -14,6 +14,8 @@ public class MenuBar extends JMenuBar {
     JMenuItem pzFromKeyboard= null;
 
     private JFileChooser chooser;
+
+
     private JAddingNewMeasurementDialog add;
     public JAddingNewMeasurementDialog getAddDialog() {
         return add;
@@ -26,7 +28,6 @@ public class MenuBar extends JMenuBar {
     public MenuBar(){
         JMenu mnAddMeasurement = new JMenu("Add measurement");
         JMenu mnReport = new JMenu("Report");
-        JMenu mnSettings = new JMenu("Settings");
         JMenu mnHelp = new JMenu("Help");
 
         pzFromKeyboard = new JMenuItem("from keyboard");
@@ -41,14 +42,10 @@ public class MenuBar extends JMenuBar {
         mnReport.add(pzWeeklyRaport);
         mnReport.add(pzBeginningRaport);
 
-        JMenuItem pzTargetRange = new JMenuItem("Target range");
-        mnSettings.add(pzTargetRange);
-
         JMenuItem pzUserGuide = new JMenuItem("User guide");
         mnHelp.add(pzUserGuide);
 
         add(mnAddMeasurement);
-        add(mnSettings);
         add(mnReport);
         add(mnHelp);
 

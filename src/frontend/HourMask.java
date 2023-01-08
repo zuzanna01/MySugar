@@ -5,7 +5,6 @@ import java.text.ParseException;
 
 public class HourMask extends MaskFormatter {
     public HourMask() {
-
         try {
             setMask("##:##");
         } catch (ParseException e) {

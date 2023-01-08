@@ -1,7 +1,6 @@
 package frontend;
 
 import backend.Date;
-import backend.Measurement;
 import backend.User;
 
 import javax.swing.*;
@@ -40,48 +39,46 @@ public class AppController implements ActionListener {
         if (e.getActionCommand().equals("Today")) {
             this.paintButton(mView.getMbutton1());
             mView.getPlotPanel().setDataset(null);
-            mModel.setCurrentDataSet(mModel.getTodayDate(),mModel.getTodayDate(), mModel.getCurrentUser());
+            mModel.setCurrentDataSet(mModel.getTodayDate(), mModel.getTodayDate(), mModel.getCurrentUser());
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
-            mView.getPlotPanel().setDates(mModel.getTodayDate(),mModel.getTodayDate());
+            mView.getPlotPanel().setDates(mModel.getTodayDate(), mModel.getTodayDate());
             System.out.print("TODAY: ");
             System.out.println(mModel.getCurrentDataSet());
-            if(mModel.getCurrentDataSet().size()==0) return;
+            if (mModel.getCurrentDataSet().size() == 0) return;
             mView.getPlotPanel().repaint();
             mModel.setLabelsInfo();
-            mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getTimesHipo(),mModel.getTimesHiper(),mModel.getSugarUnit());
-
-
+            mView.setLabelsInfo(mModel.getAverage(), mModel.getDeviation(), mModel.getTimesHipo(), mModel.getTimesHiper(), mModel.getSugarUnit());
         }
         if (e.getActionCommand().equals("Yesterday")) {
             this.paintButton(mView.getMbutton2());
             mView.getMbutton2().getBackground();
 
             mView.getPlotPanel().setDataset(null);
-            mModel.setCurrentDataSet(mModel.getYesterdayDate(),mModel.getYesterdayDate(),mModel.getCurrentUser());
+            mModel.setCurrentDataSet(mModel.getYesterdayDate(), mModel.getYesterdayDate(), mModel.getCurrentUser());
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
-            mView.getPlotPanel().setDates(mModel.getYesterdayDate(),mModel.getYesterdayDate());
+            mView.getPlotPanel().setDates(mModel.getYesterdayDate(), mModel.getYesterdayDate());
             System.out.print("YESTERDAY: ");
             System.out.println(mModel.getCurrentDataSet());
-            if(mModel.getCurrentDataSet().size()==0) return;
+            if (mModel.getCurrentDataSet().size() == 0) return;
             mView.getPlotPanel().repaint();
             mModel.setLabelsInfo();
-            mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getTimesHipo(),mModel.getTimesHiper(),mModel.getSugarUnit());
+            mView.setLabelsInfo(mModel.getAverage(), mModel.getDeviation(), mModel.getTimesHipo(), mModel.getTimesHiper(), mModel.getSugarUnit());
 
         }
         if (e.getActionCommand().equals("Last 7 days")) {
             this.paintButton(mView.getMbutton3());
 
             mView.getPlotPanel().setDataset(null);
-            mModel.setCurrentDataSet(mModel.getWeekAgoDate(),mModel.getTodayDate(),mModel.getCurrentUser());
-            System.out.println("FROM: "+mModel.getWeekAgoDate()+"TO: "+mModel.getTodayDate());
+            mModel.setCurrentDataSet(mModel.getWeekAgoDate(), mModel.getTodayDate(), mModel.getCurrentUser());
+            System.out.println("FROM: " + mModel.getWeekAgoDate() + "TO: " + mModel.getTodayDate());
             System.out.println(mModel.getCurrentDataSet());
-            if(mModel.getCurrentDataSet().size()==0) return;
+            if (mModel.getCurrentDataSet().size() == 0) return;
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
-            mView.getPlotPanel().setDates(mModel.getWeekAgoDate(),mModel.getTodayDate());
+            mView.getPlotPanel().setDates(mModel.getWeekAgoDate(), mModel.getTodayDate());
             mView.getPlotPanel().repaint();
 
             mModel.setLabelsInfo();
-            mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getTimesHipo(),mModel.getTimesHiper(),mModel.getSugarUnit());
+            mView.setLabelsInfo(mModel.getAverage(), mModel.getDeviation(), mModel.getTimesHipo(), mModel.getTimesHiper(), mModel.getSugarUnit());
 
         }
         if (e.getActionCommand().equals("Your date (range)")) {
@@ -98,18 +95,17 @@ public class AppController implements ActionListener {
                 mView.getChooseDateRangeDialog().dispose();
 
                 mView.getPlotPanel().setDataset(null);
-                mModel.setCurrentDataSet(fromdate,todate,mModel.getCurrentUser());
+                mModel.setCurrentDataSet(fromdate, todate, mModel.getCurrentUser());
                 mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
-                mView.getPlotPanel().setDates(fromdate,todate);
-                System.out.println("FROM: "+fromdate+"TO: "+todate);
+                mView.getPlotPanel().setDates(fromdate, todate);
+                System.out.println("FROM: " + fromdate + "TO: " + todate);
                 System.out.println(mModel.getCurrentDataSet());
                 mView.getPlotPanel().repaint();
 
                 mModel.setLabelsInfo();
-                mView.setLabelsInfo(mModel.getAverage(),mModel.getDeviation(),mModel.getTimesHipo(),mModel.getTimesHiper(),mModel.getSugarUnit());
+                mView.setLabelsInfo(mModel.getAverage(), mModel.getDeviation(), mModel.getTimesHipo(), mModel.getTimesHiper(), mModel.getSugarUnit());
 
-            }
-            else{
+            } else {
                 JOptionPane.showMessageDialog(mView.getLoginDialog(),
                         "Invalid date",
                         "",
@@ -121,44 +117,8 @@ public class AppController implements ActionListener {
 
 
         }
-
-        //to wykonujemy przy próbie zalogowania
-
         if (e.getActionCommand().equals("Login")) {
-            //sprawdzamy czy użytkownik istnieje w Users.txt
-
-            if (mModel.getAllUsers().verifyUserNameAndPassword(mView.getLoginDialog().getUsername(), mView.getLoginDialog().getPassword())) {
-                JOptionPane.showMessageDialog(mView.getLoginDialog(),
-                        "Hi " + mView.getLoginDialog().getUsername() + "! You have successfully logged in.",
-                        "Login",
-                        JOptionPane.INFORMATION_MESSAGE);
-                //jeśli tak gasimy okienko logowania
-                mView.getLoginDialog().setSucceeded(true);
-                mView.getLoginDialog().dispose();
-                //tworzymy currentUsera pobierając jego wszytkie ustawienia z pliku
-                User currentUser = new User (mModel.getAllUsers().findUser(mView.getLoginDialog().getUsername()));
-                //ładowanie pomiarów z pliku użytkownika -> a User nie ma już tego TxtReadera który miał listę wczytanych pomiarów :/
-                mModel.getAllUsers().logIn(currentUser);
-                //zapamiętujemy currentUsera w AppModel
-                mModel.setCurrentUser(currentUser);
-                //usawiamy położenie lini targetRange i hipoLevel i hiperLevel w panelu rysującym wykres
-                // i robimy repaint() żeby linie się pojawiły
-                mView.getPlotPanel().setLines(currentUser);
-                mView.getPlotPanel().repaint();
-                //set HbA1C if more than 30 measurements
-                mView.setLabelGlycatedHemoglobin(mModel.getCalculator().calculateGlycatedHemoglobin(mModel.getCurrentUser().getListOfUsersMeasurements()));
-
-
-            } else {
-                //jeśli nie to wyświetlamy komunikat o niepoprawnych danych
-                JOptionPane.showMessageDialog(mView.getLoginDialog(),
-                        "Invalid username or password", "Login", JOptionPane.ERROR_MESSAGE);
-                //czyścimy pola tekstowe w LoginDialog i możemy jeszcze raz się zalogować
-                mView.getLoginDialog().setPasswordField("");
-                mView.getLoginDialog().setUserNameField("");
-                mView.getLoginDialog().setSucceeded(false);
-
-            }
+            loginAction();
         }
         if (e.getActionCommand().equals("Exit")) {
             mView.getLoginDialog().dispose();
@@ -167,49 +127,86 @@ public class AppController implements ActionListener {
         if (e.getActionCommand().equals("New")) {
             mView.getNewUserDialog().setVisible(true);
         }
-
-        // to wykonujemy przy tworzeniu nowego użytkownika
-
         if (e.getActionCommand().equals("Create account")) {
-            // tworzymy newUser pobierając dane z okienka newUserDialog
-            User newUser = mView.getNewUserDialog().getNewUserData();
-            //sprawdzamy czy użytkownik o podanym imieniu się nie powtarza
-           if ( mModel.getAllUsers().verifyUserName(newUser)){
-               // nastęnie dopisujemy newUsera do pliku i
-               // dodajemy do listy w obiekcie AllUser (który jest w AppModel)
-               mModel.getAllUsers().signIn(newUser);
-               //ustawiamy currentUsera (który jest w AppModel)
-               mModel.setCurrentUser(newUser);
-               //usawiamy położenie lini targetRange i hipoLevel i hiperLevel w panelu rysującym wykres
-               // i robimy repaint() żeby linie się pojawiły
-               mView.getPlotPanel().setLines(newUser);
-               mView.getPlotPanel().repaint();
-
-               //zamykamy okno  LoginDialog i NewUserDialog i wyświtlamy komunikat że udało się zalogować
-               mView.getLoginDialog().dispose();
-               JOptionPane.showMessageDialog(mView.getNewUserDialog(),
-                       "Hi " + mView.getNewUserDialog().getTxtUsername().getText().trim() + "! You have successfully created account.",
-                       "Create account",
-                       JOptionPane.INFORMATION_MESSAGE);
-               mView.getNewUserDialog().dispose();
-           }
-           else {
-               JOptionPane.showMessageDialog(mView.getNewUserDialog(),
-                       "This User name is taken", "AddingNewUser", JOptionPane.ERROR_MESSAGE);
-           }
+            createNewAccountAction();
         }
 
     }
-     private void paintButton(JButton button){
-         Color background = mView.getLoginDialog().getLoginButton().getBackground();
-         Color newbackground =new Color(100, 100, 255);
-         mView.getMbutton1().setBackground(background);
-         mView.getMbutton2().setBackground(background);
-         mView.getMbutton3().setBackground(background);
-         mView.getMbutton4().setBackground(background);
-         button.setBackground(newbackground);
 
-     }
+    private void paintButton(JButton button) {
+        Color background = mView.getLoginDialog().getLoginButton().getBackground();
+        Color newbackground = new Color(100, 100, 255);
+        mView.getMbutton1().setBackground(background);
+        mView.getMbutton2().setBackground(background);
+        mView.getMbutton3().setBackground(background);
+        mView.getMbutton4().setBackground(background);
+        button.setBackground(newbackground);
+    }
 
+    private void loginAction() {
+        //sprawdzamy czy użytkownik istnieje w Users.txt
+
+        if (mModel.getAllUsers().verifyUserNameAndPassword(mView.getLoginDialog().getUsername(), mView.getLoginDialog().getPassword())) {
+            JOptionPane.showMessageDialog(mView.getLoginDialog(),
+                    "Hi " + mView.getLoginDialog().getUsername() + "! You have successfully logged in.",
+                    "Login",
+                    JOptionPane.INFORMATION_MESSAGE);
+            //jeśli tak gasimy okienko logowania
+            mView.getLoginDialog().setSucceeded(true);
+            mView.getLoginDialog().dispose();
+            //tworzymy currentUsera pobierając jego wszytkie ustawienia z pliku
+            User currentUser = new User(mModel.getAllUsers().findUser(mView.getLoginDialog().getUsername()));
+            //ładowanie pomiarów z pliku użytkownika -> a User nie ma już tego TxtReadera który miał listę wczytanych pomiarów :/
+            mModel.getAllUsers().logIn(currentUser);
+            //zapamiętujemy currentUsera w AppModel
+            mModel.setCurrentUser(currentUser);
+            //usawiamy położenie lini targetRange i hipoLevel i hiperLevel w panelu rysującym wykres
+            // i robimy repaint() żeby linie się pojawiły
+            mView.getPlotPanel().setLines(currentUser);
+            mView.getPlotPanel().repaint();
+            //set HbA1C if more than 30 measurements
+            mView.setLabelGlycatedHemoglobin(mModel.getCalculator().calculateGlycatedHemoglobin(mModel.getCurrentUser().getListOfUsersMeasurements()));
+
+
+        } else {
+            //jeśli nie to wyświetlamy komunikat o niepoprawnych danych
+            JOptionPane.showMessageDialog(mView.getLoginDialog(),
+                    "Invalid username or password", "Login", JOptionPane.ERROR_MESSAGE);
+            //czyścimy pola tekstowe w LoginDialog i możemy jeszcze raz się zalogować
+            mView.getLoginDialog().setPasswordField("");
+            mView.getLoginDialog().setUserNameField("");
+            mView.getLoginDialog().setSucceeded(false);
+
+        }
+    }
+
+    private void createNewAccountAction() {
+        // tworzymy newUser pobierając dane z okienka newUserDialog
+        User newUser = mView.getNewUserDialog().getNewUserData();
+        //sprawdzamy czy użytkownik o podanym imieniu się nie powtarza
+        if (mModel.getAllUsers().verifyUserName(newUser)) {
+            // nastęnie dopisujemy newUsera do pliku i
+            // dodajemy do listy w obiekcie AllUser (który jest w AppModel)
+            mModel.getAllUsers().signIn(newUser);
+            //ustawiamy currentUsera (który jest w AppModel)
+            mModel.setCurrentUser(newUser);
+            //usawiamy położenie lini targetRange i hipoLevel i hiperLevel w panelu rysującym wykres
+            // i robimy repaint() żeby linie się pojawiły
+            mView.getPlotPanel().setLines(newUser);
+            mView.getPlotPanel().repaint();
+
+            //zamykamy okno  LoginDialog i NewUserDialog i wyświtlamy komunikat że udało się zalogować
+            mView.getLoginDialog().dispose();
+            JOptionPane.showMessageDialog(mView.getNewUserDialog(),
+                    "Hi " + mView.getNewUserDialog().getTxtUsername().getText().trim() + "! You have successfully created account.",
+                    "Create account",
+                    JOptionPane.INFORMATION_MESSAGE);
+            mView.getNewUserDialog().dispose();
+        } else {
+            JOptionPane.showMessageDialog(mView.getNewUserDialog(),
+                    "This User name is taken", "AddingNewUser", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
 }
+

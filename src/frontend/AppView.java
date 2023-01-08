@@ -19,6 +19,7 @@ public class AppView extends JFrame {
     private JPanel buttonPanel;
     private JScatterPlot plotPanel;
     private JPanel labelsPanel;
+    private JPanel labelsPanel2;
 
     private JLoginDialog loginDialog;
     private JAddingNewUserDialog newUserDialog;
@@ -48,6 +49,7 @@ public class AppView extends JFrame {
     private JLabel mtimesHipo;
     private JLabel mtimesHyper;
     private JLabel mglycatedHemoglobin;
+    private JLabel mcurrentSugarLevel;
 
     private ImageIcon icon;
 
@@ -125,44 +127,57 @@ public class AppView extends JFrame {
         labelsPanel.setLayout(new FlowLayout());
 
         maverage = new JLabel("Average: --");
-        maverage.setPreferredSize(new Dimension(200, 50));
+        maverage.setPreferredSize(new Dimension(250, 40));
         maverage.setFont(new Font(maverage.getFont().getName(), maverage.getFont().getStyle(), 17));
         maverage.setBackground(new Color(200, 230, 250));
         maverage.setBorder(BorderFactory.createLineBorder(new Color(100, 200, 250), 2));
         maverage.setOpaque(true);
 
         mmaxdeviation = new JLabel("Deviation: --");
-        mmaxdeviation.setPreferredSize(new Dimension(200, 50));
+        mmaxdeviation.setPreferredSize(new Dimension(250, 40));
         mmaxdeviation.setFont(new Font(mmaxdeviation.getFont().getName(), mmaxdeviation.getFont().getStyle(), 17));
         mmaxdeviation.setBackground(new Color(200, 230, 250));
         mmaxdeviation.setBorder(BorderFactory.createLineBorder(new Color(100, 200, 250), 2));
         mmaxdeviation.setOpaque(true);
 
         mtimesHyper = new JLabel("Hyper: --");
-        mtimesHyper.setPreferredSize(new Dimension(100, 50));
+        mtimesHyper.setPreferredSize(new Dimension(100, 40));
         mtimesHyper.setBackground(new Color(250, 200, 200));
         mtimesHyper.setBorder(BorderFactory.createLineBorder(new Color(255, 0, 0), 2));
         mtimesHyper.setOpaque(true);
 
         mtimesHipo = new JLabel("Hipo: --");
-        mtimesHipo.setPreferredSize(new Dimension(100, 50));
+        mtimesHipo.setPreferredSize(new Dimension(100, 40));
         mtimesHipo.setBackground(new Color(250, 200, 200));
         mtimesHipo.setBorder(BorderFactory.createLineBorder(new Color(255, 0, 0), 2));
         mtimesHipo.setOpaque(true);
-
-        mglycatedHemoglobin = new JLabel("HbA1C: --");
-        mglycatedHemoglobin.setPreferredSize(new Dimension(100, 50));
-        mglycatedHemoglobin.setBackground(new Color(150, 255, 200));
-        mglycatedHemoglobin.setBorder(BorderFactory.createLineBorder(new Color(100, 200, 200), 2));
-        mglycatedHemoglobin.setOpaque(true);
 
         labelsPanel.add(maverage);
         labelsPanel.add(mmaxdeviation);
         labelsPanel.add(mtimesHipo);
         labelsPanel.add(mtimesHyper);
-        labelsPanel.add(mglycatedHemoglobin);
+
         mainPanel.add(labelsPanel);
 
+        labelsPanel2 = new JPanel();
+        labelsPanel2.setLayout(new FlowLayout());
+
+        mglycatedHemoglobin = new JLabel("HbA1C: --");
+        mglycatedHemoglobin.setPreferredSize(new Dimension(100, 40));
+        mglycatedHemoglobin.setBackground(new Color(150, 255, 200));
+        mglycatedHemoglobin.setBorder(BorderFactory.createLineBorder(new Color(100, 200, 200), 2));
+        mglycatedHemoglobin.setOpaque(true);
+
+        mcurrentSugarLevel =new JLabel("Current sugar level: --");
+        mcurrentSugarLevel.setPreferredSize(new Dimension(300, 40));
+        mcurrentSugarLevel.setBackground(new Color(150, 255, 200));
+        mcurrentSugarLevel.setBorder(BorderFactory.createLineBorder(new Color(100, 200, 200), 2));
+        mcurrentSugarLevel.setOpaque(true);
+
+        labelsPanel2.add(mcurrentSugarLevel);
+        labelsPanel2.add(mglycatedHemoglobin);
+
+        mainPanel.add(labelsPanel2);
 
         loginDialog = new JLoginDialog(this);
         newUserDialog = new JAddingNewUserDialog(this);
@@ -194,6 +209,9 @@ public class AppView extends JFrame {
     }
     public void setLabelGlycatedHemoglobin(Double glycatedHemoglobin) {
         this.mglycatedHemoglobin.setText("HbA1C: "+String.valueOf(glycatedHemoglobin));
+    }
+    public void setCurrentSugarLevel (Double sugarLevel){
+        this.mcurrentSugarLevel.setText("Current sugar level: --"+sugarLevel);
     }
 
     /**
