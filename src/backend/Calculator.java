@@ -99,8 +99,7 @@ public class Calculator {
         for (Measurement i : listOfMeasurements) {
             sum += Math.pow((i.getSugarLevel() - average), 2);
         }
-        this.deviation = Math.sqrt(sum);
-        this.deviation /= listOfMeasurements.size();
+        this.deviation = Math.sqrt(sum/ listOfMeasurements.size());
         return Math.round(this.deviation * 100) / 100; // zwraca zaokrągloną wartość do 2 miejsc po przecinku
     }
 
