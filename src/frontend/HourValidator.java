@@ -39,9 +39,14 @@ public class HourValidator {
             return false;
 
         if (lDate.equals(todayDate)) {
-            if (time.getHour() <= nowTime.getHour() && time.getHour() <= nowTime.getMinute()) {
-                return true;
-            } else {
+            if (time.getHour() <= nowTime.getHour()) {
+
+                if (time.getMinute() <= nowTime.getMinute()) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else{
                 return false;
             }
         }

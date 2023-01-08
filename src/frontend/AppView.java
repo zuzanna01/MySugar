@@ -1,5 +1,7 @@
 package frontend;
 
+import backend.Measurement;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -225,10 +227,10 @@ public class AppView extends JFrame {
     }
     /**
      * Changes the currentSugarLevelLabels displayed text
-     * @param currentSugarLevel new glycatedHemoglobin value
+     * @param currentMeasurement latest measurement
      */
-    public void setCurrentSugarLevelLabel (Double currentSugarLevel){
-        this.mcurrentSugarLevel.setText("Current sugar level: "+currentSugarLevel);
+    public void setCurrentSugarLevelLabel (Measurement currentMeasurement){
+        this.mcurrentSugarLevel.setText("Current sugar level: "+currentMeasurement.getSugarLevel());
     }
 
     /**

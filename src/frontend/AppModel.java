@@ -78,15 +78,13 @@ public class AppModel {
         this.currentUser = new User(anyUser);
     }
 
-    private double currentSugarLevel;
-    public double getCurrentSugarLevel() {
-        return currentSugarLevel;
+    private Measurement currentMeasurement;
+    public Measurement getCurrentMeasurement() {
+        return currentMeasurement;
     }
-
-    public void setCurrentSugarLevel(int currentSugarLevel) {
-        this.currentSugarLevel = currentSugarLevel;
+    public void setCurrentMeasurement(Measurement currentMeasurement) {
+        this.currentMeasurement = currentMeasurement;
     }
-
 
 
 

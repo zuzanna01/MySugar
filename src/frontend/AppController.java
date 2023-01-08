@@ -184,8 +184,8 @@ public class AppController implements ActionListener {
             mModel.getAllUsers().logIn(currentUser);
             //zapamiętujemy currentUsera w AppModel
             mModel.setCurrentUser(currentUser);
-            mModel.setCurrentSugarLevel(mModel.getCalculator().findCurrentSugarLevel(mModel.getCurrentUser().getListOfUsersMeasurements()));
-            mView.setCurrentSugarLevelLabel(mModel.getCurrentSugarLevel());
+            mModel.setCurrentMeasurement(mModel.getCalculator().findCurrentSugarLevel(mModel.getCurrentUser().getListOfUsersMeasurements()));
+            mView.setCurrentSugarLevelLabel(mModel.getCurrentMeasurement());
             //usawiamy położenie lini targetRange i hipoLevel i hiperLevel w panelu rysującym wykres
             // i robimy repaint() żeby linie się pojawiły
             mView.getPlotPanel().setLines(currentUser);

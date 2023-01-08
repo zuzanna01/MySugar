@@ -5,6 +5,7 @@ import backend.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalTime;
 
 /**
  * The MenuBarController class is responsible for reacting to
@@ -86,6 +87,19 @@ public class MenuBarController implements ActionListener {
             measurementsReader.saveNewMeasurements();
             //zamykamy okno dodawania pomiaru;
             mMenuBar.getAddDialog().dispose();
+
+            if((newMeasurement.getDate().toLocalDate().isBefore(mModel.getCurrentMeasurement().getDate().toLocalDate()))) {
+                mModel.setCurrentMeasurement(newMeasurement);
+                mView.setCurrentSugarLevelLabel(newMeasurement);
+            }
+
+            LocalTime oldMeasurementTime =LocalTime.of(mModel.getCurrentMeasurement().getTime().getHour(), mModel.getCurrentMeasurement().getTime().getMinute());
+            LocalTime newMeasurementTime = LocalTime.of(newMeasurement.getTime().getHour(),newMeasurement.getTime().getMinute());
+            if((newMeasurement.getDate().toLocalDate().isEqual(mModel.getCurrentMeasurement().getDate().toLocalDate()))&&
+                    (newMeasurementTime.isAfter(oldMeasurementTime))){
+                mModel.setCurrentMeasurement(newMeasurement);
+                mView.setCurrentSugarLevelLabel(newMeasurement);
+            }
 
             mView.setLabelGlycatedHemoglobin(mModel.getCalculator().calculateGlycatedHemoglobin(mModel.getCurrentUser().getListOfUsersMeasurements()));
             mMenuBar.getAddDialog().cleanFields();
