@@ -2,7 +2,6 @@ package backend;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -10,6 +9,27 @@ import java.util.Scanner;
 public class TxtMeasurementsReader implements MeasurementsReader {
     private ArrayList<Measurement> listOfMeasurements;
     private String fileName;
+    private User currentUser;
+
+    public TxtMeasurementsReader(String fileName, User currentUser){
+        this.listOfMeasurements = new ArrayList<>();
+        this.fileName = fileName;
+        this.currentUser = currentUser;
+    }
+
+    public TxtMeasurementsReader() {
+        this.listOfMeasurements = new ArrayList<>();
+        this.fileName = null;
+        this.currentUser = null;
+    }
+
+    public void setListOfMeasurements(ArrayList<Measurement> listOfMeasurements) {
+        this.listOfMeasurements = listOfMeasurements;
+    }
+
+    public ArrayList<Measurement> getListOfMeasurements() {
+        return listOfMeasurements;
+    }
 
     public String getFileName() {
         return fileName;
@@ -27,30 +47,7 @@ public class TxtMeasurementsReader implements MeasurementsReader {
         this.currentUser = currentUser;
     }
 
-    private User currentUser;
-    public TxtMeasurementsReader(String fileName, User currentUser){
-        this.listOfMeasurements = new ArrayList<>();
-        this.fileName = fileName;
-        this.currentUser = currentUser;
-    }
-    public TxtMeasurementsReader() {
-        this.listOfMeasurements = new ArrayList<>();
-        this.fileName = null;
-        this.currentUser = null;
-    }
-
-        public void setListOfMeasurements(ArrayList<Measurement> listOfMeasurements) {
-        this.listOfMeasurements = listOfMeasurements;
-    }
-
-    public ArrayList<Measurement> getListOfMeasurements() {
-        return listOfMeasurements;
-    }
-
-
-    // pobiera jeden pomiar z pliku
-    // to jest używane w innej funkcji i samodzielnie tego nie będziemy używać
-    public Measurement getMeasurementFromFile(Scanner reader){
+    public Measurement getMeasurementFromFile(Scanner reader) {
 
         int suggarLevel = reader.nextInt();
 
@@ -71,10 +68,6 @@ public class TxtMeasurementsReader implements MeasurementsReader {
         return measurement;
     }
 
-    // o tutaj jest użyta ta funkcja do pobierania jednego pomiaru
-    // ta metoda to pobranie wszystkich pomiarów z pliku
-
-
     public void getMeasurements() {
        try {
             Scanner reader = new Scanner(new File(fileName));
@@ -87,6 +80,7 @@ public class TxtMeasurementsReader implements MeasurementsReader {
        }
        currentUser.checkHipoAndHiper(this.listOfMeasurements);
     }
+
     @Override
     public void saveNewMeasurements(){
         getMeasurements();
@@ -94,12 +88,10 @@ public class TxtMeasurementsReader implements MeasurementsReader {
         currentUser.getListOfUsersMeasurements().addAll(this.listOfMeasurements);
     }
 
-    // zapisuje pojedyńczy pomiar do listy pomiarów
     public void saveMeasurement(Measurement measurement){
         this.listOfMeasurements.add(measurement);
     }
 
-    // to poprawia dane bo np. 02 to nie int więc zamienia na 2
     public String correctData(String data){
         if(data.startsWith("0")){
             return data.replaceFirst("0", "");

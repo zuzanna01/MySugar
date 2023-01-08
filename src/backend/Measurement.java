@@ -1,12 +1,8 @@
 package backend;
 
 public class Measurement implements Comparable<Measurement> {
-
     private int sugarLevel;
     private Date date;
-    public void setTime(Time time) {
-        this.time = time;
-    }
     private Time time;
     private boolean hipoglycemia = false;
     private boolean hiperglycemia = false;
@@ -26,6 +22,10 @@ public class Measurement implements Comparable<Measurement> {
         this.time = m.getTime();
         this.date = m.getDate();
         this.sugarLevel= m.getSugarLevel();
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
     }
 
     public Time getTime() {

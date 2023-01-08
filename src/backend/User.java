@@ -100,7 +100,6 @@ public class User {
         return hiperglycemia;
     }
 
-    // sprawdzenie czy hasło jest poprawne
     public boolean checkPassword(String password){
         if(this.password.equals(password))
         {
@@ -109,7 +108,6 @@ public class User {
         return false;
     }
 
-    // zapisanie danych użytkownika do bazy użytkowników
     public void saveUser(){
         try{
             File file = new File("./Users.txt");
@@ -161,9 +159,7 @@ public class User {
     }
 
     public void checkHipoAndHiper(ArrayList<Measurement> listOfMeasurements) {
-
         for (Measurement i : listOfMeasurements) {
-
             if (i.getSugarLevel() <= hipoglycemia) {
                 i.setHipoglycemia(true);
             }

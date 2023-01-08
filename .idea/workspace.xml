@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="poprawa hipo i hiper">
-      <change afterPath="$PROJECT_DIR$/Raport_Measurementszkrupska.csv" afterDir="false" />
+    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="sortowanie i generowanie raportu csv">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/AllUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/AllUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/CsvMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CsvMeasurementsReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/CsvRaportWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CsvRaportWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Date.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Measurement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/TxtRaportWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/TxtRaportWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zkrupska.txt" beforeDir="false" afterPath="$PROJECT_DIR$/zkrupska.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/UserMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/UserMeasurementsReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,25 +44,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/zuzan/IdeaProjects/Projekt/pjava_projekt",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/zuzan/IdeaProjects/Projekt/pjava_projekt&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\IdeaProjects\PJAVA_MySugar\src\frontend" />
@@ -68,7 +71,7 @@
       <recent name="C:\Users\User\IdeaProjects\PJAVA_MySugar\src\backend" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.backend.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="frontend.Main" />
       <module name="PJAVA_MySugar" />
@@ -146,7 +149,8 @@
       <workItem from="1672862529901" duration="1018000" />
       <workItem from="1672866539956" duration="6362000" />
       <workItem from="1672918494860" duration="1835000" />
-      <workItem from="1673087119013" duration="9651000" />
+      <workItem from="1673087119013" duration="12538000" />
+      <workItem from="1673186104487" duration="582000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -302,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673091189228</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="sortowanie i generowanie raportu csv">
+      <created>1673119289855</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1673119289855</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,7 +351,8 @@
     <MESSAGE value="tworzenie raportu csv" />
     <MESSAGE value="poprawa obliczania hemoglobiny glikowanej" />
     <MESSAGE value="poprawa hipo i hiper" />
-    <option name="LAST_COMMIT_MESSAGE" value="poprawa hipo i hiper" />
+    <MESSAGE value="sortowanie i generowanie raportu csv" />
+    <option name="LAST_COMMIT_MESSAGE" value="sortowanie i generowanie raportu csv" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -357,26 +369,6 @@
           <properties class="java.lang.NumberFormatException" package="java.lang" />
           <option name="timeStamp" value="113" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="122" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/backend/Calculator.java</url>
-          <line>147</line>
-          <option name="timeStamp" value="129" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/backend/Calculator.java</url>
-          <line>159</line>
-          <option name="timeStamp" value="130" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/backend/CsvRaportWriter.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="132" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/backend/Main.java</url>
           <line>13</line>

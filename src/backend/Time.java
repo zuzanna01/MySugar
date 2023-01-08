@@ -1,11 +1,8 @@
 package backend;
 
-/**
- *
- */
 public class Time implements Comparable<Time>{
     private int hour;
-
+    private int minute;
     private String hour_str;
     private String minute_str;
     @Override
@@ -16,8 +13,6 @@ public class Time implements Comparable<Time>{
         if(minute_str.length()==1)minute_str="0"+minute_str;
         return hour_str + ":" + minute_str;
     }
-
-    private int minute;
 
     public Time(int hour, int minute){
         this.hour = hour;

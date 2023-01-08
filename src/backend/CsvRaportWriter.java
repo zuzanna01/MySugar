@@ -25,7 +25,7 @@ public class CsvRaportWriter implements RaportWriter {
         this.listOfMeasurements = calculator.getDataFromGivenPeriod(dateXDaysBeforeToday, dateToday, user.getListOfUsersMeasurements());
         Collections.sort(this.listOfMeasurements);
 
-        String pathname = "Raport_Measurements" + user.getUserName() + ".csv";
+        String pathname = "Raport_Measurements" + "_" + user.getUserName() + ".csv";
         File file = new File(pathname);
         try {
             file.createNewFile();
@@ -34,7 +34,7 @@ public class CsvRaportWriter implements RaportWriter {
         }
         try {
             FileWriter fileWriter = new FileWriter(file, true);
-            for(Measurement i : user.getListOfUsersMeasurements()){
+            for(Measurement i : this.listOfMeasurements){
                 fileWriter.write(i.getSugarLevel() + "," + i.getTime().getHour()
                         + "," + i.getTime().getMinute() + "," + i.getDate().getDay() + ","
                         + i.getDate().getMonth() + "," + i.getDate().getYear()  + '\n' );

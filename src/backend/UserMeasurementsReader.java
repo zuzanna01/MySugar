@@ -1,8 +1,6 @@
 package backend;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
     public class UserMeasurementsReader implements MeasurementsReader {
         private ArrayList<Measurement> listOfMeasurements;
@@ -47,15 +45,12 @@ import java.util.Scanner;
             this.listOfMeasurements.add(measurement);
         }
 
-
-        // tak samo jak z .txt trzeba poprawić jeśli przed liczbą jest 0, np. 09 to 9
         public String correctData(String data){
             if(data.startsWith("0")){
                 return data.replaceFirst("0", "");
             }
             return data;
         }
-
     }
 
 

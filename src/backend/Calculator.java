@@ -45,8 +45,6 @@ public class Calculator {
         return glycatedHemoglobin;
     }
 
-
-    // średnia z dowolnej ilości dni
     public double calculateAverage(ArrayList<Measurement> listOfMeasurements) {
         int sum = 0;
         for (Measurement i : listOfMeasurements) {
@@ -55,24 +53,6 @@ public class Calculator {
         this.average = sum / listOfMeasurements.size();
         return this.average;
     }
-
-    // obliczanie średniej z dnia
-   /* public double calculateAverageFromToday(ArrayList<Measurement> listOfMeasurements) {
-        ArrayList<Measurement> listOfMeasurementsFromToday = new ArrayList<>();
-        for (Measurement i : listOfMeasurements) {
-            LocalDate dateNow = LocalDate.now();
-
-            if (i.getDate().getDay() == dateNow.getDayOfMonth() && i.getDate().getMonth() == dateNow.getMonthValue() && i.getDate().getYear() == dateNow.getYear()) {
-                listOfMeasurementsFromToday.add(i);
-            }
-        }
-        int sum = 0;
-        for (Measurement i : listOfMeasurementsFromToday) {
-            sum += i.getSugarLevel();
-        }
-        this.average = sum / listOfMeasurementsFromToday.size();
-        return this.average;
-    } */
 
     // szacownanie hemoglobiny glikowanej z max 30 dni TUTAJ MUSISZ DAĆ LISTĘ Z NIEWYCIĘTEGO ZAKRESU
     public double calculateGlycatedHemoglobin(ArrayList<Measurement> listOfMeasurements) {
@@ -105,27 +85,6 @@ public class Calculator {
         return Math.round(this.deviation * 100) / 100; // zwraca zaokrągloną wartość do 2 miejsc po przecinku
     }
 
-
-    // wyznaczanie
-    /*public LocalDate calculateDate(int numberOfDays) {
-        LocalDate dateNow = LocalDate.now();
-        LocalDate dateFrom = dateNow.minusDays(numberOfDays);
-        return dateFrom;
-    } */
-
-    // wycinanie danych dla x dni od dzisiaj
-    /*public ArrayList<Measurement> getDataFromPeriod(int numberOfDays, ArrayList<Measurement> listOfMeasurements) {
-        LocalDate date = calculateDate(numberOfDays);
-        ArrayList<Measurement> listOfMeasurementsFromXDays = new ArrayList<>();
-        for (Measurement i : listOfMeasurements) {
-            if (i.getDate().getYear() >= date.getYear() && i.getDate().getMonth() >= date.getMonthValue() && i.getDate().getDay() >= date.getDayOfMonth()) {
-                listOfMeasurementsFromXDays.add(i);
-            }
-        }
-        return listOfMeasurementsFromXDays;
-    }*/
-
-    // wyciannie danych dla dowolnego zakresu
     public ArrayList<Measurement> getDataFromGivenPeriod(Date date1, Date date2, ArrayList<Measurement> listOfMeasurements) {
         LocalDate localStartDate = date1.toLocalDate();
         LocalDate localEndDate = date2.toLocalDate();
@@ -139,16 +98,12 @@ public class Calculator {
                 listOfMeasurementsFromXDays.add(i);
             }
         }
-
         return listOfMeasurementsFromXDays;
     }
 
     public int countHipoglycemia(ArrayList<Measurement> listOfMeasurements) {
-
         this.counterHipo = 0;
-
         for (Measurement i : listOfMeasurements) {
-
             if (i.isHipoglycemia()) {
                 this.counterHipo++;
             }
@@ -156,11 +111,8 @@ public class Calculator {
         return counterHipo;
     }
     public int countHiperglycemia(ArrayList<Measurement> listOfMeasurements) {
-
         this.counterHiper = 0;
-
         for (Measurement i : listOfMeasurements) {
-
             if (i.isHiperglycemia()) {
                 this.counterHiper++;
             }

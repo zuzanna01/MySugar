@@ -40,7 +40,6 @@ public class CsvMeasurementsReader implements MeasurementsReader {
 
     public Measurement getMeasurementFromFile(Scanner reader) {
         String data = reader.next();
-
         String[] tab = data.split(",");
         String sugarLevel = tab[0];
         String hour = tab[1];

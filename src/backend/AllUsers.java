@@ -1,14 +1,12 @@
 package backend;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AllUsers {
     private ArrayList<User> listOfUsers;
-
     private TxtMeasurementsReader dataFromUsersFileReader;
 
     public AllUsers(){
@@ -16,42 +14,10 @@ public class AllUsers {
         this.dataFromUsersFileReader = new TxtMeasurementsReader();
     }
 
-    // Z.P.
-    // listofUser jest private i nie udostępnia getListOfUser
-    // żeby nie można było napisać klasy która np. wypisze wszytkich użytkowników i haseł
-    // jedyny obiekt tej klasy tworzymy w UserValidator
-
-    //public ArrayList<User> getListOfUsers() {
-    //    return listOfUsers;
-    //}
-
-    // dodawanie użytkownika do listy użytkowników
-    // po kliknięciu signIn program powinien zapytać o te dane
-    /*public void addUserFromString(){
-        Scanner answerLogin = new Scanner(System.in);
-        String login = answerLogin.next();
-        Scanner answerPassword = new Scanner(System.in);
-        String password = answerPassword.next();
-        Scanner answerTypeOfDiabities= new Scanner(System.in);
-        int typeOfDiabities = answerTypeOfDiabities.nextInt();
-        Scanner answerUpperTargetRage = new Scanner(System.in);
-        int upperTargetRage = answerUpperTargetRage.nextInt();
-        Scanner answerLowerTargetRage = new Scanner(System.in);
-        int lowerTargetRage = answerLowerTargetRage.nextInt();
-        Scanner answerHipoglycemia = new Scanner(System.in);
-        int hipogycemia = answerHipoglycemia.nextInt();
-        Scanner answerHiperglycemia = new Scanner(System.in);
-        int hiperglycemia = answerHiperglycemia.nextInt();
-
-        this.listOfUsers.add(new User(login, password, typeOfDiabities, upperTargetRage, lowerTargetRage, hipogycemia, hiperglycemia));
-    }*/
-
     public void addUser(User newUser){
         this.listOfUsers.add(newUser);
     }
 
-    // weryfikacja czy użytkownik o danym loginie jest w bazie
-    // trzeba tego użyć jeśli ktoś chce się zalogować
     public User findUser(String userName){
         for(User i : listOfUsers){
             if(i.getUserName().equals(userName)){
@@ -61,7 +27,6 @@ public class AllUsers {
         return null;
     }
 
-    // pobranie danych użytkownika z bazy użytkowników
     public void getUsersFromFile(){
         try {
             File file = new File("Users.txt");
@@ -79,11 +44,9 @@ public class AllUsers {
                 this.listOfUsers.add(user);
             }
         }catch(Exception e){
-
         }
     }
 
-    // weryfikacja czy użytkownik o tym loginie istnieje i czy podano prawidłowe hasło
     public boolean verifyUserNameAndPassword(String userName, String password){
         User user = findUser(userName);
         boolean authentication = false;
@@ -99,10 +62,8 @@ public class AllUsers {
         this.dataFromUsersFileReader.setCurrentUser(user);
         dataFromUsersFileReader.getMeasurements();
         user.setListOfUsersMeasurements(dataFromUsersFileReader.getListOfMeasurements());
-
     }
 
-    //weryfikacja czy dany użytkownik o tym loginie już istnieje przed REJESTRACJĄ
     public boolean verifyUserName(User currentUser){
         User user = currentUser;
         for (User i : this.listOfUsers) {
@@ -112,14 +73,12 @@ public class AllUsers {
         }
         return true;
     }
-    // rejestracja nowego użytkownika
-    // dodaje do listy użytkowników, zapisuje w bazie użytkowników i tworzy bazę na pomiary użytkownika (plik.txt o nawie użytkownika)
+
     public void signIn(User currentUser){
         User user = currentUser;
 
         this.listOfUsers.add(user);
         user.saveUser();
-        //utworzenie pliku o nazwie użytkownika
         String pathname = user.getUserName() + ".txt";
         File file = new File(pathname);
         try {
@@ -127,6 +86,5 @@ public class AllUsers {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
