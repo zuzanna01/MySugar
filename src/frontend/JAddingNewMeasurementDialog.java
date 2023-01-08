@@ -31,6 +31,8 @@ public class JAddingNewMeasurementDialog extends JDialog {
 
     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-uuuu", Locale.US)
             .withResolverStyle(ResolverStyle.STRICT);
+
+
     private DateValidator checkDate = new DateValidator(dateFormatter);
     private HourValidator checkTime = new HourValidator();
     private SugarLevelValidator checkSugarLevel = new SugarLevelValidator();

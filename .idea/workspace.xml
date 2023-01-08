@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="zabezpieczenie okienka do dawania pomiaru przed nieprawidłowymi danymi">
+    <list default="true" id="5fe3007a-f8d8-4b44-b3ed-e838aabb1be3" name="Changes" comment="jakoś podpięte raporty i okienko nowego pomiaru się czyści">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zuzanna.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Zuzanna.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/HourValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/HourValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/DateValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/DateValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/JAddingNewMeasurementDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JAddingNewMeasurementDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/JChooseDateRangeDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JChooseDateRangeDialog.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,6 +147,7 @@
       <workItem from="1672866539956" duration="6362000" />
       <workItem from="1672918494860" duration="1835000" />
       <workItem from="1673087119013" duration="9651000" />
+      <workItem from="1673171073720" duration="2681000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -318,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673139523782</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="jakoś podpięte raporty i okienko nowego pomiaru się czyści">
+      <created>1673142634031</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1673142634031</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,7 +364,8 @@
     <MESSAGE value="poprawa hipo i hiper" />
     <MESSAGE value="dodawanie pomiarów z innego pliku" />
     <MESSAGE value="zabezpieczenie okienka do dawania pomiaru przed nieprawidłowymi danymi" />
-    <option name="LAST_COMMIT_MESSAGE" value="zabezpieczenie okienka do dawania pomiaru przed nieprawidłowymi danymi" />
+    <MESSAGE value="jakoś podpięte raporty i okienko nowego pomiaru się czyści" />
+    <option name="LAST_COMMIT_MESSAGE" value="jakoś podpięte raporty i okienko nowego pomiaru się czyści" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -427,17 +434,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/frontend/DateValidator.java</url>
-          <line>16</line>
+          <line>19</line>
           <option name="timeStamp" value="149" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/frontend/DateValidator.java</url>
-          <line>18</line>
+          <line>21</line>
           <option name="timeStamp" value="150" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/frontend/DateValidator.java</url>
-          <line>20</line>
+          <line>28</line>
           <option name="timeStamp" value="151" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -494,6 +501,26 @@
           <url>file://$PROJECT_DIR$/src/frontend/MenuBarController.java</url>
           <line>47</line>
           <option name="timeStamp" value="163" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/CsvRaportWriter.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="164" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/CsvRaportWriter.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="165" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/CsvRaportWriter.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="166" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/frontend/DateValidator.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="167" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/frontend/SugarLevelValidator.java</url>

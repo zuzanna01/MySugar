@@ -13,7 +13,7 @@ import java.util.Locale;
 
 /**
  * The AppController class is responsible for reacting to
- * events coming from the GUI mainPanel and subpanels.
+ * events coming from the GUI using methods from AppModel class
  * Links the user and the system.
  *
  * @author Zuzanna Popławska
@@ -24,15 +24,27 @@ public class AppController implements ActionListener {
     private AppView mView = null;
     private AppModel mModel = null;
 
+    /**
+     * Class constructor.
+     * We need to store references to the model and view in the controller so that the
+     * communication between them is possible
+     *
+     * @param view  AppView class responsible for GUI from which comes ActionEvents
+     *              that we want to handle
+     * @param model AppModel class  that stores application current state
+     */
     public AppController(AppView view, AppModel model) {
         this.mView = view;
         this.mModel = model;
     }
 
-    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-uuuu", Locale.US)
-            .withResolverStyle(ResolverStyle.STRICT);
-    DateValidator checkDate = new DateValidator(dateFormatter);
-
+    /**
+     * Class constructor.
+     * We need to store references to the model and view in the controller so that the
+     * communication between them is possible
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -88,7 +100,7 @@ public class AppController implements ActionListener {
         if (e.getActionCommand().equals("Show")) {
             String fromdate_str = mView.getChooseDateRangeDialog().getFrom();
             String todate_str = mView.getChooseDateRangeDialog().getTo();
-            if (checkDate.isValid(fromdate_str) && checkDate.isValid(todate_str)) {
+            if (mView.getChooseDateRangeDialog().areDataValid()) {
                 Date fromdate = new Date(fromdate_str);
                 Date todate = new Date(todate_str);
 
@@ -121,6 +133,7 @@ public class AppController implements ActionListener {
         if (e.getActionCommand().equals("Exit")) {
             mView.getLoginDialog().dispose();
             mView.dispose();
+            System.exit(0);
         }
         if (e.getActionCommand().equals("New")) {
             mView.getNewUserDialog().setVisible(true);
