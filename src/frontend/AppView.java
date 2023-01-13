@@ -27,10 +27,16 @@ public class AppView extends JFrame {
     private JAddingNewUserDialog newUserDialog;
     private JChooseDateRangeDialog chooseDateRangeDialog;
 
+
+
+    private JListDialog listDialog;
+
     private JButton mbutton1;
     private JButton mbutton2;
     private JButton mbutton3;
     private JButton mbutton4;
+    private JButton listbutton;
+    private JButton logoutbutton;
 
     public JButton getMbutton1() {
         return mbutton1;
@@ -67,7 +73,9 @@ public class AppView extends JFrame {
     public JScatterPlot getPlotPanel() {
         return plotPanel;
     }
-
+    public JListDialog getListDialog() {
+        return listDialog;
+    }
     /**
      * Class constructor.
      * Creates mainPanel which uses BoxLayout
@@ -127,6 +135,9 @@ public class AppView extends JFrame {
         buttonPanel.add(this.mbutton3);
         this.mbutton4 = new JButton("Your date (range)");
         buttonPanel.add(this.mbutton4);
+        this.listbutton = new JButton("List");
+        buttonPanel.add(this.listbutton);
+        this.logoutbutton = new JButton("Log out");
 
         plotPanel = new JScatterPlot();
         mainPanel.add(plotPanel);
@@ -184,12 +195,14 @@ public class AppView extends JFrame {
 
         labelsPanel2.add(mcurrentSugarLevel);
         labelsPanel2.add(mglycatedHemoglobin);
+        labelsPanel2.add(logoutbutton);
 
         mainPanel.add(labelsPanel2);
 
         loginDialog = new JLoginDialog(this);
         newUserDialog = new JAddingNewUserDialog(this);
         chooseDateRangeDialog = new JChooseDateRangeDialog(this);
+        listDialog = new JListDialog(this);
     }
 
     /**
@@ -205,6 +218,8 @@ public class AppView extends JFrame {
         this.loginDialog.getNewAccountButton().addActionListener(c);
         this.newUserDialog.getSaveButton().addActionListener(c);
         this.chooseDateRangeDialog.getShowButton().addActionListener(c);
+        this.listbutton.addActionListener(c);
+        this.logoutbutton.addActionListener(c);
     }
     public void setLabelAverage(String average) {
         this.maverage.setText(average);

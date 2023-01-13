@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c13351c5-bb81-4df4-871d-7f1f5d17dd44" name="Changes" comment="dodanie current sugar level">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c13351c5-bb81-4df4-871d-7f1f5d17dd44" name="Changes" comment="currentSugarLevel jeszcz nie dzaiała dla pliku">
+      <change afterPath="$PROJECT_DIR$/src/frontend/JListDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raport_MeasurementsZuzanna.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raport_User_DataZuzanna.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Zuzanna.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Zuzanna.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/AppModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/AppView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/HourValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/HourValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBarController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,6 +155,8 @@
       <workItem from="1673087119013" duration="9651000" />
       <workItem from="1673171073720" duration="10617000" />
       <workItem from="1673189931686" duration="9632000" />
+      <workItem from="1673344890141" duration="1037000" />
+      <workItem from="1673603986735" duration="9365000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -363,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673203043581</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="currentSugarLevel jeszcz nie dzaiała dla pliku">
+      <created>1673206673849</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1673206673849</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,7 +393,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="moduł do rejestracji, logowania, weryfikacji hasła, tworzenie bazy użytkowników, bazy pomiarów użytkownika, zliczanie hipo i hiper, moduł do wycinania danych z danego okresu" />
     <MESSAGE value="działa logowanie i tworzenie nowych kont i dodałam hipo i hiper na wykresie" />
     <MESSAGE value="klasy DateMask i DateValidator - &gt; komunikat o błednej dacie przy wyborze zakresu ; klasa Date ma nowy konstruktor i toString" />
     <MESSAGE value="wycinanie listy pomiarów z dowolnego zakresu" />
@@ -406,7 +417,8 @@
     <MESSAGE value="znajdowanie obecnego poziomu cukru" />
     <MESSAGE value="dokumentacja backend" />
     <MESSAGE value="zmienione na zwracanie ostatniego pomiaru" />
-    <option name="LAST_COMMIT_MESSAGE" value="zmienione na zwracanie ostatniego pomiaru" />
+    <MESSAGE value="currentSugarLevel jeszcz nie dzaiała dla pliku" />
+    <option name="LAST_COMMIT_MESSAGE" value="currentSugarLevel jeszcz nie dzaiała dla pliku" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -429,16 +441,6 @@
           <option name="timeStamp" value="134" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/MenuBarController.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="135" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/MenuBarController.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="136" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/frontend/HourValidator.java</url>
           <line>50</line>
           <option name="timeStamp" value="138" />
@@ -449,29 +451,44 @@
           <option name="timeStamp" value="139" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/MenuBarController.java</url>
-          <line>99</line>
-          <option name="timeStamp" value="140" />
+          <url>file://$PROJECT_DIR$/src/frontend/AppController.java</url>
+          <line>206</line>
+          <option name="timeStamp" value="159" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/MenuBarController.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="141" />
+          <url>file://$PROJECT_DIR$/src/frontend/AppController.java</url>
+          <line>205</line>
+          <option name="timeStamp" value="160" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/MenuBarController.java</url>
-          <line>95</line>
-          <option name="timeStamp" value="142" />
+          <url>file://$PROJECT_DIR$/src/backend/AllUsers.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="163" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/MenuBarController.java</url>
-          <line>97</line>
-          <option name="timeStamp" value="143" />
+          <url>file://$PROJECT_DIR$/src/backend/AllUsers.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="164" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/MenuBarController.java</url>
+          <url>file://$PROJECT_DIR$/src/backend/AllUsers.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="165" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/AllUsers.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="166" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java</url>
           <line>96</line>
-          <option name="timeStamp" value="144" />
+          <option name="timeStamp" value="171" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="173" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

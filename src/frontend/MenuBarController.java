@@ -57,17 +57,32 @@ public class MenuBarController implements ActionListener {
         }
 
         if (e.getActionCommand().equals("daily")) {
-            RaportWriter csvraportWriter = new CsvRaportWriter(1);
-            csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.csvraportWriter = new CsvRaportWriter(1);
+            mModel.csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.txtraportWriter = new TxtRaportWriter(1);
+            mModel.txtraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
         }
         if (e.getActionCommand().equals("weekly")) {
-            RaportWriter csvraportWriter = new CsvRaportWriter(7);
-            csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.csvraportWriter = new CsvRaportWriter(7);
+            mModel.csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.txtraportWriter = new TxtRaportWriter(7);
+            mModel.txtraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
         }
-        if (e.getActionCommand().equals("your date range")) {
-            RaportWriter txtraportWriter = new TxtRaportWriter(7);
-            txtraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
+
+        if(e.getActionCommand().equals("monthly")){
+            mModel.csvraportWriter = new CsvRaportWriter(30);
+            mModel.csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.txtraportWriter = new TxtRaportWriter(30);
+            mModel.txtraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
         }
+        //if (e.getActionCommand().equals("your date range")) {
+//            mMenuBar.getChooseDateRangeDialog().setVisible(true);
+//
+  //      }
+    //    if (e.getActionCommand().equals("Generate")){
+      //      Date fromDate = mMenuBar.getChooseDateRangeDialog().getFromDate();
+        //    Date toDate=mMenuBar.getChooseDateRangeDialog().getToDate();
+     //   }
     }
 
     /**
@@ -88,7 +103,7 @@ public class MenuBarController implements ActionListener {
             //zamykamy okno dodawania pomiaru;
             mMenuBar.getAddDialog().dispose();
 
-            if((newMeasurement.getDate().toLocalDate().isBefore(mModel.getCurrentMeasurement().getDate().toLocalDate()))) {
+            if((newMeasurement.getDate().toLocalDate().isAfter(mModel.getCurrentMeasurement().getDate().toLocalDate()))) {
                 mModel.setCurrentMeasurement(newMeasurement);
                 mView.setCurrentSugarLevelLabel(newMeasurement);
             }

@@ -84,6 +84,10 @@ public class TxtMeasurementsReader implements MeasurementsReader {
      * This method reads measurements from file and checks wheter red measurements is hipo- or hiperglycemia.
      */
     public void readMeasurements() {
+        //-------------------------------------------
+        //ZP to mi się wydaje że rozwiązuje problem sumowania się pomiarów gdy logujemy nowego użytkownika
+        listOfMeasurements.removeAll(listOfMeasurements);
+        //--------------------------------------------
        try {
             Scanner reader = new Scanner(new File(fileName));
             while(reader.hasNextLine()) {

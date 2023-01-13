@@ -21,16 +21,17 @@ public class AppModel {
     }
 
     private Calculator calculator = new Calculator();
-
     public Calculator getCalculator() {
         return calculator;
     }
-
     private AllUsers allUsers = new AllUsers();
 
     public AllUsers getAllUsers() {
         return allUsers;
     }
+
+    public RaportWriter csvraportWriter;
+    public RaportWriter txtraportWriter;
 
     private LocalDate localTodayDate;
     private LocalDate localYesterdayDate;
@@ -86,6 +87,15 @@ public class AppModel {
         this.currentMeasurement = currentMeasurement;
     }
 
+    public String getHeader() {
+        return header;
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
+    }
+
+    private String header;
 
 
     private ArrayList<Measurement> currentDataSet = new ArrayList<>();
@@ -138,4 +148,6 @@ public class AppModel {
     }
 
 
+    public void setCurrentDataSet(ArrayList<Measurement> listOfUsersMeasurements) {
+    }
 }

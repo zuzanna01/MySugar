@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * The AppController class is responsible for reacting to
@@ -29,7 +31,6 @@ public class AppController implements ActionListener {
      * @param view  AppView class responsible for GUI from which comes ActionEvents
      *              that we want to handle
      * @param model AppModel class  that stores application current state
-     *
      * @see AppModel
      * @see AppView
      */
@@ -48,17 +49,7 @@ public class AppController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getActionCommand().equals("Today")) {
-            this.paintButton(mView.getMbutton1());
-            mView.getPlotPanel().setDataset(null);
-            mModel.setCurrentDataSet(mModel.getTodayDate(), mModel.getTodayDate());
-            mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
-            mView.getPlotPanel().setDates(mModel.getTodayDate(), mModel.getTodayDate());
-            System.out.print("TODAY: ");
-            System.out.println(mModel.getCurrentDataSet());
-            if (mModel.getCurrentDataSet().size() == 0) return;
-            mView.getPlotPanel().repaint();
-            mModel.countLabelsInfo();
-            mView.setLabelsInfo(mModel.getAverage(), mModel.getDeviation(), mModel.getTimesHipo(), mModel.getTimesHiper(), mModel.getSugarUnit());
+          setTodayInfo();
         }
         if (e.getActionCommand().equals("Yesterday")) {
             this.paintButton(mView.getMbutton2());
@@ -68,9 +59,11 @@ public class AppController implements ActionListener {
             mModel.setCurrentDataSet(mModel.getYesterdayDate(), mModel.getYesterdayDate());
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
             mView.getPlotPanel().setDates(mModel.getYesterdayDate(), mModel.getYesterdayDate());
-            System.out.print("YESTERDAY: ");
-            System.out.println(mModel.getCurrentDataSet());
-            if (mModel.getCurrentDataSet().size() == 0) return;
+            mModel.setHeader("YESTERDAY: ");
+            if (mModel.getCurrentDataSet().size() == 0) {
+                mView.getPlotPanel().repaint();
+                return;
+            }
             mView.getPlotPanel().repaint();
             mModel.countLabelsInfo();
             mView.setLabelsInfo(mModel.getAverage(), mModel.getDeviation(), mModel.getTimesHipo(), mModel.getTimesHiper(), mModel.getSugarUnit());
@@ -81,9 +74,11 @@ public class AppController implements ActionListener {
 
             mView.getPlotPanel().setDataset(null);
             mModel.setCurrentDataSet(mModel.getWeekAgoDate(), mModel.getTodayDate());
-            System.out.println("FROM: " + mModel.getWeekAgoDate() + "TO: " + mModel.getTodayDate());
-            System.out.println(mModel.getCurrentDataSet());
-            if (mModel.getCurrentDataSet().size() == 0) return;
+            mModel.setHeader("Last 7 days");
+            if (mModel.getCurrentDataSet().size() == 0) {
+                mView.getPlotPanel().repaint();
+                return;
+            }
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
             mView.getPlotPanel().setDates(mModel.getWeekAgoDate(), mModel.getTodayDate());
             mView.getPlotPanel().repaint();
@@ -109,8 +104,12 @@ public class AppController implements ActionListener {
                 mModel.setCurrentDataSet(fromdate, todate);
                 mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
                 mView.getPlotPanel().setDates(fromdate, todate);
-                System.out.println("FROM: " + fromdate + "TO: " + todate);
-                System.out.println(mModel.getCurrentDataSet());
+                mModel.setHeader("FROM: " + fromdate + " TO: " + todate);
+
+                if (mModel.getCurrentDataSet().size() == 0) {
+                    mView.getPlotPanel().repaint();
+                    return;
+                }
                 mView.getPlotPanel().repaint();
                 mModel.countLabelsInfo();
                 mView.setLabelsInfo(mModel.getAverage(), mModel.getDeviation(), mModel.getTimesHipo(), mModel.getTimesHiper(), mModel.getSugarUnit());
@@ -140,7 +139,18 @@ public class AppController implements ActionListener {
             createNewAccountAction();
         }
 
+        if (e.getActionCommand().equals("List")) {
+            Collections.sort(mModel.getCurrentDataSet());
+            mView.getListDialog().writeMeasurements(mModel.getCurrentDataSet(), mModel.getHeader());
+            mView.getListDialog().setVisible(true);
+        }
+
+        if (e.getActionCommand().equals("Log out")){
+            mView.getLoginDialog().setVisible(true);
+        }
+
     }
+
     /**
      * Paints the button clicked by the user dark blue
      *
@@ -180,7 +190,7 @@ public class AppController implements ActionListener {
             mView.getLoginDialog().dispose();
             //tworzymy currentUsera pobierając jego wszytkie ustawienia z pliku
             User currentUser = new User(mModel.getAllUsers().findUser(mView.getLoginDialog().getUsername()));
-            //ładowanie pomiarów z pliku użytkownika -> a User nie ma już tego TxtReadera który miał listę wczytanych pomiarów :/
+            //ładowanie pomiarów z pliku użytkownika
             mModel.getAllUsers().logIn(currentUser);
             //zapamiętujemy currentUsera w AppModel
             mModel.setCurrentUser(currentUser);
@@ -189,10 +199,12 @@ public class AppController implements ActionListener {
             //usawiamy położenie lini targetRange i hipoLevel i hiperLevel w panelu rysującym wykres
             // i robimy repaint() żeby linie się pojawiły
             mView.getPlotPanel().setLines(currentUser);
+            setTodayInfo();
             mView.getPlotPanel().repaint();
             //set HbA1C if more than 30 measurements
             mView.setLabelGlycatedHemoglobin(mModel.getCalculator().calculateGlycatedHemoglobin(mModel.getCurrentUser().getListOfUsersMeasurements()));
-
+            mView.getLoginDialog().setPasswordField("");
+            mView.getLoginDialog().setUserNameField("");
 
         } else {
             //jeśli nie to wyświetlamy komunikat o niepoprawnych danych
@@ -242,6 +254,23 @@ public class AppController implements ActionListener {
             JOptionPane.showMessageDialog(mView.getNewUserDialog(),
                     "This User name is taken", "AddingNewUser", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+
+    private void setTodayInfo(){
+        this.paintButton(mView.getMbutton1());
+        mView.getPlotPanel().setDataset(null);
+        mModel.setCurrentDataSet(mModel.getTodayDate(), mModel.getTodayDate());
+        mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
+        mView.getPlotPanel().setDates(mModel.getTodayDate(), mModel.getTodayDate());
+        mModel.setHeader("TODAY: ");
+        if (mModel.getCurrentDataSet().size() == 0) {
+            mView.getPlotPanel().repaint();
+            return;
+        }
+        mView.getPlotPanel().repaint();
+        mModel.countLabelsInfo();
+        mView.setLabelsInfo(mModel.getAverage(), mModel.getDeviation(), mModel.getTimesHipo(), mModel.getTimesHiper(), mModel.getSugarUnit());
     }
 
 }

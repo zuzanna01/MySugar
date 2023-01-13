@@ -18,12 +18,16 @@ public class MenuBar extends JMenuBar {
 
     private JFileChooser chooser;
     private JAddingNewMeasurementDialog add;
+    //private JChooseDateRangeDialog chooseDateRangeDialog;
     public JAddingNewMeasurementDialog getAddDialog() {
         return add;
     }
     public JFileChooser getChooser() {
         return chooser;
     }
+    //public JChooseDateRangeDialog getChooseDateRangeDialog() {
+    //    return chooseDateRangeDialog;
+    //}
     /**
      * Class constructor.
      * menu has two main tabs:
@@ -43,13 +47,13 @@ public class MenuBar extends JMenuBar {
 
         pzDailyRaport = new JMenuItem("daily");
         pzWeeklyRaport = new JMenuItem("weekly");
-        pzBeginningRaport = new JMenuItem("your date range");
+        pzBeginningRaport = new JMenuItem("monthly");
         mnReport.add(pzDailyRaport);
         mnReport.add(pzWeeklyRaport);
         mnReport.add(pzBeginningRaport);
 
-       // JMenuItem pzUserGuide = new JMenuItem("User guide");
-       // mnHelp.add(pzUserGuide);
+        //chooseDateRangeDialog = new JChooseDateRangeDialog(null);
+        //chooseDateRangeDialog.getShowButton().setText("Generate");
 
         add(mnAddMeasurement);
         add(mnReport);
@@ -69,5 +73,6 @@ public class MenuBar extends JMenuBar {
         this.pzDailyRaport.addActionListener(c);
         this.pzBeginningRaport.addActionListener(c);
         this.pzWeeklyRaport.addActionListener(c);
+        //this.chooseDateRangeDialog.getShowButton().addActionListener(c);
     }
 }
