@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c13351c5-bb81-4df4-871d-7f1f5d17dd44" name="Changes" comment="pliki testowe z pomiarami">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c13351c5-bb81-4df4-871d-7f1f5d17dd44" name="Changes" comment="poprawione na pomiary poniżej 200">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zuzanna1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Zuzanna1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ania.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ela123.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ela123.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomiary2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pomiary2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBarController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -374,7 +369,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673696132899</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="poprawione na pomiary poniżej 200">
+      <created>1673697105065</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1673697105065</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +394,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="klasy DateMask i DateValidator - &gt; komunikat o błednej dacie przy wyborze zakresu ; klasa Date ma nowy konstruktor i toString" />
     <MESSAGE value="wycinanie listy pomiarów z dowolnego zakresu" />
     <MESSAGE value="wycinanie listy pomiarów z dowolnego podanego zakresu" />
     <MESSAGE value="poprawa interfejsu MeasurementsReader" />
@@ -417,7 +418,8 @@
     <MESSAGE value="zmienione na zwracanie ostatniego pomiaru" />
     <MESSAGE value="currentSugarLevel jeszcz nie dzaiała dla pliku" />
     <MESSAGE value="pliki testowe z pomiarami" />
-    <option name="LAST_COMMIT_MESSAGE" value="pliki testowe z pomiarami" />
+    <MESSAGE value="poprawione na pomiary poniżej 200" />
+    <option name="LAST_COMMIT_MESSAGE" value="poprawione na pomiary poniżej 200" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

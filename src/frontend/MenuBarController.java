@@ -57,22 +57,22 @@ public class MenuBarController implements ActionListener {
         }
 
         if (e.getActionCommand().equals("daily")) {
-            mModel.csvraportWriter = new CsvRaportWriter(1);
+            mModel.csvraportWriter = new CsvRaportWriter(0);
             mModel.csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
-            mModel.txtraportWriter = new TxtRaportWriter(1);
+            mModel.txtraportWriter = new TxtRaportWriter(0);
             mModel.txtraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
         }
         if (e.getActionCommand().equals("weekly")) {
-            mModel.csvraportWriter = new CsvRaportWriter(7);
+            mModel.csvraportWriter = new CsvRaportWriter(6);
             mModel.csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
-            mModel.txtraportWriter = new TxtRaportWriter(7);
+            mModel.txtraportWriter = new TxtRaportWriter(6);
             mModel.txtraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
         }
 
         if(e.getActionCommand().equals("monthly")){
-            mModel.csvraportWriter = new CsvRaportWriter(30);
+            mModel.csvraportWriter = new CsvRaportWriter(29);
             mModel.csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
-            mModel.txtraportWriter = new TxtRaportWriter(30);
+            mModel.txtraportWriter = new TxtRaportWriter(29);
             mModel.txtraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
         }
         //if (e.getActionCommand().equals("your date range")) {
