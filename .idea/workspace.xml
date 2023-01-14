@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c13351c5-bb81-4df4-871d-7f1f5d17dd44" name="Changes" comment="poprawione na pomiary poniżej 200">
+    <list default="true" id="c13351c5-bb81-4df4-871d-7f1f5d17dd44" name="Changes" comment="poprawiony raport (zmiana zakresów o 1 dzień)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/CsvRaportWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CsvRaportWriter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -376,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673697105065</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="poprawiony raport (zmiana zakresów o 1 dzień)">
+      <created>1673698415969</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1673698415969</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +401,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="wycinanie listy pomiarów z dowolnego zakresu" />
     <MESSAGE value="wycinanie listy pomiarów z dowolnego podanego zakresu" />
     <MESSAGE value="poprawa interfejsu MeasurementsReader" />
     <MESSAGE value="poprawa średniej" />
@@ -419,7 +425,8 @@
     <MESSAGE value="currentSugarLevel jeszcz nie dzaiała dla pliku" />
     <MESSAGE value="pliki testowe z pomiarami" />
     <MESSAGE value="poprawione na pomiary poniżej 200" />
-    <option name="LAST_COMMIT_MESSAGE" value="poprawione na pomiary poniżej 200" />
+    <MESSAGE value="poprawiony raport (zmiana zakresów o 1 dzień)" />
+    <option name="LAST_COMMIT_MESSAGE" value="poprawiony raport (zmiana zakresów o 1 dzień)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

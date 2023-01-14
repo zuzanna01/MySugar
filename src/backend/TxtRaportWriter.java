@@ -36,6 +36,11 @@ public class TxtRaportWriter implements RaportWriter {
 
         String pathname = "Raport_User_Data" + "_" + user.getUserName() + ".txt";
         File file = new File(pathname);
+        int counter = 1;
+        while(file.exists()){
+            pathname = "Raport_User_Data" + "_" + user.getUserName() + "_" + "(" + counter + ")" + ".txt";
+            file = new File(pathname);
+        }
         try {
             file.createNewFile();
         } catch (IOException e) {

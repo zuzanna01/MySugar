@@ -40,6 +40,12 @@ public class CsvRaportWriter implements RaportWriter {
 
         String pathname = "Raport_Measurements" + "_" + user.getUserName() + ".csv";
         File file = new File(pathname);
+        int counter = 1;
+        while(file.exists()){
+            pathname = "Raport_Measurements" + "_" + user.getUserName() + "_" + "(" + counter + ")" + ".csv";
+            file = new File(pathname);
+        }
+
         try {
             file.createNewFile();
         } catch (IOException e) {
