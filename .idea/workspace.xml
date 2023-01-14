@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c13351c5-bb81-4df4-871d-7f1f5d17dd44" name="Changes" comment="currentSugarLevel jeszcz nie dzaiała dla pliku">
-      <change afterPath="$PROJECT_DIR$/pomiary1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pomiary2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pomiary3.txt" afterDir="false" />
+    <list default="true" id="c13351c5-bb81-4df4-871d-7f1f5d17dd44" name="Changes" comment="pliki testowe z pomiarami">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ania_Kowalska.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jan_Nowak.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zuzanna.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Zuzanna.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Zuzanna1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Zuzanna1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/akowalska.txt" beforeDir="false" afterPath="$PROJECT_DIR$/akowalska.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dominik.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dominik.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ania.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ela123.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ela123.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomiary2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pomiary2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Time.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -373,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673206673849</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="pliki testowe z pomiarami">
+      <created>1673696132899</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1673696132899</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,7 +392,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="działa logowanie i tworzenie nowych kont i dodałam hipo i hiper na wykresie" />
     <MESSAGE value="klasy DateMask i DateValidator - &gt; komunikat o błednej dacie przy wyborze zakresu ; klasa Date ma nowy konstruktor i toString" />
     <MESSAGE value="wycinanie listy pomiarów z dowolnego zakresu" />
     <MESSAGE value="wycinanie listy pomiarów z dowolnego podanego zakresu" />
@@ -416,7 +416,8 @@
     <MESSAGE value="dokumentacja backend" />
     <MESSAGE value="zmienione na zwracanie ostatniego pomiaru" />
     <MESSAGE value="currentSugarLevel jeszcz nie dzaiała dla pliku" />
-    <option name="LAST_COMMIT_MESSAGE" value="currentSugarLevel jeszcz nie dzaiała dla pliku" />
+    <MESSAGE value="pliki testowe z pomiarami" />
+    <option name="LAST_COMMIT_MESSAGE" value="pliki testowe z pomiarami" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

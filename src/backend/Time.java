@@ -1,7 +1,7 @@
 package backend;
 
 /**
- * This class represnts Time.
+ * This class represents Time.
  * @author Zuzanna Krupska
  */
 public class Time implements Comparable<Time>{
