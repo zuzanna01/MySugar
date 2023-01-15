@@ -85,6 +85,8 @@ public class AppView extends JFrame {
      * 'Today', 'Yesterday','This week' and 'Your date range'
      * each of them allows user to choose time(date) range
      * from which measurements are displayed
+     * Also have button 'List' which opens window with
+     * text representation of the chosen measurements set
      *
      * plotPanel is an object of  JScatterPlot class
      * which is responsible for  the graphical representation
@@ -99,10 +101,10 @@ public class AppView extends JFrame {
      * 4) Hiper shows how many measurements in current set
      * have exceeded the hyperglycemia level
      *
-     * labelsPanel2 consist of two labels displaying:
+     * labelsPanel2 consists of two labels displaying plus one button:
      * 5) current sugar level - the last measurement
-     * 6) predicted glycated hemoglobin (HbA1C) based
-     * on past measurements
+     * 6) predicted glycated hemoglobin (HbA1C)
+     * 7) log out button
      *
      * @see JScatterPlot
      *

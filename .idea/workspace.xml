@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c13351c5-bb81-4df4-871d-7f1f5d17dd44" name="Changes" comment="poprawiony raport (zmiana zakresów o 1 dzień)">
+    <list default="true" id="c13351c5-bb81-4df4-871d-7f1f5d17dd44" name="Changes" comment="okienko z listą pomiarów i opcja wylogowywania się, próbna wersja raportów">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/CsvRaportWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CsvRaportWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/AppView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/JListDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/JListDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBarController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +25,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-17.0.4.1/lib/src.zip!/java.base/java/util/Scanner.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-17.0.4.1/lib/src.zip!/java.desktop/java/awt/event/ActionListener.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -144,6 +152,7 @@
       <workItem from="1673189931686" duration="9632000" />
       <workItem from="1673344890141" duration="1037000" />
       <workItem from="1673603986735" duration="9365000" />
+      <workItem from="1673803992416" duration="3493000" />
     </task>
     <task id="LOCAL-00001" summary="wstępna wersja GUI, starałam się zrobić zgodnie ze wzorcem mvc">
       <created>1670844518809</created>
@@ -460,12 +469,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/frontend/AppController.java</url>
-          <line>206</line>
+          <line>203</line>
           <option name="timeStamp" value="159" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/frontend/AppController.java</url>
-          <line>205</line>
+          <line>202</line>
           <option name="timeStamp" value="160" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -487,16 +496,6 @@
           <url>file://$PROJECT_DIR$/src/backend/AllUsers.java</url>
           <line>86</line>
           <option name="timeStamp" value="166" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="171" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/backend/TxtMeasurementsReader.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="173" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

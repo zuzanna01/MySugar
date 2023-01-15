@@ -5,6 +5,7 @@ import backend.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 /**
@@ -58,33 +59,24 @@ public class MenuBarController implements ActionListener {
 
         if (e.getActionCommand().equals("daily")) {
             mModel.csvraportWriter = new CsvRaportWriter(0);
-            mModel.csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.csvraportWriter.writeRaport(mModel.getCurrentUser(), mModel.getCalculator());
             mModel.txtraportWriter = new TxtRaportWriter(0);
-            mModel.txtraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.txtraportWriter.writeRaport(mModel.getCurrentUser(), mModel.getCalculator());
         }
         if (e.getActionCommand().equals("weekly")) {
             mModel.csvraportWriter = new CsvRaportWriter(6);
-            mModel.csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.csvraportWriter.writeRaport(mModel.getCurrentUser(), mModel.getCalculator());
             mModel.txtraportWriter = new TxtRaportWriter(6);
-            mModel.txtraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.txtraportWriter.writeRaport(mModel.getCurrentUser(), mModel.getCalculator());
         }
 
-        if(e.getActionCommand().equals("monthly")){
+        if (e.getActionCommand().equals("monthly")) {
             mModel.csvraportWriter = new CsvRaportWriter(29);
-            mModel.csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.csvraportWriter.writeRaport(mModel.getCurrentUser(), mModel.getCalculator());
             mModel.txtraportWriter = new TxtRaportWriter(29);
-            mModel.txtraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.txtraportWriter.writeRaport(mModel.getCurrentUser(), mModel.getCalculator());
         }
-        //if (e.getActionCommand().equals("your date range")) {
-//            mMenuBar.getChooseDateRangeDialog().setVisible(true);
-//
-  //      }
-    //    if (e.getActionCommand().equals("Generate")){
-      //      Date fromDate = mMenuBar.getChooseDateRangeDialog().getFromDate();
-        //    Date toDate=mMenuBar.getChooseDateRangeDialog().getToDate();
-     //   }
     }
-
     /**
      * responsible for adding new measurement which
      * was added by user from JAddingNewMeasurementDialog
