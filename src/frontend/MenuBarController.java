@@ -57,23 +57,23 @@ public class MenuBarController implements ActionListener {
         }
 
         if (e.getActionCommand().equals("daily")) {
-            mModel.csvraportWriter = new CsvReportWriter(0);
-            mModel.csvraportWriter.writeReport(mModel.getCurrentUser(),mModel.getCalculator());
-            mModel.txtraportWriter = new TxtReportWriter(0);
-            mModel.txtraportWriter.writeReport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.csvraportWriter = new CsvRaportWriter(0);
+            mModel.csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.txtraportWriter = new TxtRaportWriter(0);
+            mModel.txtraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
         }
         if (e.getActionCommand().equals("weekly")) {
-            mModel.csvraportWriter = new CsvReportWriter(6);
-            mModel.csvraportWriter.writeReport(mModel.getCurrentUser(),mModel.getCalculator());
-            mModel.txtraportWriter = new TxtReportWriter(6);
-            mModel.txtraportWriter.writeReport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.csvraportWriter = new CsvRaportWriter(6);
+            mModel.csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.txtraportWriter = new TxtRaportWriter(6);
+            mModel.txtraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
         }
 
         if(e.getActionCommand().equals("monthly")){
-            mModel.csvraportWriter = new CsvReportWriter(29);
-            mModel.csvraportWriter.writeReport(mModel.getCurrentUser(),mModel.getCalculator());
-            mModel.txtraportWriter = new TxtReportWriter(29);
-            mModel.txtraportWriter.writeReport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.csvraportWriter = new CsvRaportWriter(29);
+            mModel.csvraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
+            mModel.txtraportWriter = new TxtRaportWriter(29);
+            mModel.txtraportWriter.writeRaport(mModel.getCurrentUser(),mModel.getCalculator());
         }
         //if (e.getActionCommand().equals("your date range")) {
 //            mMenuBar.getChooseDateRangeDialog().setVisible(true);

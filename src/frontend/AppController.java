@@ -7,7 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.Collections;
 
 /**
@@ -62,6 +61,7 @@ public class AppController implements ActionListener {
             mModel.setHeader("YESTERDAY: ");
             if (mModel.getCurrentDataSet().size() == 0) {
                 mView.getPlotPanel().repaint();
+                mView.setLabelsInfo(0,0,0,0,mModel.getSugarUnit());
                 return;
             }
             mView.getPlotPanel().repaint();
@@ -77,6 +77,7 @@ public class AppController implements ActionListener {
             mModel.setHeader("Last 7 days");
             if (mModel.getCurrentDataSet().size() == 0) {
                 mView.getPlotPanel().repaint();
+                mView.setLabelsInfo(0,0,0,0,mModel.getSugarUnit());
                 return;
             }
             mView.getPlotPanel().setDataset(mModel.getCurrentDataSet());
@@ -108,6 +109,7 @@ public class AppController implements ActionListener {
 
                 if (mModel.getCurrentDataSet().size() == 0) {
                     mView.getPlotPanel().repaint();
+                    mView.setLabelsInfo(0,0,0,0,mModel.getSugarUnit());
                     return;
                 }
                 mView.getPlotPanel().repaint();
@@ -119,10 +121,7 @@ public class AppController implements ActionListener {
                         "Invalid date",
                         "",
                         JOptionPane.ERROR_MESSAGE);
-
             }
-
-
         }
         if (e.getActionCommand().equals("Login")) {
             loginAction();
@@ -138,13 +137,11 @@ public class AppController implements ActionListener {
         if (e.getActionCommand().equals("Create account")) {
             createNewAccountAction();
         }
-
         if (e.getActionCommand().equals("List")) {
             Collections.sort(mModel.getCurrentDataSet());
             mView.getListDialog().writeMeasurements(mModel.getCurrentDataSet(), mModel.getHeader());
             mView.getListDialog().setVisible(true);
         }
-
         if (e.getActionCommand().equals("Log out")){
             mView.getLoginDialog().setVisible(true);
         }
@@ -219,7 +216,7 @@ public class AppController implements ActionListener {
     }
 
     /**
-     * responsible creating new account
+     * responsible for creating new account
      * checks if username is not taken
      * if not, saves new User and log him in
      * using methods from AllUsers class
@@ -256,7 +253,12 @@ public class AppController implements ActionListener {
         }
     }
 
-
+    /**
+     * is used after choosing 'today' button
+     * paints measurements from today on graph
+     * and counts the rest of information as average , deviation, hipo, hiper
+     * and displays it
+     */
     private void setTodayInfo(){
         this.paintButton(mView.getMbutton1());
         mView.getPlotPanel().setDataset(null);
@@ -266,12 +268,14 @@ public class AppController implements ActionListener {
         mModel.setHeader("TODAY: ");
         if (mModel.getCurrentDataSet().size() == 0) {
             mView.getPlotPanel().repaint();
+            mView.setLabelsInfo(0,0,0,0,mModel.getSugarUnit());
             return;
         }
         mView.getPlotPanel().repaint();
         mModel.countLabelsInfo();
         mView.setLabelsInfo(mModel.getAverage(), mModel.getDeviation(), mModel.getTimesHipo(), mModel.getTimesHiper(), mModel.getSugarUnit());
     }
+
 
 }
 
