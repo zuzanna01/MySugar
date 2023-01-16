@@ -8,29 +8,29 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * This class allows to create raport in .csv file.
+ * This class allows to create report in .csv file.
  * @author Zuzanna Krupska
  */
-public class CsvRaportWriter implements RaportWriter {
+public class CsvReportWriter implements ReportWriter {
     private int numberOfDays;
     private ArrayList<Measurement> listOfMeasurements;
 
     /**
      * constructor
-     * @param numberOfDays  number of days from which raport should be generated
+     * @param numberOfDays  number of days from which report should be generated
      */
-    public CsvRaportWriter(int numberOfDays){
+    public CsvReportWriter(int numberOfDays){
         this.numberOfDays = numberOfDays;
         this.listOfMeasurements = new ArrayList<>();
     }
 
     /**
-     * This method writes the raport of measurements (sugar level, time, date).
+     * This method writes the report of measurements (sugar level, time, date).
      * @param user
      * @param calculator
      */
     @Override
-    public void writeRaport(User user, Calculator calculator){
+    public void writeReport(User user, Calculator calculator){
         LocalDate today = LocalDate.now();
         LocalDate xDaysBeforeToday = today.minusDays(this.numberOfDays);
         Date dateToday = new Date(today);

@@ -30,8 +30,8 @@ public class AppModel {
         return allUsers;
     }
 
-    public RaportWriter csvraportWriter;
-    public RaportWriter txtraportWriter;
+    public ReportWriter csvraportWriter;
+    public ReportWriter txtraportWriter;
 
     private LocalDate localTodayDate;
     private LocalDate localYesterdayDate;

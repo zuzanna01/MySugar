@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c13351c5-bb81-4df4-871d-7f1f5d17dd44" name="Changes" comment="poprawiony raport (zmiana zakresów o 1 dzień)">
+    <list default="true" id="c13351c5-bb81-4df4-871d-7f1f5d17dd44" name="Changes" comment="tworzenie nowych plików do raportu (już się nie nadpisują)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/CsvRaportWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CsvRaportWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/CsvRaportWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CsvReportWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/RaportWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/ReportWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/TxtRaportWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/TxtReportWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/AppModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/AppModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/MenuBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MenuBarController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -383,7 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673698415969</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="tworzenie nowych plików do raportu (już się nie nadpisują)">
+      <created>1673699837909</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1673699837909</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,7 +413,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="wycinanie listy pomiarów z dowolnego podanego zakresu" />
     <MESSAGE value="poprawa interfejsu MeasurementsReader" />
     <MESSAGE value="poprawa średniej" />
     <MESSAGE value="wybór pomiarów" />
@@ -426,7 +437,8 @@
     <MESSAGE value="pliki testowe z pomiarami" />
     <MESSAGE value="poprawione na pomiary poniżej 200" />
     <MESSAGE value="poprawiony raport (zmiana zakresów o 1 dzień)" />
-    <option name="LAST_COMMIT_MESSAGE" value="poprawiony raport (zmiana zakresów o 1 dzień)" />
+    <MESSAGE value="tworzenie nowych plików do raportu (już się nie nadpisują)" />
+    <option name="LAST_COMMIT_MESSAGE" value="tworzenie nowych plików do raportu (już się nie nadpisują)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -443,11 +455,6 @@
           <properties class="java.lang.NumberFormatException" package="java.lang" />
           <option name="timeStamp" value="113" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/backend/Main.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="134" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/frontend/HourValidator.java</url>
           <line>50</line>

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class User {
     private String userName;
     private String password;
-    private int typeOfDiabities;
+    private int typeOfDiabetes;
     private int upperTargetRage;
     private int lowerTargetRage;
     private int hipoglycemia;
@@ -31,7 +31,7 @@ public class User {
     public User(String userName, String password, int typeOfDiabities, int upperTargetRage, int lowerTargetRage, int hipoglycemia, int hiperglycemia) {
         this.userName = userName;
         this.password = password;
-        this.typeOfDiabities = typeOfDiabities;
+        this.typeOfDiabetes = typeOfDiabities;
         this.upperTargetRage = upperTargetRage;
         this.lowerTargetRage = lowerTargetRage;
         this.hipoglycemia = hipoglycemia;
@@ -46,7 +46,7 @@ public class User {
     public User(User u){
         this.userName = u.getUserName();
         this.password = u.getPassword();
-        this.typeOfDiabities = u.getTypeOfDiabities();
+        this.typeOfDiabetes = u.getTypeOfDiabetes();
         this.upperTargetRage = u.getUpperTargetRage();
         this.lowerTargetRage = u.getLowerTargetRage();
         this.hipoglycemia = u.getHipoglycemia();
@@ -70,8 +70,8 @@ public class User {
         this.password = password;
     }
 
-    public void setTypeOfDiabities(int typeOfDiabities) {
-        this.typeOfDiabities = typeOfDiabities;
+    public void setTypeOfDiabetes(int typeOfDiabetes) {
+        this.typeOfDiabetes = typeOfDiabetes;
     }
 
     public void setUpperTargetRage(int upperTargetRage) {
@@ -98,8 +98,8 @@ public class User {
         return password;
     }
 
-    public int getTypeOfDiabities() {
-        return typeOfDiabities;
+    public int getTypeOfDiabetes() {
+        return typeOfDiabetes;
     }
 
     public int getUpperTargetRage() {
@@ -139,7 +139,7 @@ public class User {
         try{
             File file = new File("./Users.txt");
             FileWriter fileWriter = new FileWriter(file, true);
-            fileWriter.write("\n" + this.userName + " " + this.password + " " + this.typeOfDiabities + " " + this.upperTargetRage + " " + this.lowerTargetRage + " " + this.hipoglycemia + " " + this.hiperglycemia);
+            fileWriter.write("\n" + this.userName + " " + this.password + " " + this.typeOfDiabetes + " " + this.upperTargetRage + " " + this.lowerTargetRage + " " + this.hipoglycemia + " " + this.hiperglycemia);
             fileWriter.close();
         }catch(Exception e){
         }
